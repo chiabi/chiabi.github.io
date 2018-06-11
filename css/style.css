@@ -191,10 +191,7 @@ code {
 }
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   #main {
-    display: inline;
-    float: left;
-    width: 67.6923076923077%;
-    margin: 0 0.769230769230769%;
+    width: 100%;
   }
 }
 @media screen and (min-width: 560px) and (max-width: 799px) {
@@ -942,7 +939,7 @@ a.article-title:hover {
 .article-entry p,
 .article-entry table {
   line-height: 1.6em;
-  margin: 1.6em 0;
+  margin: 1.2em 0;
 }
 .article-entry h1,
 .article-entry h2,
@@ -1004,12 +1001,13 @@ a.article-title:hover {
 }
 .article-entry blockquote {
   position: static;
+  color: #888;
   font-family: Georgia, "Times New Roman", "Microsoft Yahei", serif;
   font-size: 1.1em;
   margin: 0 -20px;
-  padding: 10px 20px 10px 54px;
+  padding: 10px 20px 10px 34px;
   background: #fcfcfc;
-  border-left: 4px solid #eee;
+  border-left: 8px solid #eee;
 }
 .article-entry blockquote:before {
   top: 20px;
@@ -1712,11 +1710,13 @@ a.article-title:hover {
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1199px) {
-  #sidebar {
-    display: inline;
-    float: left;
-    width: 29.230769230769234%;
-    margin: 0 0.769230769230769%;
+  #sidebar:before,
+  #sidebar:after {
+    content: "";
+    display: table;
+  }
+  #sidebar:after {
+    clear: both;
   }
 }
 .widget {
@@ -1769,6 +1769,13 @@ a.article-title:hover {
 @media screen and (max-width: 559px) {
   .widget-wrap {
     margin: 40px 20px;
+  }
+}
+@media screen and (min-width: 800px) and (max-width: 1199px) {
+  .widget-wrap {
+    float: left;
+    width: 20%;
+    width: calc(100% / 4 - 20px);
   }
 }
 .widget-title {
@@ -2136,59 +2143,80 @@ a.article-title:hover {
   height: 1.6em;
 }
 .highlight {
-  color: #ddd;
-  background: #272822;
-}
-.highlight .code .tag,
-.highlight .code .keyword,
-.highlight .code .selector-tag,
-.highlight .code .literal,
-.highlight .code .strong,
-.highlight .code .name {
-  color: #f92672;
-}
-.highlight .code .code {
-  color: #66d9ef;
-}
-.highlight .code .class .title {
-  color: #fff;
-}
-.highlight .code .attribute,
-.highlight .code .symbol,
-.highlight .code .regexp,
-.highlight .code .link {
-  color: #bf79db;
-}
-.highlight .code .string,
-.highlight .code .bullet,
-.highlight .code .subst,
-.highlight .code .title,
-.highlight .code .section,
-.highlight .code .emphasis,
-.highlight .code .type,
-.highlight .code .built_in,
-.highlight .code .builtin-name,
-.highlight .code .selector-attr,
-.highlight .code .selector-pseudo,
-.highlight .code .addition,
-.highlight .code .variable,
-.highlight .code .template-tag,
-.highlight .code .template-variable {
-  color: #a6e22e;
+  color: #e6e1dc;
+  background: #232323;
 }
 .highlight .code .comment,
-.highlight .code .quote,
-.highlight .code .deletion,
-.highlight .code .meta {
-  color: #75715e;
+.highlight .code .quote {
+  color: #bc9458;
+  font-style: italic;
 }
 .highlight .code .keyword,
-.highlight .code .selector-tag,
-.highlight .code .literal,
-.highlight .code .doctag,
+.highlight .code .selector-tag {
+  color: #c26230;
+}
+.highlight .code .string,
+.highlight .code .number,
+.highlight .code .regexp,
+.highlight .code .variable,
+.highlight .code .template-variable {
+  color: #a5c261;
+}
+.highlight .code .subst {
+  color: #519f50;
+}
+.highlight .code .tag,
+.highlight .code .name {
+  color: #e8bf6a;
+}
+.highlight .code .type {
+  color: #da4939;
+}
+.highlight .code .symbol,
+.highlight .code .bullet,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .attr,
+.highlight .code .link {
+  color: #6d9cbe;
+}
+.highlight .code .params {
+  color: #d0d0ff;
+}
+.highlight .code .attribute {
+  color: #cda869;
+}
+.highlight .code .meta {
+  color: #9b859d;
+}
 .highlight .code .title,
-.highlight .code .section,
-.highlight .code .type,
+.highlight .code .section {
+  color: #ffc66d;
+}
+.highlight .code .addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+.highlight .code .selector-class {
+  color: #9b703f;
+}
 .highlight .code .selector-id {
+  color: #8b98ab;
+}
+.highlight .code .emphasis {
+  font-style: italic;
+}
+.highlight .code .strong {
   font-weight: bold;
+}
+.highlight .code .link {
+  text-decoration: underline;
 }
