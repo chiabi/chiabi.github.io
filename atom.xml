@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-06-14T19:41:56.898Z</updated>
+  <updated>2018-06-16T14:27:53.512Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL 20180616</title>
+    <link href="http://chiabi.github.io/2018/06/16/TIL-1/"/>
+    <id>http://chiabi.github.io/2018/06/16/TIL-1/</id>
+    <published>2018-06-16T11:54:09.000Z</published>
+    <updated>2018-06-16T14:27:53.512Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Context-복습"><a href="#Context-복습" class="headerlink" title="Context 복습"></a>Context 복습</h3><p>context를 복습하면서 리액트를 단순하게 사용해본 RGB 챌린지를 수정하고 있다. 리액트 공식문서를 읽어보고, velopert님의 context API관련 예제도 따라해봤다.<br>공식문서를 읽어보니 어떻게 쓰는 지는 이해가 되는데, 그래서 어디까지 context를 써주는 것이 좋은지, 코드를 어떻게 관리되도록 설계하는 것이 좋은지는 아직 감이 안잡힌다.<br>일단 context를 활용해서 전체적으로 이벤트까지 완료한 뒤에 강사님이 공유해 주신 Dan Abramov의 ‘Presentational and Container Components’라는 글을 다시 읽어봐야겠다.</p><p>예제를 따라하는 중에 <code>import React, {Component} from &#39;react&#39;</code> 이하 클래스를 만드는 거나 export시키는 부분은 react 사용하면서 거의 패턴처럼 치게 되니까, vscode의 사용자 코드 조각에 스니펫으로 만들어 두었다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>RGB 챌린지 context 완성하기</li><li>Redux 예습하기</li><li>소프트웨어 공학 시간에 정리한 글 다시 다듬어서 올리기</li></ul><hr><p>날이 더워졌다. 에어컨 바람이 간절해진다. 더워질수록 체력 관리를 해야겠다. ‘앞으로 할 일’이라고 썼던 것을 ‘내일 할 일’로 쓰려고 한다. 다 수행하지 못하더라도 내일 할 일로 정해놓으면 더 강제적으로 하게 될 것 같다. </p><p>일주일간 블로그를 해보니 장단점이 있다. 일단 글을 좀 더 다듬게 되고, 글 자체가 정제되어 보이는 장점이 있다.<br>단점은 그냥 깃헙에는 자유롭게 덜 완성된 글이나 정리도 올렸는데, 블로그는 그렇게 하는 것이 쉽지 않아졌다. 물론 누가 잘못된 정보라고 지적하는 게 두려운 것은 아니다. 누가 내 글에 관심을 가져주고, 내가 잘못 알고 있는 부분을 바로잡아 주는 것은 감사한 일이나, 혹시라도 내가 잘못된 정보를 제공하지는 않을까하는 우려도 된다.<br>그런데 사실 그런 부분을 걱정하기 이전에 검색 엔진 최적화 방법을 알아봐야겠다…;;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;Context-복습&quot;&gt;&lt;a href=&quot;#Context-복습&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 20180615</title>
+    <link href="http://chiabi.github.io/2018/06/16/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/16/TIL/</id>
+    <published>2018-06-15T16:13:22.000Z</published>
+    <updated>2018-06-16T14:32:25.736Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="프론트엔드-개발-과정-특강-소프트웨어-공학"><a href="#프론트엔드-개발-과정-특강-소프트웨어-공학" class="headerlink" title="프론트엔드 개발 과정 - 특강 [소프트웨어 공학]"></a>프론트엔드 개발 과정 - 특강 [소프트웨어 공학]</h3><p>어제 한 과제는 기능 명세가 아니었던 것 같다. 화면설계 전 단계였던듯… why? 도출보다는 상세한 기능 기술이었던 것 같다…<br>수업시간에 클라이언트가 블록체인 거래소를 만들려고 한다는 상황을 가정해서 요구사항을 분석하고, 클라이언트(강사님)에게 질문하는 식으로 진행되었는데, 블록체인이라는 기술 자체를 잘 몰라서 질문을 할 수가 없었다.<br>웹 사이트를 볼때 그냥 보는 것이 아니라 어떤 기술을 사용했고, 어떤 콘텐츠로 이루어져있는지 분석해봐야겠다. 그리고 블록체인이라는 기술 자체에도 관심을 기울여야겠다.</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>RGB 챌린지 context 활용하기</li><li>Redux 미리 예습하기</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;프론트엔드-개발-과정-특강-소프트웨어-공학&quot;&gt;&lt;a href=&quot;#프론트엔드-개발-과정-특강
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>Palindrome Number</title>
@@ -318,6 +368,31 @@
   </entry>
   
   <entry>
+    <title>TIL 20180609</title>
+    <link href="http://chiabi.github.io/2018/06/09/TIL-20180609/"/>
+    <id>http://chiabi.github.io/2018/06/09/TIL-20180609/</id>
+    <published>2018-06-08T15:00:00.000Z</published>
+    <updated>2018-06-12T14:58:48.669Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p><p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p><p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p><p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p><p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p><h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li><li>JSX 공부하기</li></ul><hr><p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p><p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p><p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-hexo로-블로그를-만들었다&quot;&gt;&lt;a href=&quot;#1-hexo로-블로그를-만들었다&quot; c
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
     <title>스캐폴딩, CRUD, 퍼머링크</title>
     <link href="http://chiabi.github.io/2018/06/09/DG-scaffolding/"/>
     <id>http://chiabi.github.io/2018/06/09/DG-scaffolding/</id>
@@ -340,31 +415,6 @@
     
     
       <category term="glossary" scheme="http://chiabi.github.io/tags/glossary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL 20180609</title>
-    <link href="http://chiabi.github.io/2018/06/09/TIL-20180609/"/>
-    <id>http://chiabi.github.io/2018/06/09/TIL-20180609/</id>
-    <published>2018-06-08T15:00:00.000Z</published>
-    <updated>2018-06-12T14:58:48.669Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p><p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p><p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p><p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p><p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p><h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li><li>JSX 공부하기</li></ul><hr><p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p><p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p><p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-hexo로-블로그를-만들었다&quot;&gt;&lt;a href=&quot;#1-hexo로-블로그를-만들었다&quot; c
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   

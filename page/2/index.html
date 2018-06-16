@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                15
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,338 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-try-catch" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/11/try-catch/">try...catch, 자바스크립트에서의 예외 처리</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/11/try-catch/">
+            <time datetime="2018-06-11T08:35:41.000Z" itemprop="datePublished">2018.06.11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>패스트 캠퍼스 프론트엔드 개발 스쿨에서 배운 내용을 정리합니다.<br>내용에 오류가 있다면 댓글 남겨주시기 바랍니다.</p>
+</blockquote>
+<h2 id="예외처리"><a href="#예외처리" class="headerlink" title="예외처리"></a>예외처리</h2><p>프로그램의 언어들이 항상 완벽하게 동작하지는 않는다.<br>단순 버그이거나, 프로그래머가 잘못 작성했거나, 프로그래밍 언어 자체가 에러를 내는 경우가 있다.</p>
+<h3 id="1-동기식-코드에서의-예외-처리"><a href="#1-동기식-코드에서의-예외-처리" class="headerlink" title="1. 동기식 코드에서의 예외 처리"></a>1. 동기식 코드에서의 예외 처리</h3><p>프론트엔드 개발자의 실수<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>) <span class="comment">// RangeError: Invalid array length</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo) <span class="comment">// ReferenceError: foo is not defined</span></span><br></pre></td></tr></table></figure>
+<p>프론트엔드 개발자의 의도와 다른 실수<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'https://nonexistent-domain.nowhere'</span>); <span class="comment">// TypeError: Failed to fetch</span></span><br><span class="line"><span class="comment">// 위 주소는 맞는데 서버/네트워크 쪽 에러가 있다거나</span></span><br></pre></td></tr></table></figure></p>
+<p>에러가 발생하면 나머지 로직이 실행되지 않는다. 그 시점에 실행 중이었던 작업을 완료할 수 없게 된다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'에러가 나기 직전까지의 코드는 잘 실행됩니다.'</span>);</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'에러가 난 이후의 코드는 실행되지 않습니다.'</span>); <span class="comment">// 이것은 실행되지 않는다.</span></span><br></pre></td></tr></table></figure></p>
+<p>위와 같이 코드의 실행이 중단된다.</p>
+<p><code>try...catch...finally</code> 구문을 사용하면 에러가 나더라도 코드의 실행을 지속할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// 여기서 에러가 나면 에러가 난 시점에 코드의 흐름이</span></span><br><span class="line">  <span class="comment">// catch로 넘어간다.</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'에러가 나기 직전까지의 코드는 잘 실행됩니다.'</span>);</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>); <span class="comment">// RangeError: Invalid array length</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'에러가 난 이후의 코드는 실행되지 않습니다.'</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'코드의 실행 흐름이 catch 블록으로 옮겨집니다.'</span>);</span><br><span class="line">  alert(<span class="string">`다음과 같은 에러가 발생했습니다: <span class="subst">$&#123;e.name&#125;</span>: <span class="subst">$&#123;e.message&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>try</code>: 에러가 났을 때 원상복구를 시도할 코드. 에러 발생시 코드의 실행 흐름이 <code>catch</code> 블록으로 옮겨간다.</li>
+<li><p><code>catch</code>: 에러에 대한 정보를 담고 있는 객체(위 예제의 <code>e</code>)를 사용할 수 있다.</p>
+<ul>
+<li><code>e.name</code>: <code>RangeError</code>같은 에러의 이름</li>
+<li><code>e.meassage</code>: <code>Invalid array length</code> 에러 메시지</li>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'에러가 나기 직전까지의 코드는 잘 실행됩니다.'</span>);</span><br><span class="line">  <span class="comment">/* new Array(-1); */</span></span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'에러가 난 이후의 코드는 실행되지 않습니다.'</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="keyword">if</span>(e.name === <span class="string">'RangeError'</span>) &#123;</span><br><span class="line">    alert(<span class="string">`배열 생성자에 잘못된 인수가 입력되었습니다.`</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.name === <span class="string">`ReferenceError`</span>) &#123;</span><br><span class="line">    alert(<span class="string">`선언되지 않은 변수가 사용되고 있습니다.`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'코드의 실행 흐름이 catch 블록으로 옮겨집니다.'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>finally</code>: <code>try</code>블록 안에서의 에러 발생 여부와 관계 없이 무조건 실행되어야 하는 코드<br><code>return</code>, <code>break</code>, <code>continue</code>등으로 코드의 실행 흐름이 즉시 이동되더라도 실행된다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`현재 i의 값: <span class="subst">$&#123;i&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>finally</code>블록은 catch 블록과도 같이 사용된다.<ul>
+<li>에러가 안 났을 때: <strong>try - finally</strong></li>
+<li>에러가 났을 때: <strong>try - 에러발생 - catch - finally</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-직접-에러-발생시키기"><a href="#1-1-직접-에러-발생시키기" class="headerlink" title="1-1. 직접 에러 발생시키기"></a>1-1. 직접 에러 발생시키기</h4><p>코드를 다른 사람이나 미래의 내가 의도한 대로 사용하지 않을 경우 에러가 발생하도록 할 수 있다.</p>
+<p><strong><code>Error</code>생성자, <code>throw</code>구문</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">'짝수를 입력하세요'</span>));</span><br><span class="line"><span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'짝수가 아닙니다.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3을 입력할 경우</span></span><br><span class="line"><span class="comment">// Error: 짝수가 아닙니다.</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="string">'ggg'</span>;</span><br><span class="line"><span class="comment">// 던지는 것에 제한이 없으나</span></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'ddd'</span>)</span><br><span class="line"><span class="comment">// 반드시 에러 객체를 던져야 한다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> e = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'짝수가 아니다'</span>)</span><br><span class="line"><span class="comment">// Error는 어디서나 쓸 수 있는 객체(생성자)이다.</span></span><br><span class="line">e;</span><br><span class="line"><span class="comment">// Error: 짝수가 아니다.</span></span><br></pre></td></tr></table></figure>
+<p>다음과 같이 내가 에러를 만들어 던질 수 있고, 이를 <code>try...catch</code> 구문으로 잡을 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">'짝수를 입력하세요'</span>));</span><br><span class="line">  <span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'짝수가 아닙니다.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  alert(e.message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>복잡한 프로그램을 짜다보면 추가적인 자세한 정보를 추가해서 에러를 만들고 싶게 된다.<br>에러의 종류를 구분해야 하거나 에러 객체에 기능을 추가해야 할 필요가 있다.</p>
+<p>그냥 내장 에러 생성자가 아니라 내가 자체 Error 클래스를 만들경우 다음과 같은 방법이 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyError</span> <span class="keyword">extends</span> <span class="title">Error</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(value, ...params) &#123;</span><br><span class="line">    <span class="keyword">super</span>(...params);</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'MyError'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">'짝수를 입력하세요'</span>));</span><br><span class="line">  <span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> MyError(even, <span class="string">'짝수가 아닙니다.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e <span class="keyword">instanceof</span> MyError) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;e.name&#125;</span>: <span class="subst">$&#123;e.value&#125;</span> 는 <span class="subst">$&#123;e.message&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>에러에서도 동기식 처리와 비동기식 처리가 있다.</p>
+<h3 id="2-비동기식-코드에서의-예외-처리"><a href="#2-비동기식-코드에서의-예외-처리" class="headerlink" title="2. 비동기식 코드에서의 예외 처리"></a>2. 비동기식 코드에서의 예외 처리</h3><h4 id="2-1-비동기-콜백"><a href="#2-1-비동기-콜백" class="headerlink" title="2-1. 비동기 콜백"></a>2-1. 비동기 콜백</h4><p>비동기식으로 작동하는 콜백의 내부에서 발생한 에러는, 콜백 바깥에 있는 try 블록으로는 잡아낼 수 없다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 비동기 코드 안의 에러는 잡히지 않는다.</span></span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'에러!'</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.error(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Uncaught Error: 에러!</span></span><br><span class="line"><span class="comment">// 에러가 잡히지 않아서 생기는 에러;;</span></span><br></pre></td></tr></table></figure></p>
+<p>JavaScript 엔진은 에러가 발생하는 순간 호출 스택을 되감는 과정을 거친다.<br>이 과정 중에 <code>try</code> 블록을 만나야 코드의 실행 흐름을 원상복구시킬 수 있다.</p>
+<p><strong>에러는 호출스택과 관련되어 있다.</strong>  </p>
+<p>아래는 동기식 예외 발생<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 에러를 이곳에서 발생시키고</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> add(x, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2AndPrint</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// try... catch 구문이 여기있지만</span></span><br><span class="line">  <span class="comment">// 자바스크립트 실행 엔진이 에러가 발생하면 호출 스택을 하나씩 지워가면서 </span></span><br><span class="line">  <span class="comment">// try가 있는지 찾아본다.</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 여기서 add2를 호출하고 add2는 add를 호출하기 때문에 에러가 잡힌다.</span></span><br><span class="line">    <span class="keyword">const</span> result = add2(x);</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    alert(<span class="string">'잡았다!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add2AndPrint(<span class="number">3</span>); <span class="comment">// alert으로 '잡았다!'가 뜬다.</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 에러를 이곳에서 발생시키고</span></span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>);</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 호출스택을 되감다 가장 먼저 만나는 try에서 에러가 잡힌다.</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> add(x, <span class="number">2</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    alert(<span class="string">'add2에서 잡히나?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2AndPrint</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = add2(x);</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    alert(<span class="string">'잡았다!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add2AndPrint(<span class="number">3</span>); <span class="comment">// alert으로 'add2에서 잡히나?'가 뜬다.</span></span><br></pre></td></tr></table></figure>
+<p>비동기 콜백이라면 단순 <code>try...catch</code> 구문으로는 잡을 수 없다.<br>비동기 콜백이 실행될 때는 이미 호출스택이 비워져 <code>try</code>를 찾을 수 없다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 이 콜백이 일단 태스크큐에 들어갔다가 호출 스택이 비워지면 실행된다.</span></span><br><span class="line">    <span class="comment">// 호출스택을 되감아 가면서 try를 찾아야하는데</span></span><br><span class="line">    <span class="comment">// 이 콜백이 실행될 때는 이미 호출스택이 비워졌으므로 try를 찾을 수 없다.</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> add(x, <span class="number">2</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    alert(<span class="string">'add2에서 잡히나?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add2AndPrint</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> result = add2(x);</span><br><span class="line">    <span class="built_in">console</span>.log(result);</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    alert(<span class="string">'잡았다!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add2AndPrint(<span class="number">3</span>);</span><br></pre></td></tr></table></figure></p>
+<p>따라서, 비동기 콜백 내부에 <code>try</code>를 작성해주어야 한다.</p>
+<p><a href="https://codepen.io/dbeat999/pen/bKqdwW" target="_blank" rel="noopener">이벤트 리스너와 try catch 블록 예제</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> buttonEl = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  buttonEl.addEventListener(<span class="string">'click'</span>, e =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">-1</span>);</span><br><span class="line">      alert(<span class="string">'버튼이 눌렸습니다.'</span>);      </span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      alert(<span class="string">'이벤트 리스너 안에서 에러가 발생했습니다.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)  </span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  alert(<span class="string">'에러가 발생했습니다.'</span>); <span class="comment">// 출력되지 않음</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-2-Pomise"><a href="#2-2-Pomise" class="headerlink" title="2-2. Pomise"></a>2-2. Pomise</h4><p>Promise 객체는 세 가지 상태를 가질 수 있다.</p>
+<ul>
+<li>pending - Promise 객체에 결과값이 채워지지 않은 상태</li>
+<li>fulfilled - Promise 객체에 결과값이 채워진 상태(이때 <code>then</code>메소드 또는 <code>await</code>를 통해 무언가를 실행했다.)</li>
+<li><strong>rejected - Promise 객체에 결과값을 채우려고 시도하다가 에러가 난 상태</strong><ul>
+<li><code>then</code>메소드에 첫 번째 인수로 넘겨준 콜백이 실행되지 않고, <strong>두 번째 인수로 넘겨준 콜백이 실행된다.</strong> 그리고 이 콜백에는 <strong>에러 객체가 첫번째 인수로 주어진다.</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> even = <span class="built_in">parseInt</span>(prompt(<span class="string">'짝수를 입력하세요'</span>));</span><br><span class="line">  <span class="keyword">if</span> (even % <span class="number">2</span> !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'짝수가 아닙니다.'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 짝수면 fullfiled되어 then메소드의 첫번째 인수로 들어간 함수가 실행</span></span><br><span class="line">    resolve(even);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// then 콜백에서 반환된 값이 다음Promise의 값이 된다.</span></span><br><span class="line">p.then(<span class="function"><span class="params">even</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'짝수입니다.'</span>;</span><br><span class="line">&#125;, e =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> e.message;</span><br><span class="line">&#125;).then(alert);</span><br><span class="line"><span class="comment">// .then(msg =&gt; alert(msg))와 같음</span></span><br></pre></td></tr></table></figure>
+<p><code>Promise</code>가 rejected 상태가 되었을 때 <code>catch</code> 메소드를 통해 다음과 같은 방법으로도 에러 처리 콜백을 지정해 줄 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.then(<span class="function"><span class="params">even</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'짝수입니다.'</span>;</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> e.message;</span><br><span class="line">&#125;).then(alert);</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-3-비동기-함수"><a href="#2-3-비동기-함수" class="headerlink" title="2-3. 비동기 함수"></a>2-3. 비동기 함수</h4><p>비동기 코드에서의 <code>try...catch</code>와 비동기 함수에서의 <code>try...catch</code>는 다르게 동작한다. (내부 동작 방식이 완전히 다르다. - 비동기 함수를 사용하면 예외처리도 보다 편하게 할 수 있다.)</p>
+<p>비동기 함수 내부에서는, rejected 상태가 된 <code>Promise</code>객체를 동기식 예외처리 방식과 동일하게 <code>try...catch...finally</code> 구문으로 처리할 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// ※ 단, Promise 객체에 대해 await 구문을 사용해야만 </span></span><br><span class="line">    <span class="comment">// 에러가 발생했을 때 catch 블록으로 코드의 실행 흐름이 이동한다.</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="keyword">await</span> fetch(<span class="string">'https://nonexistent-domain.nowhere'</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func(); <span class="comment">// 출력 결과: Failed to fetch</span></span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/11/try-catch/" data-id="cjihhyt5e000b14uwc1pbx645" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/11/try-catch/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/11/try-catch/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/11/TIL-1/">TIL 20180611</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/11/TIL-1/">
+            <time datetime="2018-06-11T08:35:06.000Z" itemprop="datePublished">2018.06.11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-스쿨-과정"><a href="#1-프론트엔드-개발-스쿨-과정" class="headerlink" title="1. 프론트엔드 개발 스쿨 과정"></a>1. 프론트엔드 개발 스쿨 과정</h3><p>오늘은 예외 처리(<code>try...catch</code>)와 모듈부분 진도를 나가고 리액트 실습(todoList)을 했다.</p>
+<p>예외 처리 부분은 중간프로젝트 하면서 미리 읽어봤었는데, 호출스택과 태스크 큐에서의 코드 동작원리까지 같이 설명해주시니 좀 더 깊이있게 이해되는 것 같다.</p>
+<p>리액트 컴포넌트 간의 변경사항 공유 때문에 조상 컴포넌트에서 상태를 관리하니까 컴포넌트를 나눌때마다 상태도 내려보내줘야해서 헷갈린다.<br>아직까지 배운 내용에서는 내가 중간 프로젝트때 가장 하위의 template에 여러 정보를 담은 객체를 상위 template으로부터 내려보내느라 그 사이의 하위 template에도 똑같이 그 객체를 내려보내줬던 방식과 크게 다르지 않은 것 같다.<br>Redux나 Context를 통해서 이런 부분을 효율적으로 관리할 수 있다는데, 어떤식으로 만들었길래 그게 가능할까 신기하다.  </p>
+<p>강사님과 실습 시간에 어떤 메소드는 하위 컴포넌트에서 작성하고 어떤 메소드는 상태를 관리하고 있는 App 컴포넌트에 작성했다. 그러면서 역할과 책임에 대한 말씀을 해주셨다.<br>역할과 책임을 어떻게 정해야할지는 프로젝트를 진행할때마다 어렵게 느껴진다. 정답이 있는 건 아닌것 같은데 어떻게 코드를 짜야 역할과 책임에 맞게 코드를 작성하게 되는 건지 아직은 감이 잡히지 않아서 많이 만들어봐야겠다.</p>
+<h3 id="2-Algorithm-문제-풀이"><a href="#2-Algorithm-문제-풀이" class="headerlink" title="2. Algorithm 문제 풀이"></a>2. Algorithm 문제 풀이</h3><p>다른 사람들 풀이를 보니까 숫자를 거꾸로 만드는 방법에 대해서 다른 방법을 알게 되었다. 어제 풀었지만 차마 포스팅할 수 없는 부끄러운 풀이라 좀 더 다듬으면 포스팅하자고 미뤄둔 문제도 숫자를 문자열화하는 식으로 풀었는데, 이번 문제를 좀 더 응용하면 새로운 방식으로 풀 수 있을 것 같다.</p>
+<h3 id="3-React-캘린더-만들기"><a href="#3-React-캘린더-만들기" class="headerlink" title="3. React 캘린더 만들기"></a>3. React 캘린더 만들기</h3><p>moment.js를 사용하고 있는데, 캘린더의 body 부분의 표를 짜는 것만 구하면 수월할 것 같은데, 아직 못 만들었다. 하지만 어젯밤에 자기 전에 생각해본 것을 좀 더 수정해보면 될 것 같다.</p>
+<h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul>
+<li>React 캘린더 완성하기</li>
+<li>JSX 공부하기</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL-1/" data-id="cjihhyt49000514uwrfktbhn9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/11/TIL-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/11/TIL-1/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -269,7 +601,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjiezguke00050kuw3uqtgkvo" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjihhyt4i000614uwte63n38v" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -338,6 +670,151 @@ ga('send', 'pageview');
             
     
         <a href="http://chiabi.github.io/2018/06/11/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/11/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL-20180609" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/09/TIL-20180609/">TIL 20180609</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/09/TIL-20180609/">
+            <time datetime="2018-06-08T15:00:00.000Z" itemprop="datePublished">2018.06.09</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p>
+<p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p>
+<p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p>
+<p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p>
+<p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p>
+<h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p>
+<h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul>
+<li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li>
+<li>JSX 공부하기</li>
+</ul>
+<hr>
+<p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p>
+<p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p>
+<p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/09/TIL-20180609/" data-id="cjihhyt8e001214uw0zmdl3yo" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/09/TIL-20180609/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/09/TIL-20180609/">Comments</a>
     
 
         </footer>
@@ -420,7 +897,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/" data-id="cjiezgum5000w0kuwazui8pu0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/" data-id="cjihhyt8v001514uwqzwwmv0u" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -498,151 +975,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL-20180609" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/09/TIL-20180609/">TIL 20180609</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/09/TIL-20180609/">
-            <time datetime="2018-06-08T15:00:00.000Z" itemprop="datePublished">2018.06.09</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p>
-<p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p>
-<p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p>
-<p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p>
-<p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p>
-<h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p>
-<h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul>
-<li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li>
-<li>JSX 공부하기</li>
-</ul>
-<hr>
-<p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p>
-<p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p>
-<p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/09/TIL-20180609/" data-id="cjiezguma00110kuwytsnmguk" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/09/TIL-20180609/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/09/TIL-20180609/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
@@ -656,6 +988,24 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/06/16/TIL-1/" class="title">TIL 20180616</a></p>
+                            <p class="item-date"><time datetime="2018-06-16T11:54:09.000Z" itemprop="datePublished">2018.06.16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/06/16/TIL/" class="title">TIL 20180615</a></p>
+                            <p class="item-date"><time datetime="2018-06-15T16:13:22.000Z" itemprop="datePublished">2018.06.16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -684,24 +1034,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/06/13/Roman-to-Integer/" class="title">Roman to Integer</a></p>
-                            <p class="item-date"><time datetime="2018-06-13T06:15:36.000Z" itemprop="datePublished">2018.06.13</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/06/12/Add-Two-Numbers/" class="title">Add Two Numbers</a></p>
-                            <p class="item-date"><time datetime="2018-06-12T12:59:21.000Z" itemprop="datePublished">2018.06.12</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -711,7 +1043,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">6</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -720,7 +1052,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">13</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">15</span></li></ul>
         </div>
     </div>
 

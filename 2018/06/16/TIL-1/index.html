@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Roman to Integer | Chiabi&#39;s dev blog</title>
+    <title>TIL 20180616 | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="leetcode 문제링크  Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.    Symbol Value     I 1   V 5   X 10   L 50   C 100   D 500   M 1000    For example, two is written as">
-<meta name="keywords" content="algorithm,leetcode">
+    <meta name="description" content="오늘 한 일Context 복습context를 복습하면서 리액트를 단순하게 사용해본 RGB 챌린지를 수정하고 있다. 리액트 공식문서를 읽어보고, velopert님의 context API관련 예제도 따라해봤다.공식문서를 읽어보니 어떻게 쓰는 지는 이해가 되는데, 그래서 어디까지 context를 써주는 것이 좋은지, 코드를 어떻게 관리되도록 설계하는 것이 좋은지">
+<meta name="keywords" content="TIL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Roman to Integer">
-<meta property="og:url" content="http://chiabi.github.io/2018/06/13/Roman-to-Integer/index.html">
+<meta property="og:title" content="TIL 20180616">
+<meta property="og:url" content="http://chiabi.github.io/2018/06/16/TIL-1/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="leetcode 문제링크  Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.    Symbol Value     I 1   V 5   X 10   L 50   C 100   D 500   M 1000    For example, two is written as">
+<meta property="og:description" content="오늘 한 일Context 복습context를 복습하면서 리액트를 단순하게 사용해본 RGB 챌린지를 수정하고 있다. 리액트 공식문서를 읽어보고, velopert님의 context API관련 예제도 따라해봤다.공식문서를 읽어보니 어떻게 쓰는 지는 이해가 되는데, 그래서 어디까지 context를 써주는 것이 좋은지, 코드를 어떻게 관리되도록 설계하는 것이 좋은지">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-14T19:04:30.389Z">
+<meta property="og:updated_time" content="2018-06-16T14:27:53.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Roman to Integer">
-<meta name="twitter:description" content="leetcode 문제링크  Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.    Symbol Value     I 1   V 5   X 10   L 50   C 100   D 500   M 1000    For example, two is written as">
+<meta name="twitter:title" content="TIL 20180616">
+<meta name="twitter:description" content="오늘 한 일Context 복습context를 복습하면서 리액트를 단순하게 사용해본 RGB 챌린지를 수정하고 있다. 리액트 공식문서를 읽어보고, velopert님의 context API관련 예제도 따라해봤다.공식문서를 읽어보니 어떻게 쓰는 지는 이해가 되는데, 그래서 어디까지 context를 써주는 것이 좋은지, 코드를 어떻게 관리되도록 설계하는 것이 좋은지">
     
 
     
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Roman to Integer
+            TIL 20180616
         </h1>
     
 
@@ -229,8 +229,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/13/Roman-to-Integer/">
-            <time datetime="2018-06-13T06:15:36.000Z" itemprop="datePublished">2018.06.13</time>
+        <a href="/2018/06/16/TIL-1/">
+            <time datetime="2018-06-16T11:54:09.000Z" itemprop="datePublished">2018.06.16</time>
         </a>
     </div>
 
@@ -238,13 +238,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
     </div>
 
                     </div>
@@ -255,57 +255,16 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><a href="https://leetcode.com/problems/roman-to-integer/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>I</td>
-<td>1</td>
-</tr>
-<tr>
-<td>V</td>
-<td>5</td>
-</tr>
-<tr>
-<td>X</td>
-<td>10</td>
-</tr>
-<tr>
-<td>L</td>
-<td>50</td>
-</tr>
-<tr>
-<td>C</td>
-<td>100</td>
-</tr>
-<tr>
-<td>D</td>
-<td>500</td>
-</tr>
-<tr>
-<td>M</td>
-<td>1000</td>
-</tr>
-</tbody>
-</table>
-<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number &gt; twenty seven is written as XXVII, which is XX + V + II.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
-<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.<br>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 143 - 152ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> newS = s.split(<span class="string">''</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> ROMAN[item]);</span><br><span class="line">  <span class="keyword">return</span> newS.reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> acc + (before &lt; item &amp;&amp; before ? item - (before * <span class="number">2</span>) : item)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>다른 방법도 생각해보려고 했는데, 도저히… map(), reduce() 메소드로 배열을 두번 탐색한게 마음에 걸린다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 156ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">''</span>).reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">const</span> beforeInt = ROMAN[before]</span><br><span class="line">    <span class="keyword">const</span> itemInt = ROMAN[item]</span><br><span class="line">    <span class="keyword">return</span> acc + (beforeInt &lt; itemInt &amp;&amp; beforeInt ? itemInt - (beforeInt * <span class="number">2</span>) : itemInt)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>reduce 한번으로 처리하도록 변경했는데 이것도 그닥 속도가 개선되지는 않았다.</p>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getIntFromRoman = &#123;</span><br><span class="line">    I: <span class="number">1</span>,</span><br><span class="line">    V: <span class="number">5</span>,</span><br><span class="line">    X: <span class="number">10</span>,</span><br><span class="line">    L: <span class="number">50</span>,</span><br><span class="line">    C: <span class="number">100</span>,</span><br><span class="line">    D: <span class="number">500</span>,</span><br><span class="line">    M: <span class="number">1000</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> curr, next;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        curr = getIntFromRoman[s[i]];</span><br><span class="line">        next = getIntFromRoman[s[i+<span class="number">1</span>]];</span><br><span class="line">        <span class="keyword">if</span>(curr &lt; next)</span><br><span class="line">            sum -= curr;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            sum += curr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum + getIntFromRoman[s[s.length<span class="number">-1</span>]];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>for문을 통해 따로 sum 에 더해주는 방식으로 처리했다. 그리고 현재 문자가 다음 문자보다 작으면 오히려 빼주는데, 그렇게 하면 4내지는 9가 나오게 되니 이렇게 풀 수도 있구나하고 깨달음이…</p>
-<p>나는 조건 분기했는데… </p>
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Context-복습"><a href="#Context-복습" class="headerlink" title="Context 복습"></a>Context 복습</h3><p>context를 복습하면서 리액트를 단순하게 사용해본 RGB 챌린지를 수정하고 있다. 리액트 공식문서를 읽어보고, velopert님의 context API관련 예제도 따라해봤다.<br>공식문서를 읽어보니 어떻게 쓰는 지는 이해가 되는데, 그래서 어디까지 context를 써주는 것이 좋은지, 코드를 어떻게 관리되도록 설계하는 것이 좋은지는 아직 감이 안잡힌다.<br>일단 context를 활용해서 전체적으로 이벤트까지 완료한 뒤에 강사님이 공유해 주신 Dan Abramov의 ‘Presentational and Container Components’라는 글을 다시 읽어봐야겠다.</p>
+<p>예제를 따라하는 중에 <code>import React, {Component} from &#39;react&#39;</code> 이하 클래스를 만드는 거나 export시키는 부분은 react 사용하면서 거의 패턴처럼 치게 되니까, vscode의 사용자 코드 조각에 스니펫으로 만들어 두었다.</p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>RGB 챌린지 context 완성하기</li>
+<li>Redux 예습하기</li>
+<li>소프트웨어 공학 시간에 정리한 글 다시 다듬어서 올리기</li>
+</ul>
+<hr>
+<p>날이 더워졌다. 에어컨 바람이 간절해진다. 더워질수록 체력 관리를 해야겠다. ‘앞으로 할 일’이라고 썼던 것을 ‘내일 할 일’로 쓰려고 한다. 다 수행하지 못하더라도 내일 할 일로 정해놓으면 더 강제적으로 하게 될 것 같다. </p>
+<p>일주일간 블로그를 해보니 장단점이 있다. 일단 글을 좀 더 다듬게 되고, 글 자체가 정제되어 보이는 장점이 있다.<br>단점은 그냥 깃헙에는 자유롭게 덜 완성된 글이나 정리도 올렸는데, 블로그는 그렇게 하는 것이 쉽지 않아졌다. 물론 누가 잘못된 정보라고 지적하는 게 두려운 것은 아니다. 누가 내 글에 관심을 가져주고, 내가 잘못 알고 있는 부분을 바로잡아 주는 것은 감사한 일이나, 혹시라도 내가 잘못된 정보를 제공하지는 않을까하는 우려도 된다.<br>그런데 사실 그런 부분을 걱정하기 이전에 검색 엔진 최적화 방법을 알아봐야겠다…;;</p>
 
         
         </div>
@@ -316,7 +275,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/" data-id="cjihhyt91001a14uwnrqvmhwd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjihhyt70000n14uwugpiogfq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -384,7 +343,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/06/13/Roman-to-Integer/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/">Comments</a>
+        <a href="http://chiabi.github.io/2018/06/16/TIL-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/16/TIL-1/">Comments</a>
     
 
         </footer>
@@ -393,19 +352,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/06/14/TIL/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    TIL 20180613
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/06/12/Add-Two-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/06/16/TIL/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Add Two Numbers</div>
+            <div class="article-nav-title">TIL 20180615</div>
         </a>
     
 </nav>
@@ -530,9 +480,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/06/13/Roman-to-Integer/';
+            this.page.url = 'http://chiabi.github.io/2018/06/16/TIL-1/';
         
-        this.page.identifier = 'Roman-to-Integer';
+        this.page.identifier = 'TIL-1';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
