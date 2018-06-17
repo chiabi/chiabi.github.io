@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                15
+                16
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,224 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-modules" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/11/modules/">자바스크립트 모듈</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/11/modules/">
+            <time datetime="2018-06-11T08:35:52.000Z" itemprop="datePublished">2018.06.11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/ES6/">ES6</a>, <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>패스트 캠퍼스 프론트엔드 개발 스쿨에서 배운 내용을 정리합니다.<br>내용에 오류가 있다면 댓글 남겨주시기 바랍니다.</p>
+</blockquote>
+<h2 id="모듈"><a href="#모듈" class="headerlink" title="모듈"></a>모듈</h2><p>큰 규모의 프로젝트에서 JavaScript 코드를 여러 파일과 폴더에 나누어 작성하고, 충돌하지 않게 서로가 서로를 효율적으로 불러올 수 있도록 해주는 시스템이 필요해졌다.</p>
+<p>ES2015 모듈: <code>script</code>태그에 <code>type=&quot;module&quot;</code> 어트리뷰트 추가<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 모듈로서 동작한다, 파일 확장자는 대개 .mjs --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">"index.mjs"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>단, 다음과 같은 이유로 아직 브라우저에 내장된 모듈 기능을 사용하는 경우가 별로 없다.</p>
+<ul>
+<li>이전까지의 JavaScript 파일의 동작방식과 다른 동작방식을 가지고 있다.  </li>
+<li>모듈이 제대로 동작하기 위해 <a href="https://jakearchibald.com/2017/es-modules-in-browsers/" target="_blank" rel="noopener">몇가지 조건을 충족시켜야 한다.</a></li>
+<li>구형 브라우저는 모듈을 지원하지 않는다.</li>
+</ul>
+<p>대신 Webpack, Parcel 등의 모듈번들러를 통해 변환과정을 거친 뒤, 브라우저에서 일반적인 JavaScript파일로 불러오는 방법이 널리 사용되고 있는 추세이다.</p>
+<p>모듈 번들러는 여러 자바스크립트 파일을 설정에 따라 하나 이상의 파일로 합쳐주는 프로그램이다. 최신문법을 트랜스파일링 해주는 기능까지 갖추고 있다.</p>
+<p>모듈 번들러들은 파일간 관계를(의존성) 분석해서 모듈을 하나로 합쳐줄 때 사용하는 방식이 각자 다르다.</p>
+<ul>
+<li>Webpack은 <code>import</code>를 통해 분석한다.</li>
+<li>Parcel은 html 태그를 보고도 분석한다.(html 안에 link태그 쓰고, scss를 불러오는 식으로 쓸 수 있다.)</li>
+</ul>
+<h3 id="1-모듈이란"><a href="#1-모듈이란" class="headerlink" title="1. 모듈이란?"></a>1. 모듈이란?</h3><p>ES2015 모듈: JavaScript코드를 담고 있는 파일  </p>
+<ul>
+<li><code>import</code> 혹은 <code>export</code>구문을 사용할 수 있다.</li>
+<li>기본으로 엄격모드로 동작한다.</li>
+<li>모듈 파일의 가장 바깥쪽에서 선언된 이름은 전역 스코프가 아니라 <strong>모듈 스코프에서 선언된다.</strong></li>
+</ul>
+<h3 id="2-모듈-스코프"><a href="#2-모듈-스코프" class="headerlink" title="2. 모듈 스코프"></a>2. 모듈 스코프</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// variables.js</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 이 파일이 모듈로서 사용되고 있다면, `undefined`가 출력된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.foo);</span><br></pre></td></tr></table></figure>
+<p>이 모듈스코프는 모듈 파일마다 개별적으로 존재한다.</p>
+<p>따라서 여러 모듈의 가장 바깥쪽에서 같은 이름으로 변수, 함수, 클래스를 선언하더라도,<br>서로 다른 스코프에서 선언되기 때문에 이름의 충돌이 생길 일이 없다.</p>
+<h3 id="3-export-amp-import"><a href="#3-export-amp-import" class="headerlink" title="3. export &amp; import"></a>3. export &amp; import</h3><p>값이 아니라 이름이 export되는 것</p>
+<ul>
+<li><p>모듈 스코프에서 정의된 이름은 export 구문을 통해 다른 파일에서 사용할 수 있다.</p>
+<ul>
+<li><p>variables.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">const</span> spam = <span class="string">'eggs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;foo, spam&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>functions.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;foo, spam&#125; <span class="keyword">from</span> <span class="string">'./variables.js'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo);</span><br><span class="line"><span class="built_in">console</span>.log(spam);</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>함수나 클래스도 export를 통해 여러 모듈에서 재사용할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; add, Person &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>다른 모듈에 있는 이름을 사용하려면, 반드시 모듈에서 이름을 export 해주어야 한다.<br>모듈 실행환경에 따라 에러나, 이름에 <code>undefined</code>가 들어가는 식으로 의도치 않게 동작한다.</p>
+</li>
+</ul>
+<h3 id="4-선언과-동시에-export-하기"><a href="#4-선언과-동시에-export-하기" class="headerlink" title="4. 선언과 동시에 export 하기"></a>4. 선언과 동시에 export 하기</h3><p>이름을 선언하는 구문 앞에 export를 붙여주면, 선언과 export를 한꺼번에 할 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-default-export"><a href="#5-default-export" class="headerlink" title="5. default export"></a>5. default export</h3><p>모듈을 대표하는 하나의 <strong>값</strong>을 지정하고, 그 값을 다른 모듈에서 편하게 불러와서 사용할 수 있다.<br>이렇게 사용하는 값을 <strong>default export</strong>라고 부른다.</p>
+<ul>
+<li><p>foo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="string">'bar'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 중괄호를 생략하면, 모듈의 default export를 가져온다.</span></span><br><span class="line"><span class="keyword">import</span> foo <span class="keyword">from</span> <span class="string">'./foo.js'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// bar</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>※ 모듈당 하나의 default export밖에 허용되지 않는다.<br>모듈에는 하나의 default export와 여러개의 named export(일반적인 export)를 지정할 수 있다.</p>
+<p>import 구문에서 default export와 일반적인 export를 동시에 가져올 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">                        <span class="comment">// node_modules에 설치된 것은 따로 path없이 불러오면 됨</span></span><br><span class="line"><span class="keyword">import</span> React, &#123;Component, Fragament&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">React</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Componet</span> </span>&#123; <span class="comment">/*...*/</span> &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Fragment</span> </span>&#123; <span class="comment">/*...*/</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-다름-이름으로-export-amp-import-하기"><a href="#6-다름-이름으로-export-amp-import-하기" class="headerlink" title="6. 다름 이름으로 export &amp; import 하기"></a>6. 다름 이름으로 export &amp; import 하기</h3><p><code>export</code>혹은 <code>import</code> 하는 이름의 뒤에 <code>as</code>를 붙여 다른 이름이 대신 사용되게 할 수 있다.</p>
+<ul>
+<li><p>export 이름 뒤에 as</p>
+<ul>
+<li><p>foo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">export</span> &#123;foo <span class="keyword">as</span> FOO&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;FOO&#125; <span class="keyword">from</span> <span class="string">'./foo.js'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>import 이름 뒤에 as</p>
+<ul>
+<li><p>foo.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">export</span> foo;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;foo <span class="keyword">as</span> FOO&#125; <span class="keyword">from</span> <span class="string">'./foo.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(FOO)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-모듈-사용-시-주의할-점"><a href="#7-모듈-사용-시-주의할-점" class="headerlink" title="7. 모듈 사용 시 주의할 점"></a>7. 모듈 사용 시 주의할 점</h3><p>모듈 번들러는 import를 하지 않으면 아예 JavaScript코드를 실행시키지 않는다.<br>모듈간의 의존관계를 다 파악한 뒤 필요한 것만 실행시킨다.</p>
+<p>log.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'log~~~~~'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> foo = bar;</span><br></pre></td></tr></table></figure></p>
+<p>main.js<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;foo&#125; <span class="keyword">from</span> <span class="string">'./log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// log~~~~가 콘솔에 출력된다.</span></span><br></pre></td></tr></table></figure></p>
+<p>만약 다른 모듈에서도 ‘log.js’를 <code>import</code> 하더라도 ‘log~~~~’는 한번만 출력된다.<br>이는 <code>import</code>구문이 코드를 실행시키라는 명령이 아니기 때문이다.<br><code>export</code>와 <code>import</code> 구문은 단지 모듈간의 의존관계를 나타내는 것일 뿐이다.</p>
+<p>ECMAScript 공식 명세에는 모듈을 불러오는 방법에 대한 내용이 포함되어 있지 않다.<br>모듈번들러, 브라우저마다 모듈을 불러오는 방법이나 구체적인 동작 방식은 다를 수 있다.</p>
+<h3 id="8-ES2015-이전의-모듈들"><a href="#8-ES2015-이전의-모듈들" class="headerlink" title="8. ES2015 이전의 모듈들"></a>8. ES2015 이전의 모듈들</h3><p><a href="https://d2.naver.com/helloworld/12864" target="_blank" rel="noopener">ES2015 모듈 이전에 CommonJS, AMD 등의 모듈 시스템이 있었다.</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Node.js에서 쓰는 모듈 객체</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"><span class="built_in">module</span>.export = &#123;</span><br><span class="line">  a: a</span><br><span class="line">  b: b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/11/modules/" data-id="cjiixek9v0000pkuwkq7ccimd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/11/modules/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/11/modules/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-try-catch" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -325,7 +543,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/try-catch/" data-id="cjihhyt5e000b14uwc1pbx645" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/try-catch/" data-id="cjiixekaq0007pkuwph9ajee9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -466,7 +684,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/TIL-1/" data-id="cjihhyt49000514uwrfktbhn9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL-1/" data-id="cjiixekam0006pkuwqq0ng5oa" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -601,7 +819,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjihhyt4i000614uwte63n38v" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjiixekav000apkuwff8y6xss" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -746,7 +964,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/TIL-20180609/" data-id="cjihhyt8e001214uw0zmdl3yo" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/09/TIL-20180609/" data-id="cjiixekcn000upkuwj22rrap1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -897,7 +1115,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/" data-id="cjihhyt8v001514uwqzwwmv0u" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/" data-id="cjiixekcy0012pkuwvoou8uw7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -992,6 +1210,15 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/06/17/Longet-Common-Prefix/" class="title">Longet Common Prefix</a></p>
+                            <p class="item-date"><time datetime="2018-06-17T09:08:46.000Z" itemprop="datePublished">2018.06.17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
                             <p class="item-title"><a href="/2018/06/16/TIL-1/" class="title">TIL 20180616</a></p>
                             <p class="item-date"><time datetime="2018-06-16T11:54:09.000Z" itemprop="datePublished">2018.06.16</time></p>
@@ -1025,15 +1252,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/14/TIL/" class="title">TIL 20180613</a></p>
-                            <p class="item-date"><time datetime="2018-06-13T16:28:49.000Z" itemprop="datePublished">2018.06.14</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1043,7 +1261,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">8</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">8</span></li></ul>
         </div>
     </div>
 
@@ -1052,7 +1270,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">15</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">16</span></li></ul>
         </div>
     </div>
 
