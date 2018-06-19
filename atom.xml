@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-06-17T10:09:59.408Z</updated>
+  <updated>2018-06-18T16:07:20.849Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL 20180618</title>
+    <link href="http://chiabi.github.io/2018/06/19/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/19/TIL/</id>
+    <published>2018-06-18T15:49:40.000Z</published>
+    <updated>2018-06-18T16:07:20.849Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="프로트엔드-스쿨과정-리액트"><a href="#프로트엔드-스쿨과정-리액트" class="headerlink" title="프로트엔드 스쿨과정 - 리액트"></a>프로트엔드 스쿨과정 - 리액트</h3><ul><li>children prop</li><li>로그인 시 예외 처리 (비동기 예외처리)</li><li><code>ref</code>와 “제어되지 않는 컴포넌트”로 폼 바꿔보기</li><li>Presentational component &amp; Container component</li><li>Storybook</li></ul><p>제어되지 않는 컴포넌트 부분은 break week 기간에 잠깐 튜토리얼 따라해 보면서 봤던 부분인데 다시 복습하게 되었다. form의 기본 submit 기능을 사용하게 되면, 따로 이벤트 메서드를 만들지 않아도 되어 코드가 간결해지는 장점이 있지만, 나중에 폼을 쓰게 될 경우 유효성 검사를 하거나 키보드 접근 관련해서 추가적인 처리를 하게 될 것 같아서 대부분의 경우 제어되는 컴포넌트로 하게 되지 않을까 싶다.</p><p>프레젠테이션과 컨테이너 컴포넌트 관련 글은 전날에 올려주셔서 자기 전에 읽어봤는데, 읽어보니 왠지 rgb챌린지 만들면서 이 둘을 잘 구분해서 사용하지 않은 것 같다고 느꼈다. 또 글이 잘 이해가 안되었는데, 오늘 수업을 통해 조금 정리되는 느낌이다.</p><h2 id="오늘-읽은-글"><a href="#오늘-읽은-글" class="headerlink" title="오늘 읽은 글"></a>오늘 읽은 글</h2><ul><li><a href="https://medium.com/@Dev_Bono/context-api%EA%B0%80-redux%EB%A5%BC-%EB%8C%80%EC%B2%B4%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-76a6209b369b" target="_blank" rel="noopener">Context API가 Redux를 대체할 수 있을까요?</a></li><li><a href="https://medium.com/@seungha_kim_IT/presentational-and-container-components-%EB%B2%88%EC%97%AD-1b1fb2e36afb" target="_blank" rel="noopener">Presentiational and Container Components(번역)</a></li><li><a href="https://medium.com/dailyjs/when-do-i-know-im-ready-for-redux-f34da253c85f" target="_blank" rel="noopener">When do I know I’m ready for Redux?</a></li></ul><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>내일 수업 내용 복습(<a href="https://reacttraining.com/react-router/web/guides/philosophy" target="_blank" rel="noopener">리액트 라우터</a>를 들어간다고 한다.)</li><li><a href="https://storybook.js.org/" target="_blank" rel="noopener">스토리북</a> 사용해보기</li><li>리덕스 일단 따로 <a href="https://egghead.io/courses/getting-started-with-redux" target="_blank" rel="noopener">Dan abramov의 소개 영상</a> 보면서 감 잡기</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;프로트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#프로트엔드-스쿨과정-리액트&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 20180617</title>
+    <link href="http://chiabi.github.io/2018/06/17/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/17/TIL/</id>
+    <published>2018-06-17T10:13:10.000Z</published>
+    <updated>2018-06-18T16:07:21.673Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트-RGB-Challenge-완성"><a href="#1-리액트-RGB-Challenge-완성" class="headerlink" title="1. 리액트 RGB Challenge 완성"></a>1. 리액트 RGB Challenge 완성</h3><p>공식문서 Context 파트와 지난 수업 시간했던 todo 리스트 실습을 참고해서 context를 사용해 완성했다. 만들다보니 컴포넌트를 굉장히 많이 나누게 되었는데, 그러다보니 DOM API로 단순하게 만들었던 것이 굉장히 복잡해진 것 같아서 내가 제대로 만든 건지 확신이 없다. context는 컬러, 스코어, 결과로 나눠서 각 파일을 따로 만들다.<br><code>setState()</code>로 각 상태를 변화시키는 메서드를 따로 만들었는데, 예를들면 스코어에서는 <code>upScore</code>, <code>reset</code>으로 하나는 score를 추가해주는 것 하나는 score를 다시 0으로 만드는 메서드이다. 결과 context에서는 <code>showResultGood</code>, <code>showResultBad</code>, <code>reset</code>으로 각각 상태에 ‘good’, ‘bad’, 빈 문자열로 수정하는 메서드이다.<br>이렇게 하는게 맞는 것일까 아니면 메서드는 하나만 만들고 나중에 사용할 때 값을 던져주는 것을 인자로 받아서 setState에 던져주도록 만들어야했을까… 이런저런 사용법에 고민이 많아진다.<br>역할과 책임이라는 것에 신경쓰면서 만드려고 했는데, 잘 한건지는 모르겠다. 좀 더 다른 사람들의 코드나 글을 읽어봐야겠다. </p><p>만들면서 그동안 배운것을 다시 정리하고 context를 좀 더 이해하게 되었다. 강사님이 오늘 읽으려고 해두었던 글을 번역해서 올려주셔서 그걸 읽어보고 다시 고민해봐야겠다.</p><h3 id="2-알고리즘-문제-풀이"><a href="#2-알고리즘-문제-풀이" class="headerlink" title="2. 알고리즘 문제 풀이"></a>2. 알고리즘 문제 풀이</h3><p>1일 1알고리즘 하려고 하는데 지키기 힘든 일인 것 같다. 특히나 문제가 어려우면 고민하다가 하루가 지나가버린다. 지금은 리액트를 익히는 것 역시 중요하니까 우선순위를 정해서 신간 분배를 잘 해야 될 것 같다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>리덕스 예습/복습</li><li>리액트로 다른 미니 프로젝트 하기(캘린더 다시 만들어본다거나)</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-리액트-RGB-Challenge-완성&quot;&gt;&lt;a href=&quot;#1-리액트-RGB-Chall
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>Longet Common Prefix</title>
@@ -396,31 +446,6 @@
   </entry>
   
   <entry>
-    <title>TIL 20180609</title>
-    <link href="http://chiabi.github.io/2018/06/09/TIL-20180609/"/>
-    <id>http://chiabi.github.io/2018/06/09/TIL-20180609/</id>
-    <published>2018-06-08T15:00:00.000Z</published>
-    <updated>2018-06-12T14:58:48.669Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p><p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p><p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p><p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p><p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p><h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li><li>JSX 공부하기</li></ul><hr><p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p><p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p><p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-hexo로-블로그를-만들었다&quot;&gt;&lt;a href=&quot;#1-hexo로-블로그를-만들었다&quot; c
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
     <title>스캐폴딩, CRUD, 퍼머링크</title>
     <link href="http://chiabi.github.io/2018/06/09/DG-scaffolding/"/>
     <id>http://chiabi.github.io/2018/06/09/DG-scaffolding/</id>
@@ -443,6 +468,31 @@
     
     
       <category term="glossary" scheme="http://chiabi.github.io/tags/glossary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 20180609</title>
+    <link href="http://chiabi.github.io/2018/06/09/TIL-20180609/"/>
+    <id>http://chiabi.github.io/2018/06/09/TIL-20180609/</id>
+    <published>2018-06-08T15:00:00.000Z</published>
+    <updated>2018-06-12T14:58:48.669Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p><p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p><p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p><p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p><p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p><h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li><li>JSX 공부하기</li></ul><hr><p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p><p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p><p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-hexo로-블로그를-만들었다&quot;&gt;&lt;a href=&quot;#1-hexo로-블로그를-만들었다&quot; c
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   
