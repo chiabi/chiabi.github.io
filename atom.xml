@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-06-18T16:07:20.849Z</updated>
+  <updated>2018-06-19T16:28:23.137Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL 20180619</title>
+    <link href="http://chiabi.github.io/2018/06/20/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/20/TIL/</id>
+    <published>2018-06-19T16:26:50.000Z</published>
+    <updated>2018-06-19T16:28:23.137Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프로트엔드-스쿨과정-리액트"><a href="#1-프로트엔드-스쿨과정-리액트" class="headerlink" title="1. 프로트엔드 스쿨과정 - 리액트"></a>1. 프로트엔드 스쿨과정 - 리액트</h3><ul><li>Provider의 적절한 위치는?</li><li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li><li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li><li>HTML5 history API &amp; hashchange</li><li>react-router 소개 및 실습</li></ul><p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p><h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴폰너트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li><li>자기소개서 최종 검토하기</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프로트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#1-프로트엔드-스쿨과정-리액트&quot; cla
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>TIL 20180618</title>
