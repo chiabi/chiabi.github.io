@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>TIL 20180619 | Chiabi&#39;s dev blog</title>
+    <title>TIL 20180622 | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="오늘 한 일1. 프론트엔드 스쿨과정 - 리액트 Provider의 적절한 위치는? 마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트) 브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기 HTML5 history API &amp;amp; hashchange react-router 소개 및 실습  ‘만약 단순한 모달 정도">
+    <meta name="description" content="오늘 한 일1. 프론트엔드 개발 스쿨강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에">
 <meta name="keywords" content="TIL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TIL 20180619">
-<meta property="og:url" content="http://chiabi.github.io/2018/06/20/TIL/index.html">
+<meta property="og:title" content="TIL 20180622">
+<meta property="og:url" content="http://chiabi.github.io/2018/06/23/TIL/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="오늘 한 일1. 프론트엔드 스쿨과정 - 리액트 Provider의 적절한 위치는? 마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트) 브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기 HTML5 history API &amp;amp; hashchange react-router 소개 및 실습  ‘만약 단순한 모달 정도">
+<meta property="og:description" content="오늘 한 일1. 프론트엔드 개발 스쿨강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-21T14:29:49.036Z">
+<meta property="og:updated_time" content="2018-06-22T15:53:07.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TIL 20180619">
-<meta name="twitter:description" content="오늘 한 일1. 프론트엔드 스쿨과정 - 리액트 Provider의 적절한 위치는? 마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트) 브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기 HTML5 history API &amp;amp; hashchange react-router 소개 및 실습  ‘만약 단순한 모달 정도">
+<meta name="twitter:title" content="TIL 20180622">
+<meta name="twitter:description" content="오늘 한 일1. 프론트엔드 개발 스쿨강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에">
     
 
     
@@ -220,7 +220,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            TIL 20180619
+            TIL 20180622
         </h1>
     
 
@@ -229,8 +229,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/20/TIL/">
-            <time datetime="2018-06-19T16:26:50.000Z" itemprop="datePublished">2018.06.20</time>
+        <a href="/2018/06/23/TIL/">
+            <time datetime="2018-06-22T15:12:20.000Z" itemprop="datePublished">2018.06.23</time>
         </a>
     </div>
 
@@ -255,18 +255,16 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
-<li>Provider의 적절한 위치는?</li>
-<li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li>
-<li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li>
-<li>HTML5 history API &amp; hashchange</li>
-<li>react-router 소개 및 실습</li>
-</ul>
-<p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p>
-<h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴포넌트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p>
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-스쿨"><a href="#1-프론트엔드-개발-스쿨" class="headerlink" title="1. 프론트엔드 개발 스쿨"></a>1. 프론트엔드 개발 스쿨</h3><p>강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.<br>코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에 서버에 POST하는 메소드를 추가해서 post 폼 컨테이너로 내려보내고, 나중에 post 폼 수정 페이지에서는 PostContext.js(componentDidMount 훅에 서버로 특정 포스트에 대해서 GET 요청을 보내는 부분이 있는)에 PATCH 요청을 보내는 메소드를 추가해서 내려보내는 식으로 해서 context를 같이 사용하려고 했는데, 강사님은 폼 추가/삭제에 대한 context를 따로 만들어서 id가 있을 경우에 따라 조건문을 통해 componentDidMount 훅에서 특정 포스트에 대한 GET 요청을 보내는 식으로 구현하셨다.<br>그리고 내가 간과하고 있던 것이 나는 게시글 추가 시에 게시판 목록으로 Redirect를 걸었는데 생각해보니 사용자의 관점에서는 게시글 목록이 아니라 생성된 게시글의 보기 페이지로 Redirect를 걸어주는 게 맞는 것 같다.</p>
+<p>그리고 페이지는 함수형 컴포넌트로 만들었는데, 그러면서 화살표 함수로 만들면서 익명함수로 만든게 개발자 도구에서는 Unknown으로 보인다는 것도 알게 되었다. 그리고 Router부분을 나는 이슈 페이지에서 찾은 코드를 추가했는데, storybook-react-router라는 라이브러리가 있어서 그걸 쓰면 더 간략한 코드로 내가 처리한 부분을 대체할 수 있었다.</p>
+<p>나는 Components 디렉터리의 PC 컴포넌트에서 username이나 password 상태를 관리하고 Context의 메소드를 내려받아서 핸들링해줬는데, 강사님은 Container에서 처리해주셨다. 이부분은 따로 여쭤봤는데, 물론 PC에서 관리해도 그것은 어떻게 설계하느냐(말하자면 관리 정책 측면이라)에 따른 거라 문제 될 것은 없지만, 로그인의 경우 사용자 입력을 받아 서버에 요청을 보내고 성공했는지에 따라 success 상태를 토글해서 Redirect를 걸어준다면 그 부분은 외부와 연동되는 부분이 들어가게 되니까 CC에서 처리하는 게 좋을 거라고 생각했다고 하셨다.</p>
+<h3 id="2-파이털-프로젝트-회의"><a href="#2-파이털-프로젝트-회의" class="headerlink" title="2. 파이털 프로젝트 회의"></a>2. 파이털 프로젝트 회의</h3><p>파이널 프로젝트로 쇼핑몰을 할 지 기존에 템플릿으로 만들어봤던 프로젝트 관리 서비스를 만들지 고민했다. 팀원이랑 의논 끝에 기존에 만들어본 프로젝트 관리 서비스를 하는 대신에 규모를 더 키워보기로 했다. 이전에는 사용자의 프로젝트 todo 리스트에 가까웠다면 이번에는 아예 팀 별로 프로젝트를 생성해서 관리할 수 있는 트렐로, asana 같은 서비스를 만들어보기로 했다.(물론 그들이 제공하는 모든 기능을 구현할 수는 없겠지만) 그리고 라이브러리를 이용해 타임라인과 캘린더 보기까기 구현해보기로 계획했다.<br>오늘 강사님이 알려주신 eslint와 prettier 설정으로 코딩 스타일은 얼추 맞출 수 있게 되었고, 구체적으로 설계하는 부분은 같이 맞춰나가기로 했다. 기능단위로 PC를 먼저 구현한 뒤에 일단 Context를 만들어 상태를 관리하고 Context에서 보관할 필요가 없는 상태라면 CC에서 처리해주기로 했다.  </p>
+<p>오늘은 일단 프로젝트를 어느정도 규모로 할 지와 나중에 수정할지라고 일단 컴포넌트 작성 순서와 상태 관리를 어디에서 할 건지 먼저 정하고, 내일은 일단 어느정도 와이어프레임을 위해 각자 벤치마킹을 해보고 일요일까지 와이어프레임을 만든 뒤 기능 별 분담을 하기로 했다.</p>
+<p>2주내에 다 할 수 있을까 조금 걱정이 되긴 하는데, 만드는 것은 재미있을 것 같다. 목표한대로 1주 정도는 전체적으로 만들고 남은 기간에는 스타일링과 코드 개선을 할 수 있으면 좋겠다. </p>
 <h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li>
-<li>자기소개서 최종 검토하기</li>
+<li>파이널 프로젝트 와이어프레임을 위한 벤치마킹</li>
+<li>강사님 게시판 코드 읽어보고 연습하기</li>
+<li>Ant Design 써보기</li>
 </ul>
 
         
@@ -278,7 +276,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjiq5nwn7001ibwuw7vfa53sy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjiq5nwnj001tbwuwzhvm2ea4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -346,7 +344,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/06/20/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/20/TIL/">Comments</a>
+        <a href="http://chiabi.github.io/2018/06/23/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/23/TIL/">Comments</a>
     
 
         </footer>
@@ -355,19 +353,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/06/20/TIL-1/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    TIL 20180620
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/06/19/TIL/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/06/21/TIL/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">TIL 20180618</div>
+            <div class="article-nav-title">TIL 2018021</div>
         </a>
     
 </nav>
@@ -492,7 +481,7 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/06/20/TIL/';
+            this.page.url = 'http://chiabi.github.io/2018/06/23/TIL/';
         
         this.page.identifier = 'TIL';
     };

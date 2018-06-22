@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-06-19T16:28:23.137Z</updated>
+  <updated>2018-06-22T15:53:07.947Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -17,19 +17,95 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>TIL 20180619</title>
-    <link href="http://chiabi.github.io/2018/06/20/TIL/"/>
-    <id>http://chiabi.github.io/2018/06/20/TIL/</id>
-    <published>2018-06-19T16:26:50.000Z</published>
-    <updated>2018-06-19T16:28:23.137Z</updated>
+    <title>TIL 20180622</title>
+    <link href="http://chiabi.github.io/2018/06/23/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/23/TIL/</id>
+    <published>2018-06-22T15:12:20.000Z</published>
+    <updated>2018-06-22T15:53:07.947Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프로트엔드-스쿨과정-리액트"><a href="#1-프로트엔드-스쿨과정-리액트" class="headerlink" title="1. 프로트엔드 스쿨과정 - 리액트"></a>1. 프로트엔드 스쿨과정 - 리액트</h3><ul><li>Provider의 적절한 위치는?</li><li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li><li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li><li>HTML5 history API &amp; hashchange</li><li>react-router 소개 및 실습</li></ul><p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p><h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴폰너트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li><li>자기소개서 최종 검토하기</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-스쿨"><a href="#1-프론트엔드-개발-스쿨" class="headerlink" title="1. 프론트엔드 개발 스쿨"></a>1. 프론트엔드 개발 스쿨</h3><p>강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.<br>코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에 서버에 POST하는 메소드를 추가해서 post 폼 컨테이너로 내려보내고, 나중에 post 폼 수정 페이지에서는 PostContext.js(componentDidMount 훅에 서버로 특정 포스트에 대해서 GET 요청을 보내는 부분이 있는)에 PATCH 요청을 보내는 메소드를 추가해서 내려보내는 식으로 해서 context를 같이 사용하려고 했는데, 강사님은 폼 추가/삭제에 대한 context를 따로 만들어서 id가 있을 경우에 따라 조건문을 통해 componentDidMount 훅에서 특정 포스트에 대한 GET 요청을 보내는 식으로 구현하셨다.<br>그리고 내가 간과하고 있던 것이 나는 게시글 추가 시에 게시판 목록으로 Redirect를 걸었는데 생각해보니 사용자의 관점에서는 게시글 목록이 아니라 생성된 게시글의 보기 페이지로 Redirect를 걸어주는 게 맞는 것 같다.</p><p>그리고 페이지는 함수형 컴포넌트로 만들었는데, 그러면서 화살표 함수로 만들면서 익명함수로 만든게 개발자 도구에서는 Unknown으로 보인다는 것도 알게 되었다. 그리고 Router부분을 나는 이슈 페이지에서 찾은 코드를 추가했는데, storybook-react-router라는 라이브러리가 있어서 그걸 쓰면 더 간략한 코드로 내가 처리한 부분을 대체할 수 있었다.</p><p>나는 Components 디렉터리의 PC 컴포넌트에서 username이나 password 상태를 관리하고 Context의 메소드를 내려받아서 핸들링해줬는데, 강사님은 Container에서 처리해주셨다. 이부분은 따로 여쭤봤는데, 물론 PC에서 관리해도 그것은 어떻게 설계하느냐(말하자면 관리 정책 측면이라)에 따른 거라 문제 될 것은 없지만, 로그인의 경우 사용자 입력을 받아 서버에 요청을 보내고 성공했는지에 따라 success 상태를 토글해서 Redirect를 걸어준다면 그 부분은 외부와 연동되는 부분이 들어가게 되니까 CC에서 처리하는 게 좋을 거라고 생각했다고 하셨다.</p><h3 id="2-파이털-프로젝트-회의"><a href="#2-파이털-프로젝트-회의" class="headerlink" title="2. 파이털 프로젝트 회의"></a>2. 파이털 프로젝트 회의</h3><p>파이널 프로젝트로 쇼핑몰을 할 지 기존에 템플릿으로 만들어봤던 프로젝트 관리 서비스를 만들지 고민했다. 팀원이랑 의논 끝에 기존에 만들어본 프로젝트 관리 서비스를 하는 대신에 규모를 더 키워보기로 했다. 이전에는 사용자의 프로젝트 todo 리스트에 가까웠다면 이번에는 아예 팀 별로 프로젝트를 생성해서 관리할 수 있는 트렐로, asana 같은 서비스를 만들어보기로 했다.(물론 그들이 제공하는 모든 기능을 구현할 수는 없겠지만) 그리고 라이브러리를 이용해 타임라인과 캘린더 보기까기 구현해보기로 계획했다.<br>오늘 강사님이 알려주신 eslint와 prettier 설정으로 코딩 스타일은 얼추 맞출 수 있게 되었고, 구체적으로 설계하는 부분은 같이 맞춰나가기로 했다. 기능단위로 PC를 먼저 구현한 뒤에 일단 Context를 만들어 상태를 관리하고 Context에서 보관할 필요가 없는 상태라면 CC에서 처리해주기로 했다.  </p><p>오늘은 일단 프로젝트를 어느정도 규모로 할 지와 나중에 수정할지라고 일단 컴포넌트 작성 순서와 상태 관리를 어디에서 할 건지 먼저 정하고, 내일은 일단 어느정도 와이어프레임을 위해 각자 벤치마킹을 해보고 일요일까지 와이어프레임을 만든 뒤 기능 별 분담을 하기로 했다.</p><p>2주내에 다 할 수 있을까 조금 걱정이 되긴 하는데, 만드는 것은 재미있을 것 같다. 목표한대로 1주 정도는 전체적으로 만들고 남은 기간에는 스타일링과 코드 개선을 할 수 있으면 좋겠다. </p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>파이널 프로젝트 와이어프레임을 위한 벤치마킹</li><li>강사님 게시판 코드 읽어보고 연습하기</li><li>Ant Design 써보기</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프로트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#1-프로트엔드-스쿨과정-리액트&quot; cla
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프론트엔드-개발-스쿨&quot;&gt;&lt;a href=&quot;#1-프론트엔드-개발-스쿨&quot; class=&quot;he
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 2018021</title>
+    <link href="http://chiabi.github.io/2018/06/21/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/21/TIL/</id>
+    <published>2018-06-21T14:24:55.000Z</published>
+    <updated>2018-06-22T15:17:37.746Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p><p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>파이널 프로젝트 기획하기</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-리액트로-게시판-만들기&quot;&gt;&lt;a href=&quot;#1-리액트로-게시판-만들기&quot; class=&quot;
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 20180620</title>
+    <link href="http://chiabi.github.io/2018/06/20/TIL-1/"/>
+    <id>http://chiabi.github.io/2018/06/20/TIL-1/</id>
+    <published>2018-06-20T13:23:10.000Z</published>
+    <updated>2018-06-21T14:44:45.963Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul><li>HOC로 인증 관련 문제 해결하기</li><li>defaultProps</li><li>Sass 사용하기</li><li>classnames</li><li>규모있는 프로젝트의 개발 순서는 어떻게 가져가야 할까?</li></ul><p>Sass 사용은 visual studio code에서 바로 컴파일 해주는 익스텐션을 사용하도록 알려주셨는데, 시간이 나면 webpack을 이용하는 방법을 알아봐야겠다.</p><h3 id="2-리액트로-게시판-만들기"><a href="#2-리액트로-게시판-만들기" class="headerlink" title="2. 리액트로 게시판 만들기"></a>2. 리액트로 게시판 만들기</h3><p>기본적인 로그인 구현까지했다. 스토리북을 이용해서 Presentational 컴포넌트를 먼저 확인하면서 만들고 있다. 만들다가 기억이 잘 안나는 부분은 다시 todo 실습으로 돌아가서 참고하고 있는데, rgb 챌린지처럼 먼저 단순하게 만들고 더 다듬어야 될 것 같다. 아직 어느 코드가 중복되는 로직일지 파악할 수 없어서 오늘 배운 HOC은 적용해보지 못했는데, 다듬다보면 어느때 써야할 지 감이 잡힐 것 같다. 이번 과제로 게시판을 한번 만들어보면 마지막 과제를 할 때 많은 도움이 될 것 같다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>리액트로 게시판 만들기 과제 완료하기<ul><li>로그인<ul><li>데이터설계(json server)</li><li>presentational: 로그인 화면</li><li>Provider: 상태관리</li><li>Container 컴포넌트 (PC와 Provider를 이어줄)</li></ul></li><li>글 목록</li><li>글 작성</li><li>댓글 목록</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1-프론트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#1-프론트엔드-스쿨과정-리액트&quot; class=&quot;headerlink&quot; title=&quot;1. 프론트엔드 스쿨과정 - 리액트&quot;&gt;&lt;/a&gt;1. 프론트엔드 스쿨과정 - 리액트&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;HO
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL 20180619</title>
+    <link href="http://chiabi.github.io/2018/06/20/TIL/"/>
+    <id>http://chiabi.github.io/2018/06/20/TIL/</id>
+    <published>2018-06-19T16:26:50.000Z</published>
+    <updated>2018-06-21T14:29:49.036Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul><li>Provider의 적절한 위치는?</li><li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li><li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li><li>HTML5 history API &amp; hashchange</li><li>react-router 소개 및 실습</li></ul><p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p><h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴포넌트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li><li>자기소개서 최종 검토하기</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프론트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#1-프론트엔드-스쿨과정-리액트&quot; cla
       
     
     </summary>
@@ -459,57 +535,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-리액트-캘린더-프로젝트&quot;&gt;&lt;a href=&quot;#1-리액트-캘린더-프로젝트&quot; class=&quot;
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>스캐폴딩, CRUD, 퍼머링크</title>
-    <link href="http://chiabi.github.io/2018/06/09/DG-scaffolding/"/>
-    <id>http://chiabi.github.io/2018/06/09/DG-scaffolding/</id>
-    <published>2018-06-08T15:00:00.000Z</published>
-    <updated>2018-06-09T13:11:06.676Z</updated>
-    
-    <content type="html"><![CDATA[<p>hexo로 블로그 만들면서 모르는 용어를 정리했다. </p><h2 id="1-스캐폴딩-scaffolding"><a href="#1-스캐폴딩-scaffolding" class="headerlink" title="1. 스캐폴딩(scaffolding)"></a>1. 스캐폴딩(scaffolding)</h2><p>건축용어로 비계라는 의미인데, 작업을 위해 임시로 설치한 가설 발판이나 가설 구조물을 말한다.<br>프로그래밍 쪽에서는 데이터베이스의 각 테이블에 대한 웹 페이지를 자동으로 생성하는 Dynamic Data 요소를 말한다. </p><p>이렇게 자동 생성된 웹 페이지를 통해 각 테이블에 대해 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행할 수 있다. 스캐폴딩을 구성하는 템플릿을 사용해 효율적인 데이터 기반 웹 사이트를 신속하게 작성할 수 있다.<br>개발 중인 코드가 제 모습을 가지기 전까지 임시 스캐폴딩 코드를 코드 구조를 잡는데 사용한다고 한다.</p><p>정리하면 웹 개발 프레임워크(ASP.NET이나 Ruby on Rails등)에서 단순한 CRUD 서비스 프로세스를 구축하도록 지원하는 템플릿 개념인 것 같다.</p><h4 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h4><ul><li><a href="https://msdn.microsoft.com/ko-kr/library/ee377606.aspx" target="_blank" rel="noopener">ASP.NET Dynamic Data 스캐폴딩</a></li><li><a href="http://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS8530510636" target="_blank" rel="noopener">Ruby on Rails - 스캐폴딩</a></li></ul><h2 id="2-CRUD"><a href="#2-CRUD" class="headerlink" title="2. CRUD"></a>2. CRUD</h2><p><strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete<br>대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능을 묶어서 일컫는 말.<br>사용자 인터페이스가 갖추어야 할 기능(정보의 참조/검색/갱신)을 가리키는 용어로서도 사용된다.</p><h4 id="참고-1"><a href="#참고-1" class="headerlink" title="참고"></a>참고</h4><ul><li><a href="https://ko.wikipedia.org/wiki/CRUD" target="_blank" rel="noopener">[위키백과] - CRUD</a></li></ul><h2 id="3-퍼머링크-permalink"><a href="#3-퍼머링크-permalink" class="headerlink" title="3. 퍼머링크(permalink)"></a>3. 퍼머링크(permalink)</h2><p>인터넷에서 특정 페이지에 영구적으로 할당된 URL 주소를 뜻한다.<br>영구적인 주소라는 뜻인데 한국에서는 고유 링크, 고유 주소라는 명칭으로 광범위하게 퍼져있다.</p><p>퍼머링크를 사용하는 대표적인 사례는 블로그.<br>시간이 지남에 따라 새로운 내용이 추가되면서 블로그 글의 위치가 쉽게 변하므로, 각각의 글에 영원히 고정된 주소를 제공하는 것이라고 위키백과에 정의되어 있다.</p><p><a href="https://hexo.io/ko/docs/permalinks.html" target="_blank" rel="noopener">hexo</a>에서는 <code>_config.yml</code> 파일이나 font-matter(파일 시작 시 작성하는 YAML, JSON 구역 - 게시물에 대한 환경설정을 하는 곳)에 각 포스트의 permalink의 형식을 지정할 수 있게 한다.</p><p>hexo 설치시 처음 _config.yml에는 아래와 같이 되어있는데<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure></p><p>결과는 <code>2018/06/09/hello-world</code>로 나온다.</p><h4 id="참고-2"><a href="#참고-2" class="headerlink" title="참고"></a>참고</h4><ul><li><a href="https://ko.wikipedia.org/wiki/%ED%8D%BC%EB%A8%B8%EB%A7%81%ED%81%AC" target="_blank" rel="noopener">[위키백과] 퍼머링크</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;hexo로 블로그 만들면서 모르는 용어를 정리했다. &lt;/p&gt;
-&lt;h2 id=&quot;1-스캐폴딩-scaffolding&quot;&gt;&lt;a href=&quot;#1-스캐폴딩-scaffolding&quot; class=&quot;headerlink&quot; title=&quot;1. 스캐폴딩(scaffolding
-      
-    
-    </summary>
-    
-      <category term="Dev Glossary" scheme="http://chiabi.github.io/categories/Dev-Glossary/"/>
-    
-    
-      <category term="glossary" scheme="http://chiabi.github.io/tags/glossary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL 20180609</title>
-    <link href="http://chiabi.github.io/2018/06/09/TIL-20180609/"/>
-    <id>http://chiabi.github.io/2018/06/09/TIL-20180609/</id>
-    <published>2018-06-08T15:00:00.000Z</published>
-    <updated>2018-06-12T14:58:48.669Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-hexo로-블로그를-만들었다"><a href="#1-hexo로-블로그를-만들었다" class="headerlink" title="1. hexo로 블로그를 만들었다."></a>1. hexo로 블로그를 만들었다.</h3><p>금요일, 소프트웨어 공학 특강시간에 최우영 강사님이 보여주신 <a href="https://wayhome25.github.io/til/2017/02/16/TIL/" target="_blank" rel="noopener">초보몽키의 개발공부로그</a>라는 블로그에 감명받아 당장 블로그를 만들었다. 사실 그전에도 알고리즘 퀴즈 관련해서 구글에서 검색하면 거의 매번 보이던 블로그였는데, 학원 수강생이었다는 거에 충격이랄지 나도 저렇게 열심히 살아야겠다는 자극을 받았다. </p><p><a href="https://hexo.io/ko/index.html" target="_blank" rel="noopener">hexo</a> + <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">icarus 테마</a> + github page로 블로그를 만들었다.<br>어느정도 파악해보려고 열어봤더니 EJS와 Stylus의 조합이라 당황스러웠다.<br>처음에는 체감상 Jekyll보다 어렵게 느껴졌는데(Jekyll 테마는 Sass였다.) 보다보니 익숙해지는 것 같다. 스타일은 아직 수정한 것이 없는데, 테마 자체의 디자인도 마음에 들지만 천천히 바꿔봐야겠다.<br>예를들면 모바일에서는 헤더를 상단에 픽스시킨다든지 정도의 커스터마이징은 필요해보인다.</p><p>만드는 것도 파악하는 것도 오래 걸려서, 저번 Jekyll 블로그처럼 학원 과정 끝나고 시간이 남으면 만들까 생각도 했는데, 일단 만들어놓고 천천히 바꾸자는 생각으로 만들었더니 하길 잘했다는 생각이 든다. github와 다르게 좀 더 글이 정제되어 보인다.</p><p>프로필 일러스트도 하는김에 만들었다.(이놈의 디자인 욕심…) 마침 github가 로키(턱시도 고양이)여서 로키 일러스트를 만들었다. 생각보다 금방 구상하고 오랜만에 일러 만지느라 헤맨 것 치고는 시간도 얼마 소요되지 않았다.(다행이다. 오래걸렸으면 자괴감이 들었을지도…)</p><p>지난 TIL과 알고리즘 풀이는 블로그로 옮길지, 아니면 기존 github 레포지토리로 남길지는 생각해봐야겠다. </p><h3 id="2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다"><a href="#2-스캐폴딩-퍼머링크-등-모르는-용어를-정리했다" class="headerlink" title="2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다."></a>2. 스캐폴딩, 퍼머링크 등 모르는 용어를 정리했다.</h3><p>hexo로 블로그를 만들려다 보니 모르는 용어가 많았다.<br>스캐폴딩, CRUD, 퍼머링크를 정리하는 것으로 첫 포스팅을 하기로 했다. 대부분 데이터베이스나 서버 개발 쪽 아니면 아키텍처 관련 용어인듯하다. 데이터베이스 쪽도 생활코딩같은 강의를 통해서 틈틈이 공부해야겠다. 모르는 용어가 점점 줄어들었으면 좋겠다. (하지만 또 새로운 게 생겨나겠지…)</p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>React로 간단한 미니 프로젝트 만들기(학원내 스터디)</li><li>JSX 공부하기</li></ul><hr><p>모르는 게 많으니까 해야겠다 하는 것도 점점 많아진다. 그리고 알면 알수록 부족함이 보여서 더더욱 심해지는 것 같다. 이럴때일수록 무엇을 먼저 할지 우선 순위를 빠르게 정하고 밀고 나가야겠다.  </p><p>블로그 만들면서 오랜만에 나를 프론트엔드 개발의 길로 이끈 블로그에 들어갔다. <a href="https://hyunseob.github.io/page/4/" target="_blank" rel="noopener">HyunSeob이라는 분의 블로그</a>인데, hexo로 만들었다는 포스팅을 봤던 기억이 나서 다시 찾아봤다. (오랜만에 읽어보다 이 마음에 드는 테마도 건졌다.)<br>그 당시 gulp로 Sass를 써보다가 Webpack을 사용해보자면서 검색하다 보게 된 블로그였다. 포스팅이 엄청 많은 것은 아니지만, 1년 안에 포스팅한 내용이 Node.js, Webpack, AngularJS, CoffeScript, TypeScript등이어서 적잖게 충격을 받았다.<br>이렇게 열심히 트랜드를 쫓아가는구나, 나도 머물러 있으면 안 되겠다는 자극을 받았다.</p><p>그때의 마음을 항상 잊지 않으려한다. 지치지 않고 계속 달릴 수 있으면 좋겠다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-hexo로-블로그를-만들었다&quot;&gt;&lt;a href=&quot;#1-hexo로-블로그를-만들었다&quot; c
       
     
     </summary>

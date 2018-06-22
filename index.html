@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                19
+                22
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -220,6 +220,439 @@ ga('send', 'pageview');
                 
     
         <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/23/TIL/">TIL 20180622</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/23/TIL/">
+            <time datetime="2018-06-22T15:12:20.000Z" itemprop="datePublished">2018.06.23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-스쿨"><a href="#1-프론트엔드-개발-스쿨" class="headerlink" title="1. 프론트엔드 개발 스쿨"></a>1. 프론트엔드 개발 스쿨</h3><p>강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.<br>코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에 서버에 POST하는 메소드를 추가해서 post 폼 컨테이너로 내려보내고, 나중에 post 폼 수정 페이지에서는 PostContext.js(componentDidMount 훅에 서버로 특정 포스트에 대해서 GET 요청을 보내는 부분이 있는)에 PATCH 요청을 보내는 메소드를 추가해서 내려보내는 식으로 해서 context를 같이 사용하려고 했는데, 강사님은 폼 추가/삭제에 대한 context를 따로 만들어서 id가 있을 경우에 따라 조건문을 통해 componentDidMount 훅에서 특정 포스트에 대한 GET 요청을 보내는 식으로 구현하셨다.<br>그리고 내가 간과하고 있던 것이 나는 게시글 추가 시에 게시판 목록으로 Redirect를 걸었는데 생각해보니 사용자의 관점에서는 게시글 목록이 아니라 생성된 게시글의 보기 페이지로 Redirect를 걸어주는 게 맞는 것 같다.</p>
+<p>그리고 페이지는 함수형 컴포넌트로 만들었는데, 그러면서 화살표 함수로 만들면서 익명함수로 만든게 개발자 도구에서는 Unknown으로 보인다는 것도 알게 되었다. 그리고 Router부분을 나는 이슈 페이지에서 찾은 코드를 추가했는데, storybook-react-router라는 라이브러리가 있어서 그걸 쓰면 더 간략한 코드로 내가 처리한 부분을 대체할 수 있었다.</p>
+<p>나는 Components 디렉터리의 PC 컴포넌트에서 username이나 password 상태를 관리하고 Context의 메소드를 내려받아서 핸들링해줬는데, 강사님은 Container에서 처리해주셨다. 이부분은 따로 여쭤봤는데, 물론 PC에서 관리해도 그것은 어떻게 설계하느냐(말하자면 관리 정책 측면이라)에 따른 거라 문제 될 것은 없지만, 로그인의 경우 사용자 입력을 받아 서버에 요청을 보내고 성공했는지에 따라 success 상태를 토글해서 Redirect를 걸어준다면 그 부분은 외부와 연동되는 부분이 들어가게 되니까 CC에서 처리하는 게 좋을 거라고 생각했다고 하셨다.</p>
+<h3 id="2-파이털-프로젝트-회의"><a href="#2-파이털-프로젝트-회의" class="headerlink" title="2. 파이털 프로젝트 회의"></a>2. 파이털 프로젝트 회의</h3><p>파이널 프로젝트로 쇼핑몰을 할 지 기존에 템플릿으로 만들어봤던 프로젝트 관리 서비스를 만들지 고민했다. 팀원이랑 의논 끝에 기존에 만들어본 프로젝트 관리 서비스를 하는 대신에 규모를 더 키워보기로 했다. 이전에는 사용자의 프로젝트 todo 리스트에 가까웠다면 이번에는 아예 팀 별로 프로젝트를 생성해서 관리할 수 있는 트렐로, asana 같은 서비스를 만들어보기로 했다.(물론 그들이 제공하는 모든 기능을 구현할 수는 없겠지만) 그리고 라이브러리를 이용해 타임라인과 캘린더 보기까기 구현해보기로 계획했다.<br>오늘 강사님이 알려주신 eslint와 prettier 설정으로 코딩 스타일은 얼추 맞출 수 있게 되었고, 구체적으로 설계하는 부분은 같이 맞춰나가기로 했다. 기능단위로 PC를 먼저 구현한 뒤에 일단 Context를 만들어 상태를 관리하고 Context에서 보관할 필요가 없는 상태라면 CC에서 처리해주기로 했다.  </p>
+<p>오늘은 일단 프로젝트를 어느정도 규모로 할 지와 나중에 수정할지라고 일단 컴포넌트 작성 순서와 상태 관리를 어디에서 할 건지 먼저 정하고, 내일은 일단 어느정도 와이어프레임을 위해 각자 벤치마킹을 해보고 일요일까지 와이어프레임을 만든 뒤 기능 별 분담을 하기로 했다.</p>
+<p>2주내에 다 할 수 있을까 조금 걱정이 되긴 하는데, 만드는 것은 재미있을 것 같다. 목표한대로 1주 정도는 전체적으로 만들고 남은 기간에는 스타일링과 코드 개선을 할 수 있으면 좋겠다. </p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>파이널 프로젝트 와이어프레임을 위한 벤치마킹</li>
+<li>강사님 게시판 코드 읽어보고 연습하기</li>
+<li>Ant Design 써보기</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjiq5nwnj001tbwuwzhvm2ea4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/23/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/23/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/21/TIL/">TIL 2018021</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/21/TIL/">
+            <time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p>
+<p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>파이널 프로젝트 기획하기</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjiq5nwnf001qbwuwpwjxgdsy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/21/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/21/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/20/TIL-1/">TIL 20180620</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/20/TIL-1/">
+            <time datetime="2018-06-20T13:23:10.000Z" itemprop="datePublished">2018.06.20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
+<li>HOC로 인증 관련 문제 해결하기</li>
+<li>defaultProps</li>
+<li>Sass 사용하기</li>
+<li>classnames</li>
+<li>규모있는 프로젝트의 개발 순서는 어떻게 가져가야 할까?</li>
+</ul>
+<p>Sass 사용은 visual studio code에서 바로 컴파일 해주는 익스텐션을 사용하도록 알려주셨는데, 시간이 나면 webpack을 이용하는 방법을 알아봐야겠다.</p>
+<h3 id="2-리액트로-게시판-만들기"><a href="#2-리액트로-게시판-만들기" class="headerlink" title="2. 리액트로 게시판 만들기"></a>2. 리액트로 게시판 만들기</h3><p>기본적인 로그인 구현까지했다. 스토리북을 이용해서 Presentational 컴포넌트를 먼저 확인하면서 만들고 있다. 만들다가 기억이 잘 안나는 부분은 다시 todo 실습으로 돌아가서 참고하고 있는데, rgb 챌린지처럼 먼저 단순하게 만들고 더 다듬어야 될 것 같다. 아직 어느 코드가 중복되는 로직일지 파악할 수 없어서 오늘 배운 HOC은 적용해보지 못했는데, 다듬다보면 어느때 써야할 지 감이 잡힐 것 같다. 이번 과제로 게시판을 한번 만들어보면 마지막 과제를 할 때 많은 도움이 될 것 같다.</p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>리액트로 게시판 만들기 과제 완료하기<ul>
+<li>로그인<ul>
+<li>데이터설계(json server)</li>
+<li>presentational: 로그인 화면</li>
+<li>Provider: 상태관리</li>
+<li>Container 컴포넌트 (PC와 Provider를 이어줄)</li>
+</ul>
+</li>
+<li>글 목록</li>
+<li>글 작성</li>
+<li>댓글 목록</li>
+</ul>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjiq5nwmz001dbwuwtxxjn7zc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/20/TIL-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/20/TIL-1/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
             <a class="article-title" href="/2018/06/20/TIL/">TIL 20180619</a>
         </h1>
     
@@ -255,7 +688,7 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프로트엔드-스쿨과정-리액트"><a href="#1-프로트엔드-스쿨과정-리액트" class="headerlink" title="1. 프로트엔드 스쿨과정 - 리액트"></a>1. 프로트엔드 스쿨과정 - 리액트</h3><ul>
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
 <li>Provider의 적절한 위치는?</li>
 <li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li>
 <li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li>
@@ -263,7 +696,7 @@ ga('send', 'pageview');
 <li>react-router 소개 및 실습</li>
 </ul>
 <p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p>
-<h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴폰너트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p>
+<h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴포넌트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p>
 <h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
 <li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li>
 <li>자기소개서 최종 검토하기</li>
@@ -278,7 +711,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjilwlwg3001j5wuw2j0sgizq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjiq5nwn7001ibwuw7vfa53sy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -428,7 +861,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjilwlwew000y5wuwlutodjt2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjiq5nwna001lbwuwe7qofcun" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -566,7 +999,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjilwlwep000t5wuwylik9eu4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjiq5nwmv001abwuwr54tr2ho" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -719,7 +1152,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjilwlwg9001n5wuwrej2pj72" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjiq5nwmp0015bwuwd9kvazdw" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -860,7 +1293,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjilwlwe0000h5wuwe3f92xt3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjiq5nwmj000ybwuwe4zvupu2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -996,7 +1429,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjilwlwe6000m5wuwvirni2zj" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjiq5nwmm0012bwuwvi44ly3k" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1162,7 +1595,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjilwlweb000n5wuw2tvv0h26" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjiq5nwme000rbwuwssxs5x1z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1240,466 +1673,8 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/14/TIL-1/">TIL 20180614</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/14/TIL-1/">
-            <time datetime="2018-06-14T11:16:32.000Z" itemprop="datePublished">2018.06.14</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-RGB-Challenge-리액트를-이용해-다시-만들어보기"><a href="#1-RGB-Challenge-리액트를-이용해-다시-만들어보기" class="headerlink" title="1. RGB Challenge 리액트를 이용해 다시 만들어보기"></a>1. RGB Challenge 리액트를 이용해 다시 만들어보기</h3><p>전날 배운 context를 이용하는 부분은 잘 이해가 되지 않아서 문서를 봤는데, 일단 todo 리스트 실습때 진행했던 것처럼 컴포넌트, state, props를 통해 단순하게 만들어 보는 것부터 시작해서 하나씩 변경해 봐야할 것 같다.<br>그냥 DOM API로 만들때는 금방 만들었던 것을 구조를 분리해서 컴포넌트 별로 따로 만들고 어떤 것을 상태로 할 지 어떤 것이 컴포넌트 간 공유되는 상태일지를 구분하려니 오히려 오래 걸렸다. 만약 이 게임 자체가 규모가 크다면 이렇게 컴포넌트 별로 분리하는 것은 장기적으로 봤을때 유지보수 하기에는 좀 수월해 질지 모르겠지만 현재 규모에서는 생산성면에서 별로 좋은 방법이 아닌 것 같다.  </p>
-<p>아직 context를 이용해보지는 못했는데, 역할과 책임에 따라 정리하는 것이 가장 어렵게 느껴졌다.<br>컬러코드 컴포넌트와 공유되는 상태를 관리하는 조상 컴포넌트와의 사이에 컴포넌트가 많아져서 context를 활용해야 할 것 같다.<br>컬러 코드를 랜덤으로 계산해내는 부분은 클래스의 메소드로 만드는 것이 적합하지 않은 것 같아서 따로 함수로 빼냈는데, 이렇게 하는게 맞는지는 꼭 주말까지 완성해서 강사님의 피드백을 들을 수 있도록 해야겠다.</p>
-<h3 id="2-기능명세-작성-과제"><a href="#2-기능명세-작성-과제" class="headerlink" title="2. 기능명세 작성 과제"></a>2. 기능명세 작성 과제</h3><p>medical factory 사이트의 로그인 / 회원가입 / 리뷰 페이지를 분석하며 어떤 명세를 통해 만들었을지 명세를 도출해보는 것이 과제였다. 구글 드라이브를 통해 정리했다. 수업시간에 명세를 너무 자세하게 작성하지 말라고 주의해주셨었는데, 자꾸 작성할 것이 늘어나서 이렇게 작성하는게 맞는지 의구심이 든다.;;  </p>
-<p>찾아보니 기능 명세나 기술 명세에 특별한 폼은 없는 것 같았다. 그래서 그런지 이런식으로 작성해야 한다라고 딱 정리한 글도 찾기 어려웠다.<br>좀 시간이 걸렸지만, 로그인 / 회원가입 같은 경우는 대부분의 서비스에 들어가는 부분이라 왠지 구축할 때 도움이 될 것 같아서 자세히 분석해봤다. 보다보니 생각보다 누락하거나 유효하지 않은 입력에 대해 검증해야 하는 부분이 많았다. 나도 만들때 이런 부분은 신경 써줘야겠다는 생각을 하게되었다.</p>
-<h3 id="3-git-alias"><a href="#3-git-alias" class="headerlink" title="3. git alias"></a>3. git alias</h3><p>git 명령어 몇가지를 alias로 만들어두었다. 만들어두니 <code>git flow ~</code> 명령을 쓰기가 훨씬 수월해졌다.  </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> gfi=<span class="string">'git flow init'</span></span><br><span class="line"><span class="built_in">alias</span> gff=<span class="string">'git flow feature'</span></span><br><span class="line"><span class="built_in">alias</span> gfr=<span class="string">'git flow release'</span></span><br><span class="line"><span class="built_in">alias</span> gfh=<span class="string">'git flow hotfix'</span></span><br><span class="line"><span class="built_in">alias</span> gfs=<span class="string">'git flow support'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> gcm=<span class="string">'git commit -m'</span></span><br><span class="line"><span class="built_in">alias</span> npxreact=<span class="string">'npx create-react-app'</span></span><br></pre></td></tr></table></figure>
-<p>너무 많으면 또 외워야하고 잘못 사용할 수도 있을 것 같아서 긴 명령어 위주로 이정도만 해두었다.<br>작성에 사용한 명령어는 다음과 같다.<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul>
-<li>RGB 챌린지 주말까지 완성하기(context 사용하기)</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL-1/" data-id="cjilwlwde000b5wuweqg9kzbn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/14/TIL-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/14/TIL-1/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/14/TIL/">TIL 20180613</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/14/TIL/">
-            <time datetime="2018-06-13T16:28:49.000Z" itemprop="datePublished">2018.06.14</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-과정-리액트-실습"><a href="#1-프론트엔드-개발-과정-리액트-실습" class="headerlink" title="1. 프론트엔드 개발 과정 - 리액트 실습"></a>1. 프론트엔드 개발 과정 - 리액트 실습</h3><p>수업시간에 Provider와 Consumenr랑 props.children이 등장했다. 정신이 혼미해진다.<br>계속 상태를 필요한 하위 컴포넌트로 내려보내야 한다면 불편하지 않나라고 생각했는데, 그부분을 context를 통해 개선할 수 있단 점이 매력적이지만 역할과 책임에 따라 분리한다거나, 쓰는 방법 자체는 여러번 써봐야겠다. </p>
-<h3 id="2-Algorithm-문제-풀이"><a href="#2-Algorithm-문제-풀이" class="headerlink" title="2. Algorithm 문제 풀이"></a>2. Algorithm 문제 풀이</h3><p>알고리즘 문제를 푸는 건 잘 못하지만 재미있다. 특히 끙끙 거리며 풀었는데, 가장 성능이 좋은 코드와 현저하게 차이가 나면 대체 무슨 방법으로 풀었을까 엄청 궁금하다. 그래도 한번에 보기에는 좀더 고민해야 될 것 같아서 내가 푼 풀이를 좀 더 다듬었는데, 아쉽게도 별로 속도 개선이 되지 않았다. 그래서 다른 사람 풀이를 봤는데, 접근방식이 달랐다.<br>이런 점이 재미있는것 같다. 이런 식으로도 풀수 있구나 대단하다 생각하면서도 앞으로 나도 이렇게 풀어봐야지 하면서 얻게되는 게 있는것 같다.</p>
-<hr>
-<p>오늘은 복습을 많이 했어야 했는데, 많이 하지 못했다. 그래도 내가 많이 의지했던 언니의 고민을 들어주고 계속 우울해했던 언니의 기운을 북돋아 줄 수 있어서 오늘 하루에 그렇게 아쉬움은 없다. 대신 내일 정말 열심히 복습해야겠다.  </p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL/" data-id="cjilwlwei000r5wuw0ivmu6o0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/14/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/14/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/13/Roman-to-Integer/">Roman to Integer</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/13/Roman-to-Integer/">
-            <time datetime="2018-06-13T06:15:36.000Z" itemprop="datePublished">2018.06.13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/roman-to-integer/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>I</td>
-<td>1</td>
-</tr>
-<tr>
-<td>V</td>
-<td>5</td>
-</tr>
-<tr>
-<td>X</td>
-<td>10</td>
-</tr>
-<tr>
-<td>L</td>
-<td>50</td>
-</tr>
-<tr>
-<td>C</td>
-<td>100</td>
-</tr>
-<tr>
-<td>D</td>
-<td>500</td>
-</tr>
-<tr>
-<td>M</td>
-<td>1000</td>
-</tr>
-</tbody>
-</table>
-<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number &gt; twenty seven is written as XXVII, which is XX + V + II.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
-<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.<br>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 143 - 152ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> newS = s.split(<span class="string">''</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> ROMAN[item]);</span><br><span class="line">  <span class="keyword">return</span> newS.reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> acc + (before &lt; item &amp;&amp; before ? item - (before * <span class="number">2</span>) : item)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>다른 방법도 생각해보려고 했는데, 도저히… map(), reduce() 메소드로 배열을 두번 탐색한게 마음에 걸린다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 156ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">''</span>).reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">const</span> beforeInt = ROMAN[before]</span><br><span class="line">    <span class="keyword">const</span> itemInt = ROMAN[item]</span><br><span class="line">    <span class="keyword">return</span> acc + (beforeInt &lt; itemInt &amp;&amp; beforeInt ? itemInt - (beforeInt * <span class="number">2</span>) : itemInt)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>reduce 한번으로 처리하도록 변경했는데 이것도 그닥 속도가 개선되지는 않았다.</p>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getIntFromRoman = &#123;</span><br><span class="line">    I: <span class="number">1</span>,</span><br><span class="line">    V: <span class="number">5</span>,</span><br><span class="line">    X: <span class="number">10</span>,</span><br><span class="line">    L: <span class="number">50</span>,</span><br><span class="line">    C: <span class="number">100</span>,</span><br><span class="line">    D: <span class="number">500</span>,</span><br><span class="line">    M: <span class="number">1000</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> curr, next;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        curr = getIntFromRoman[s[i]];</span><br><span class="line">        next = getIntFromRoman[s[i+<span class="number">1</span>]];</span><br><span class="line">        <span class="keyword">if</span>(curr &lt; next)</span><br><span class="line">            sum -= curr;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            sum += curr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum + getIntFromRoman[s[s.length<span class="number">-1</span>]];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>for문을 통해 따로 sum 에 더해주는 방식으로 처리했다. 그리고 현재 문자가 다음 문자보다 작으면 오히려 빼주는데, 그렇게 하면 4내지는 9가 나오게 되니 이렇게 풀 수도 있구나하고 깨달음이…</p>
-<p>나는 조건 분기했는데… </p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/" data-id="cjilwlwf700145wuws0j47i2k" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/13/Roman-to-Integer/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1711,6 +1686,33 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/06/23/TIL/" class="title">TIL 20180622</a></p>
+                            <p class="item-date"><time datetime="2018-06-22T15:12:20.000Z" itemprop="datePublished">2018.06.23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/06/21/TIL/" class="title">TIL 2018021</a></p>
+                            <p class="item-date"><time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/06/20/TIL-1/" class="title">TIL 20180620</a></p>
+                            <p class="item-date"><time datetime="2018-06-20T13:23:10.000Z" itemprop="datePublished">2018.06.20</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1730,33 +1732,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/17/TIL/" class="title">TIL 20180617</a></p>
-                            <p class="item-date"><time datetime="2018-06-17T10:13:10.000Z" itemprop="datePublished">2018.06.17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/06/17/Longet-Common-Prefix/" class="title">Longet Common Prefix</a></p>
-                            <p class="item-date"><time datetime="2018-06-17T09:08:46.000Z" itemprop="datePublished">2018.06.17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/16/TIL-1/" class="title">TIL 20180616</a></p>
-                            <p class="item-date"><time datetime="2018-06-16T11:54:09.000Z" itemprop="datePublished">2018.06.16</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1766,7 +1741,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">11</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">14</span></li></ul>
         </div>
     </div>
 
@@ -1775,7 +1750,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">19</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">22</span></li></ul>
         </div>
     </div>
 
