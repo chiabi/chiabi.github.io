@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                25
+                26
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,161 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-HammingDistance" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/16/HammingDistance/">HammingDistance</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/16/HammingDistance/">
+            <time datetime="2018-07-16T02:07:15.000Z" itemprop="datePublished">2018.07.16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="noopener">The Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
+<p>Given two integers x and y, calculate the Hamming distance.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>0 ≤ x, y &lt; 231.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Input: x = 1, y = 4</li>
+<li>Output: 2</li>
+</ul>
+<p><strong>Explanation:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1   (0 0 0 1)</span><br><span class="line">&gt; 4   (0 1 0 0)</span><br><span class="line">&gt;        ↑   ↑</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>The above arrows point to positions where the corresponding bits are different.</p>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><blockquote>
+<p>※ <strong>해밍거리(Hamming Distance)</strong><br>블록 부호 이론에서, 해밍 거리(Hamming距離, 영어: Hamming distance)는 곱집합 위에 정의되는 거리 함수이다. 대략, 같은 길이의 두 문자열에서, 같은 위치에서 서로 다른 기호들이 몇 개인지를 센다.</p>
+</blockquote>
+<p>주어진 값들을 이진수 형태에서 비교해서 같은 위치에 다른 수가 몇개인지를 세면 되는 것 같다. 이진수로 바꾸는 방법은 toString 메소드를 사용했고, 수에 따라 같은 길이가 아닐 수 있으니 뒤의 수부터 비교해주기로 했다.<br>sort를 이용해 길이가 긴 수를 정해서 reduce를 통해 그 길이에 수가 둘 다 있으면 두 수(문자)를 비교해 다르면 누적에 1을 더하고 만약 위치에 수가 없으면 수가 있는 배열의 값이 ‘1’일 경우 더한다. </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56 ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = [x.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse(), y.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse()].sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b.length - a.length);</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>].reduce(<span class="function">(<span class="params">acc, item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[<span class="number">1</span>][index] &amp;&amp; arr[<span class="number">1</span>][index] !== item) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!arr[<span class="number">1</span>][index] &amp;&amp; item === <span class="string">'1'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> acc</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>이걸 한 줄로 푸네…</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 60ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x ^ y).toString(<span class="number">2</span>).split(<span class="string">'0'</span>).join(<span class="string">''</span>).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjodq0w1001vm0uwun61ei83" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/16/HammingDistance/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/16/HammingDistance/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-flipAndInvertImage" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -297,7 +452,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjjmx7o69001jrouwbheqwxu4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjjodq0vk001lm0uwmml53hvq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -448,7 +603,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjjmx7o64001frouwwjznl0t3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjjodq0wt002hm0uw6a21fw5x" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -608,7 +763,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjjmx7o6c001mrouwq546szmt" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjjodq0vo001om0uwy2qnsl6o" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -750,7 +905,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjjmx7o6o001trouwl65lncgc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjjodq0v9001hm0uwftddvr71" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -886,7 +1041,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjjmx7o5x0019rouwm2ngika1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjjodq0ux001am0uwe58u8o1l" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1041,7 +1196,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjjmx7o5z001crouwfgua0hse" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjjodq0wa0020m0uwnyywdd2e" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1185,7 +1340,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjjmx7o5u0015rouwzc98bwr3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjjodq0v3001em0uwmgcgb1g7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1335,7 +1490,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjjmx7o6k001qrouw1vac6nv4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjjodq0us0017m0uw7abshvwd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1473,7 +1628,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjjmx7o5n000yrouwsjg37fsh" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjjodq0ua000xm0uwenulkaul" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1551,160 +1706,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-Longet-Common-Prefix" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/17/Longet-Common-Prefix/">Longet Common Prefix</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/17/Longet-Common-Prefix/">
-            <time datetime="2018-06-17T09:08:46.000Z" itemprop="datePublished">2018.06.17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/longest-common-prefix/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Write a function to find the longest common prefix string amongst an array of strings.</p>
-<p>If there is no common prefix, return an empty string “”.</p>
-<p><strong>Example 1:</strong></p>
-<ul>
-<li>Input: [“flower”,”flow”,”flight”]</li>
-<li>Output: “fl”</li>
-</ul>
-<p><strong>Example 2:</strong></p>
-<ul>
-<li>Input: [“dog”,”racecar”,”car”]</li>
-<li>Output: “”</li>
-<li>Explanation: There is no common prefix among the input strings.<br><strong>Note:</strong><br>All given inputs are in lowercase letters a-z.</li>
-</ul>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>더 좋은 방법이 생각나지 않아서 일단 난폭하게 for 문 두 번 돌려서 풀어보기로 했다. 이렇게 하지 않고 푸는 방법이 있을까… 생각이 안 난다.<br>배열에 아무것도 들어있지 않은 경우도 고려한 문제였던 모양이다. 계속 런타임 에러가 나길래 보니 빈 배열이 들어가고 있었다.<br>for문을 두 번 돌렸지만, 어차피 prefix 찾는 거라서 앞에서 일치하는 경우 외에는 버리기 때문에 return으로 종료시켜 버렸다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64ms</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> first = strs[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">if</span> (first == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, il = first.length; i &lt; il; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">1</span>, jl = strs.length; j &lt; jl; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(first[i] !== strs[j][i]) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    str += first[i];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 60ms</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> first = strs[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">if</span> (first == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">const</span> newStrs = strs.slice(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(i &lt; first.length) &#123;</span><br><span class="line">    <span class="keyword">if</span>(newStrs.every(<span class="function">(<span class="params">item</span>) =&gt;</span> item[i] === first[i])) &#123;</span><br><span class="line">      str += first[i]</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>배열의 every 메서드와 while로 풀어봤다. 속도가 크게 개선되지는 않았다.</p>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 50ms</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(!strs.length) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">if</span>(strs.length === <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">let</span> prefix = strs[<span class="number">0</span>];</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> strs) &#123;</span><br><span class="line">    <span class="keyword">while</span>(strs[i].indexOf(prefix) !== <span class="number">0</span>) &#123;</span><br><span class="line">      prefix = prefix.substring(<span class="number">0</span>, prefix.length - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span>(!prefix.length) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="keyword">return</span> prefix; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>나와 다른 접근법이다. 나는 배열에 있는 요소의 인덱스를 앞에서부터 돌면서 그 인덱스의 문자열이 모두 같으면 <code>str</code>에 더해서 prefix를 만들어 반환했는데,<br>여기는 일단 첫번째 문자열을 prefix라 가정하고 시작한다. 배열의 요소를 하나씩 순회하면서 prefix와 일치하는 문자열을 가지지 않으면 prefix에서 거꾸로 문자를 줄여가며 대조한다.</p>
-<p>그렇다면 첫번째 문자열은 이미 prefix인데 for in문으로 첫번째 요소를 굳이 돌 필요가 있나 했는데, for loop로 인덱스 1부터 도는 것보다 어차피 while문 조건에 걸려서 다음 요소로 넘어가니까 for in문을 쓰는 게 더 빠른가보다.(환경에 따라 다를 수 있겠지만)</p>
-<p>핵심은 <code>indexOf</code>의 사용인 것 같다. 문자열 하나씩 더하는 것보단 문자열 뭉치가 있는 지 확인하는 것이 더 효율적이니까.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms</span></span><br><span class="line"><span class="keyword">var</span> longestCommonPrefix = <span class="function"><span class="keyword">function</span>(<span class="params">strs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!strs.length) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">if</span>(strs.length === <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">let</span> prefix = strs[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>, l = strs.length; i &lt; l; i++) &#123;</span><br><span class="line">    <span class="keyword">while</span>(strs[i].indexOf(prefix) !== <span class="number">0</span>) &#123;</span><br><span class="line">      prefix = prefix.substring(<span class="number">0</span>, prefix.length - <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span>(!prefix.length) <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> prefix;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjjmx7o79001xrouw253uto6l" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1718,6 +1719,15 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/07/16/HammingDistance/" class="title">HammingDistance</a></p>
+                            <p class="item-date"><time datetime="2018-07-16T02:07:15.000Z" itemprop="datePublished">2018.07.16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1755,15 +1765,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/21/TIL/" class="title">TIL 2018021</a></p>
-                            <p class="item-date"><time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1773,7 +1774,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
         </div>
     </div>
 
@@ -1782,7 +1783,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
