@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
 <meta property="og:description" content="leetcode 문제링크  The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:  0">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-16T14:41:11.636Z">
+<meta property="og:updated_time" content="2018-07-16T15:09:50.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HammingDistance">
 <meta name="twitter:description" content="leetcode 문제링크  The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:  0">
@@ -268,7 +268,7 @@ ga('send', 'pageview');
 <li>Input: x = 1, y = 4</li>
 <li>Output: 2</li>
 </ul>
-<p><strong>Explanation:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1   (0 0 0 1)</span><br><span class="line">&gt; 4   (0 1 0 0)</span><br><span class="line">&gt;        ↑   ↑</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Explanation:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1   (0 0 0 1)</span><br><span class="line">4   (0 1 0 0)</span><br><span class="line">       ↑   ↑</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <blockquote>
 <p>The above arrows point to positions where the corresponding bits are different.</p>
@@ -280,6 +280,45 @@ ga('send', 'pageview');
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56 ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = [x.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse(), y.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse()].sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b.length - a.length);</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>].reduce(<span class="function">(<span class="params">acc, item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[<span class="number">1</span>][index] &amp;&amp; arr[<span class="number">1</span>][index] !== item) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!arr[<span class="number">1</span>][index] &amp;&amp; item === <span class="string">'1'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> acc</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>이걸 한 줄로 푸네…</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 60ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x ^ y).toString(<span class="number">2</span>).split(<span class="string">'0'</span>).join(<span class="string">''</span>).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1-Bitwise-XOR"><a href="#1-Bitwise-XOR" class="headerlink" title="1. ^(Bitwise XOR)"></a>1. ^(Bitwise XOR)</h3><ul>
+<li>MDN - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_XOR" target="_blank" rel="noopener">^(Bitwise XOR)</a></li>
+<li>위키백과 - <a href="https://ko.wikipedia.org/wiki/%EB%B0%B0%ED%83%80%EC%A0%81_%EB%85%BC%EB%A6%AC%ED%95%A9" target="_blank" rel="noopener">배타적 논리합</a></li>
+</ul>
+<p>^부분이 이해가 안되었는데 XOR이라는 연산자로 다음의 표와 같이 a와 b가 다른 경우 1을 산출한다고 한다.  </p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>a XOR b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.    9 (base 10) = 00000000000000000000000000001001 (base 2)</span><br><span class="line">    14 (base 10) = 00000000000000000000000000001110 (base 2)</span><br><span class="line">                   --------------------------------</span><br><span class="line">14 ^ 9 (base 10) = 00000000000000000000000000000111 (base 2) = 7 (base 10)</span><br></pre></td></tr></table></figure>
+<p>그렇다면 위의 풀이에서 x, y 간의 배타적 논리합을 구해서 그 수의 이진수 표현(문자열) 중 문자 ‘0’을 제거하면(split(‘0’)) ‘1’만 남게 되는 데 이 1은 x, y가 같은 위치에 다른 문자였음을 의미하니까 그 길이를 구하면 원하는 결과를 얻을 수 있다.<br>다만, 왜 이 풀이가 내 풀이보다 느린 지 아직 잘 모르겠다.</p>
+
         
         </div>
         <footer class="article-footer">
@@ -289,7 +328,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjodq0w1001vm0uwun61ei83" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjoeor7b0027nsuwz71490mz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
