@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
 <meta property="og:description" content="leetcode 문제링크  The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:  0">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-17T15:54:32.212Z">
+<meta property="og:updated_time" content="2018-07-17T17:08:03.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hamming Distance">
 <meta name="twitter:description" content="leetcode 문제링크  The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:  0">
@@ -316,8 +316,11 @@ ga('send', 'pageview');
 </tr>
 </tbody>
 </table>
+<p>비트 연산자는 피연산자를 10진수나 16진수나 8진수와 같은 숫자가 아니라, 32비트(0과 1)의 집합으로 표현한다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.    9 (base 10) = 00000000000000000000000000001001 (base 2)</span><br><span class="line">    14 (base 10) = 00000000000000000000000000001110 (base 2)</span><br><span class="line">                   --------------------------------</span><br><span class="line">14 ^ 9 (base 10) = 00000000000000000000000000000111 (base 2) = 7 (base 10)</span><br></pre></td></tr></table></figure>
-<p>그렇다면 위의 풀이에서 x, y 간의 배타적 논리합을 구해서 그 수의 이진수 표현(문자열) 중 문자 ‘0’을 제거하면(split(‘0’)) ‘1’만 남게 되는 데 이 1은 x, y가 같은 위치에 다른 문자였음을 의미하니까 그 길이를 구하면 원하는 결과를 얻을 수 있다.<br>다만, 왜 이 풀이가 내 풀이보다 느린 지 아직 잘 모르겠다.</p>
+<p>그렇다면 위의 풀이에서 x, y 간의 배타적 논리합을 구해서 그 수의 이진수 표현(문자열) 중 문자 ‘0’을 제거하면(split(‘0’)) ‘1’만 남게 되는 데 이 1은 x, y가 같은 위치에 다른 문자였음을 의미하니까 그 길이를 구하면 원하는 결과를 얻을 수 있다.  </p>
+<hr>
+<p>다만, 왜 이 풀이가 내 풀이보다 느린 지 아직 잘 모르겠다. 처음에는 32비트 집합간의 비교라서 그런건가 했는데 비트가 더…느릴 수…있나? 왠지 환경에 따라 다를 것 같은 미미한 차이라…</p>
 
         
         </div>
@@ -328,7 +331,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjpxjp5v001imouwtmfeua2h" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjpyc4nm002h88uw4moelz4n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
