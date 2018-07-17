@@ -3,20 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Palindrome Number | Chiabi&#39;s dev blog</title>
+    <title>Judge Route Circle | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="leetcode 문제링크  Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Example 1:  Input: 121 Output: true  Example 2:Input: -121Output: fa">
+    <meta name="description" content="Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by">
 <meta name="keywords" content="algorithm,leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Palindrome Number">
-<meta property="og:url" content="http://chiabi.github.io/2018/06/15/Palindrome-Number/index.html">
+<meta property="og:title" content="Judge Route Circle">
+<meta property="og:url" content="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="leetcode 문제링크  Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Example 1:  Input: 121 Output: true  Example 2:Input: -121Output: fa">
+<meta property="og:description" content="Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-17T09:10:54.176Z">
+<meta property="og:updated_time" content="2018-07-17T16:45:48.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Palindrome Number">
-<meta name="twitter:description" content="leetcode 문제링크  Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Example 1:  Input: 121 Output: true  Example 2:Input: -121Output: fa">
+<meta name="twitter:title" content="Judge Route Circle">
+<meta name="twitter:description" content="Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by">
     
 
     
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-Palindrome-Number" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-JudgeRouteCircle" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +220,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            Palindrome Number
+            Judge Route Circle
         </h1>
     
 
@@ -229,8 +229,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/15/Palindrome-Number/">
-            <time datetime="2018-06-14T17:37:32.000Z" itemprop="datePublished">2018.06.15</time>
+        <a href="/2018/07/17/JudgeRouteCircle/">
+            <time datetime="2018-07-17T14:40:55.000Z" itemprop="datePublished">2018.07.17</time>
         </a>
     </div>
 
@@ -255,41 +255,27 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p><a href="https://leetcode.com/problems/palindrome-number/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+            <blockquote>
+<p>Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.</p>
+<p>The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.</p>
 <p><strong>Example 1:</strong></p>
 <ul>
-<li>Input: 121</li>
+<li>Input: “UD”</li>
 <li>Output: true</li>
 </ul>
-<p><strong>Example 2:</strong><br>Input: -121<br>Output: false<br>Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</p>
-<p><strong>Example 3:</strong><br>Input: 10<br>Output: false<br>Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</p>
-<p><strong>Follow up:</strong><br>Coud you solve it without converting the integer to a string?</p>
-</blockquote>
-<p><del>예?? 이걸 문자열화 하지 말고 풀라구요???</del></p>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>난이도 easy만 먼저 풀어보는데 속도에 집착하다보니 난이도가 easy가 아닌 것만 같은 기분…</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 304ms </span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> str = x.toString();</span><br><span class="line">  <span class="keyword">const</span> reverseStr = str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> str === reverseStr</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Hint: Beware of overflow when you reverse the integer.</p>
-</blockquote>
-<p>네..그렇군요… 뒤집는 건 주의해야겠군요…세상에…<br>아래는 while문을 통해 앞 / 뒤로 접근해서 비교하도록 하는 방법인데,<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 268ms</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> str = x.toString();</span><br><span class="line">  <span class="keyword">const</span> l = str.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">while</span>(i &lt;= l) &#123;</span><br><span class="line">    <span class="keyword">if</span>(str[i] !== str[l - i]) &#123;</span><br><span class="line">      <span class="keyword">return</span> (result = <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>반으로 나눠야 중복되는 비교를 안하겠구나 생각해서 아래와 같이 수정했지만 속도가 크게 개선되지는 않았다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 260ms 속도 개선이 별로..</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> str = x.toString();</span><br><span class="line">  <span class="keyword">const</span> l = str.length;</span><br><span class="line">  <span class="keyword">const</span> half = <span class="built_in">Math</span>.floor(l / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">const</span> strF = str.slice(<span class="number">0</span>, half);</span><br><span class="line">  <span class="keyword">const</span> strB = str.slice(l % <span class="number">2</span> === <span class="number">0</span> ? half : half + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">while</span>(i &lt; half) &#123;</span><br><span class="line">    <span class="keyword">if</span>(strF[i] !== strB[(half - <span class="number">1</span>) - i]) &#123;</span><br><span class="line">      <span class="keyword">return</span> result = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>혹시나 해서 reverse 메소드를 사용하는 방법을 반으로 나눠서 하는 방법으로 다시 풀어봤다.<br>300ms가 280ms로 속도가 개선되었으나 앞의 풀이 방법에 비하면 느리다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 280ms</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> str = x.toString();</span><br><span class="line">  <span class="keyword">const</span> l = str.length;</span><br><span class="line">  <span class="keyword">if</span> (l === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> half = <span class="built_in">Math</span>.floor(l / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">const</span> strF = str.slice(<span class="number">0</span>, half);</span><br><span class="line">  <span class="keyword">const</span> strB = str.slice(l % <span class="number">2</span> === <span class="number">0</span> ? half : half + <span class="number">1</span>).split(<span class="string">''</span>).reverse().join(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> strF === strB</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>문자열화하지 않고 숫자인 상태에서 풀면 좀 더 빠를까해서 아래와 같이 풀었는데, 더 느려졌다. 아마 이 역시 주어진 수를 반으로 나눠서 푸는 게 아니라서 그런 것 같다.(수의 길이(?)만큼 비교하게 된다.)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 300ms 아악 더 느려졌다.</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> xClone = x;</span><br><span class="line">  <span class="keyword">const</span> arr = [];</span><br><span class="line">  <span class="keyword">while</span>(xClone) &#123;</span><br><span class="line">    <span class="keyword">const</span> X = xClone % <span class="number">10</span>;</span><br><span class="line">    xClone = <span class="built_in">parseInt</span>(xClone / <span class="number">10</span>);</span><br><span class="line">    arr.push(X % <span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x === <span class="built_in">parseInt</span>(arr.join(<span class="string">''</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>뭔가 숫자를 반으로 쪼갤 수 있으면 좋겠는데, 이 부분은 방법이 잘 생각나지 않아서 solution을 보기로 했다.<br>아래는 solution을 참고한 풀이  </p>
-<blockquote>
-<p>Approach 1: Revert half of the number<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C#</span></span><br><span class="line"><span class="keyword">while</span>(x &gt; revertedNumber) &#123;</span><br><span class="line">    revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">    x /= <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>이부분을 통해 수를 반으로 나눠 반복문 안에서 비교할 수 있도록 하는 방법이다.<br>C#의 문법을 잘 모르지만 C#은 알아서 소수점 아래는 제거해주는 건지;; 아무튼 소수점 아래가 생겨버리므로 나는 JavaScript로 풀어야하니까 parseInt를 통해 정수로 계산되도록 했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 256ms</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> xC = x;</span><br><span class="line">  <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x % <span class="number">10</span> === <span class="number">0</span> &amp;&amp; x !== <span class="number">0</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> revert = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(xC &gt; revert) &#123;</span><br><span class="line">    revert = <span class="built_in">parseInt</span>(revert * <span class="number">10</span> + xC % <span class="number">10</span>);</span><br><span class="line">    xC = <span class="built_in">parseInt</span>(xC / <span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> xC === revert || xC === <span class="built_in">parseInt</span>(revert / <span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p><strong>Complexity Analysis</strong></p>
+<p><strong>Example 2:</strong></p>
 <ul>
-<li>Time complexity : <math><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mn>10</mn></msub><mi mathvariant="monospace">n</mi><mo>)</mo></mrow></math><br>We divided the input by 10 for every iteration, so the time complexity is <math><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mn>10</mn></msub><mi mathvariant="monospace">n</mi><mo>)</mo></mrow></math></li>
-<li>Space complexity : <math><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow></math></li>
+<li>Input: “LL”</li>
+<li>Output: false</li>
 </ul>
 </blockquote>
-<p>라는데, 복잡성 공부를 해야겠다… 댓글에서는 ‘왜 <math><mrow><mi>O</mi><mo>(</mo><msub><mi>log</mi><mn>10</mn></msub><mi mathvariant="monospace">n</mi><mo>)</mo></mrow></math>이냐 <math><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow></math>이 맞다’, ‘아니다 솔루션 저자가 맞다’로 의견이 분분한 듯한데 아직 잘 모르겠다;;</p>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제 자체를 이해하기가 좀 어려웠다. 괜히 Circle이라 그래서 왜 원이 되지?라고 생각했는데, 그림을 그려보면 이해하기 쉬웠다. 예를들면 “RLUURDDLU”를 좌표 (0, 0)에서 시작한다고 생각해서 방향따라 그려보면 결국 다시 (0, 0)의 위치로 오게 된다. 이 경우 로봇이 원을 만든다고 가정하여 <code>true</code>를 반환하면 된다. 그래서 “LDRRLRUULR”의 경우 그려보면 (0, 0)의 위치로 돌아오지 않기 때문에 <code>false</code>를 반환하면 된다.  </p>
+<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아 갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>이번에는 for문을 통해 문자열을 하나씩 탐색해서 x와 y의 값에 변화를 주는 방법을 사용했다. 오른쪽으로 이동하면 x좌표가 1추가되고 왼쪽으로 이동하면 x좌표가 1 감소하는 것이라 모든 문자열을 탐색한 뒤에 x와 y의 좌표가 다시 0이 되었는지 확인한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> moves) &#123;</span><br><span class="line">        i === <span class="string">'R'</span> ? x++ : </span><br><span class="line">        i === <span class="string">'L'</span> ? x-- :</span><br><span class="line">        i === <span class="string">'U'</span> ? y-- :</span><br><span class="line">        i === <span class="string">'D'</span> &amp;&amp; y++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x === <span class="number">0</span> &amp;&amp; y === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>같은 접근법인데 reduce 메소드를 이용해 본 방법<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = moves.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">const</span> hor = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'R'</span> ? <span class="number">1</span> : item === <span class="string">'L'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">const</span> ver = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'U'</span> ? <span class="number">1</span> : item === <span class="string">'D'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> !(hor + ver)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>같은 접근법인데 60ms이길래 환경이 달라서 그런 것 같아서 내가 다시 넣고 돌려보니 72ms가 걸렸다. 각 변수로 x, y를 넣는 대신 배열로 두고 switch 문을 사용한 방법이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = [<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; moves.length; i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(moves[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'U'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'R'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(origin[<span class="number">0</span>] == <span class="number">0</span> &amp;&amp; origin[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>문제의 좋아요와 싫어요 수가 거의 비슷해서 왜 인가했는데, 문제 자체가 이해가 어려워서였던 것 같다. 괜히 원을 만든다는 가정이 문제를 이해하기 어렵게 했다. 근데 문제 자체를 이해하고 나니 풀이는 재미있었다.<br>특히 <code>match</code>메소드를 이용해서 <code>null</code>이 나오는데 배열의 <code>length</code> 프로퍼티로 비교하려고 하려면 어떻게 처리해야할까 고민했는데, <code>||</code> 논리 연산자를 이용해 match 메소드에서 <code>null</code>이 나오면 변수에 빈배열이 대입되도록 처리했다. 두번째 풀이의 삼항연산자에 쓴 것과 같이 <code>&amp;&amp;</code>와 <code>||</code>같은 논리 연산자의 특성을 활용해보니 코드가 굉장히 깔끔해보여서 기분이 좋았다.</p>
 
         
         </div>
@@ -300,7 +286,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjjpxjp40000nmouwh6vvru5q" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjpxjp6c001pmouw8f6k67uv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -368,7 +354,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/06/15/Palindrome-Number/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/">Comments</a>
+        <a href="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/">Comments</a>
     
 
         </footer>
@@ -377,19 +363,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/06/16/TIL/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    TIL 20180615
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/06/14/TIL-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/07/16/HammingDistance/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">TIL 20180614</div>
+            <div class="article-nav-title">Hamming Distance</div>
         </a>
     
 </nav>
@@ -514,9 +491,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/06/15/Palindrome-Number/';
+            this.page.url = 'http://chiabi.github.io/2018/07/17/JudgeRouteCircle/';
         
-        this.page.identifier = 'Palindrome-Number';
+        this.page.identifier = 'JudgeRouteCircle';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
