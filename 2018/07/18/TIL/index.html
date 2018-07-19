@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Archive: 2018 | Chiabi&#39;s dev blog</title>
+    <title>TIL | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+    <meta name="description" content="오늘 한 일Javascript30 14차 JavaScript References VS Copying  원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다. 다음은 배열을 복사하는 방법이다.(단, 얕은 복사)123456const cats = [&apos;Syami&apos;, &apos;Jojo&apos;, &apos;Loki&apos;, &apos;Kkonnim&apos;];const team1">
 <meta name="keywords" content="front end developer,front end engineer,Javascript,TIL,Today I learned,ECMAScript2015,ES6,React,HTML5,CSS3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chiabi&#39;s dev blog">
-<meta property="og:url" content="http://chiabi.github.io/archives/2018/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIL">
+<meta property="og:url" content="http://chiabi.github.io/2018/07/18/TIL/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta property="og:description" content="오늘 한 일Javascript30 14차 JavaScript References VS Copying  원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다. 다음은 배열을 복사하는 방법이다.(단, 얕은 복사)123456const cats = [&apos;Syami&apos;, &apos;Jojo&apos;, &apos;Loki&apos;, &apos;Kkonnim&apos;];const team1">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-07-19T02:37:41.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chiabi&#39;s dev blog">
-<meta name="twitter:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta name="twitter:title" content="TIL">
+<meta name="twitter:description" content="오늘 한 일Javascript30 14차 JavaScript References VS Copying  원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다. 다음은 배열을 복사하는 방법이다.(단, 얕은 복사)123456const cats = [&apos;Syami&apos;, &apos;Jojo&apos;, &apos;Loki&apos;, &apos;Kkonnim&apos;];const team1">
     
 
     
@@ -211,378 +212,174 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fas fa-calendar-alt"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/20/TIL/">TIL 20180619</a>
+        <h1 class="article-title" itemprop="name">
+            TIL
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/20/TIL/">
-            <time datetime="2018-06-19T16:26:50.000Z" itemprop="datePublished">2018.06.20</time>
+        <a href="/2018/07/18/TIL/">
+            <time datetime="2018-07-18T02:14:25.000Z" itemprop="datePublished">2018.07.18</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                        
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/19/TIL/">TIL 20180618</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Javascript30-14차"><a href="#Javascript30-14차" class="headerlink" title="Javascript30 14차"></a>Javascript30 14차</h3><ul>
+<li>JavaScript References VS Copying</li>
+</ul>
+<p>원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다.</p>
+<p>다음은 배열을 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cats = [<span class="string">'Syami'</span>, <span class="string">'Jojo'</span>, <span class="string">'Loki'</span>, <span class="string">'Kkonnim'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> team1 = cats.slice();</span><br><span class="line"><span class="keyword">const</span> team2 = [].concat(cats);</span><br><span class="line"><span class="keyword">const</span> team3 = [...cats]</span><br><span class="line"><span class="keyword">const</span> team4 = <span class="built_in">Array</span>.from(cats)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from()</a> 메서드는 배열의 형태를 갖거나 순회 가능한 객체로부터 얕게 복사한 Array 객체를 만듭니다.</p>
+</blockquote>
+<p>다음은 객체를 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">Object</span>.assign(&#123;&#125;, cat, &#123; <span class="attr">kind</span>: <span class="string">'korean shot'</span>, <span class="attr">age</span>: <span class="number">11</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>이러한 복사는 1 레벨의 깊이만 복사가 가능하다. 배열 안 배열 혹은 객체 안 배열 등등의 중첩되어 여러 레벨의 깊이가 생긴 객체(혹은 배열)을 복사하는 방법은 깊은 복사라고 하며 강의에서는 그 방법 중 하나를 소개해 줬는데 다음과 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  family: &#123;</span><br><span class="line">    brother: [<span class="string">'Jojo'</span>, <span class="string">'Loki'</span>],</span><br><span class="line">    sister: [<span class="string">'Kkonnim'</span>, <span class="string">'Samsun'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(cat))</span><br></pre></td></tr></table></figure></p>
+<p>그러나 이 방법은 성능상 매우 안 좋고, 직렬화 할 수 없는 속성들은(prototype이라든가) 날라가 버리기 때문에 좋은 방법은 아니라고 한다.</p>
+<h3 id="파이널-프로젝트-2차-준비"><a href="#파이널-프로젝트-2차-준비" class="headerlink" title="파이널 프로젝트 2차 준비"></a>파이널 프로젝트 2차 준비</h3><p>서버를 GraphQL로 하자는 얘기가 나와서 다음의 영상들을 보게 되었는데, 많이 도움이 되었다.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=C57Pln3mNy0" target="_blank" rel="noopener">1강 GraphQL Server 만들기</a></li>
+<li><a href="https://www.youtube.com/watch?v=1p-s99REAus" target="_blank" rel="noopener">Hello, GraphQL! Graph QL 도입으로 얻었던 효과 - 조민환</a></li>
+</ul>
+<p>그런데 프로젝트에 기획했지만 아직 구현되지 못한 부족한 부분이 많고, 처음부터 Apollo client를 쓰려니 잘 이해되지 않는 부분이 많아서 먼저 리덕스로 변경하는 것부터 처리하는 게 좋을 것 같아 리덕스를 먼저 해보기로 했다.</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/19/TIL/">
-            <time datetime="2018-06-18T15:49:40.000Z" itemprop="datePublished">2018.06.19</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/17/TIL/">TIL 20180617</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/17/TIL/">
-            <time datetime="2018-06-17T10:13:10.000Z" itemprop="datePublished">2018.06.17</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/17/Longet-Common-Prefix/">Longet Common Prefix</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/17/Longet-Common-Prefix/">
-            <time datetime="2018-06-17T09:08:46.000Z" itemprop="datePublished">2018.06.17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/16/TIL-1/">TIL 20180616</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/16/TIL-1/">
-            <time datetime="2018-06-16T11:54:09.000Z" itemprop="datePublished">2018.06.16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/16/TIL/">TIL 20180615</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/16/TIL/">
-            <time datetime="2018-06-15T16:13:22.000Z" itemprop="datePublished">2018.06.16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/15/Palindrome-Number/">Palindrome Number</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/15/Palindrome-Number/">
-            <time datetime="2018-06-14T17:37:32.000Z" itemprop="datePublished">2018.06.15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/14/TIL-1/">TIL 20180614</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/14/TIL-1/">
-            <time datetime="2018-06-14T11:16:32.000Z" itemprop="datePublished">2018.06.14</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/14/TIL/">TIL 20180613</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/14/TIL/">
-            <time datetime="2018-06-13T16:28:49.000Z" itemprop="datePublished">2018.06.14</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/13/Roman-to-Integer/">Roman to Integer</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/13/Roman-to-Integer/">
-            <time datetime="2018-06-13T06:15:36.000Z" itemprop="datePublished">2018.06.13</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/3/">Next &raquo;</a>
-    </nav>
+    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjjso4n2b0020icuwdli7ys72" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/18/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/18/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/19/UniqueMorseCodeWords/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    UniqueMorseCodeWords
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/07/17/JudgeRouteCircle/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Judge Route Circle</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
 </section>
             
                 
@@ -689,11 +486,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://chiabi.github.io/2018/07/18/TIL/';
+        
+        this.page.identifier = 'TIL';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/count.js';
+        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

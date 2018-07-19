@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
 <meta property="og:description" content="Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-17T16:45:48.525Z">
+<meta property="og:updated_time" content="2018-07-18T01:51:00.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Judge Route Circle">
 <meta name="twitter:description" content="Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place. The move sequence is represented by">
@@ -166,7 +166,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                27
+                29
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -270,7 +270,7 @@ ga('send', 'pageview');
 </ul>
 </blockquote>
 <h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제 자체를 이해하기가 좀 어려웠다. 괜히 Circle이라 그래서 왜 원이 되지?라고 생각했는데, 그림을 그려보면 이해하기 쉬웠다. 예를들면 “RLUURDDLU”를 좌표 (0, 0)에서 시작한다고 생각해서 방향따라 그려보면 결국 다시 (0, 0)의 위치로 오게 된다. 이 경우 로봇이 원을 만든다고 가정하여 <code>true</code>를 반환하면 된다. 그래서 “LDRRLRUULR”의 경우 그려보면 (0, 0)의 위치로 돌아오지 않기 때문에 <code>false</code>를 반환하면 된다.  </p>
-<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아 갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 정규식에 일치하는 문자가 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>이번에는 for문을 통해 문자열을 하나씩 탐색해서 x와 y의 값에 변화를 주는 방법을 사용했다. 오른쪽으로 이동하면 x좌표가 1추가되고 왼쪽으로 이동하면 x좌표가 1 감소하는 것이라 모든 문자열을 탐색한 뒤에 x와 y의 좌표가 다시 0이 되었는지 확인한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> moves) &#123;</span><br><span class="line">        i === <span class="string">'R'</span> ? x++ : </span><br><span class="line">        i === <span class="string">'L'</span> ? x-- :</span><br><span class="line">        i === <span class="string">'U'</span> ? y-- :</span><br><span class="line">        i === <span class="string">'D'</span> &amp;&amp; y++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x === <span class="number">0</span> &amp;&amp; y === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>같은 접근법인데 reduce 메소드를 이용해 본 방법<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = moves.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">const</span> hor = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'R'</span> ? <span class="number">1</span> : item === <span class="string">'L'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">const</span> ver = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'U'</span> ? <span class="number">1</span> : item === <span class="string">'D'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> !(hor + ver)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>같은 접근법인데 60ms이길래 환경이 달라서 그런 것 같아서 내가 다시 넣고 돌려보니 72ms가 걸렸다. 각 변수로 x, y를 넣는 대신 배열로 두고 switch 문을 사용한 방법이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = [<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; moves.length; i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(moves[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'U'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'R'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(origin[<span class="number">0</span>] == <span class="number">0</span> &amp;&amp; origin[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
@@ -286,7 +286,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjpyc4np002k88uwoqnxhro9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjso4n2s002gicuwcfwta7vw" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -363,6 +363,15 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
+        <a href="/2018/07/18/TIL/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    TIL
+                
+            </div>
+        </a>
+    
     
         <a href="/2018/07/16/HammingDistance/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
@@ -400,6 +409,24 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/07/19/UniqueMorseCodeWords/" class="title">UniqueMorseCodeWords</a></p>
+                            <p class="item-date"><time datetime="2018-07-19T02:16:33.000Z" itemprop="datePublished">2018.07.19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/18/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-07-18T02:14:25.000Z" itemprop="datePublished">2018.07.18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
                             <p class="item-title"><a href="/2018/07/17/JudgeRouteCircle/" class="title">Judge Route Circle</a></p>
                             <p class="item-date"><time datetime="2018-07-17T14:40:55.000Z" itemprop="datePublished">2018.07.17</time></p>
                         </div>
@@ -423,24 +450,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/07/09/Stones/" class="title">Jewels and Stones</a></p>
-                            <p class="item-date"><time datetime="2018-07-09T14:19:43.000Z" itemprop="datePublished">2018.07.09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/24/TIL/" class="title">TIL 20180624</a></p>
-                            <p class="item-date"><time datetime="2018-06-24T11:24:53.000Z" itemprop="datePublished">2018.06.24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -450,7 +459,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
         </div>
     </div>
 
@@ -459,7 +468,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 

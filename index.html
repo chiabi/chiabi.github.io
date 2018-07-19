@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                27
+                29
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,297 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-UniqueMorseCodeWords" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/19/UniqueMorseCodeWords/">UniqueMorseCodeWords</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/19/UniqueMorseCodeWords/">
+            <time datetime="2018-07-19T02:16:33.000Z" itemprop="datePublished">2018.07.19</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: “a” maps to “.-“, “b” maps to “-…”, “c” maps to “-.-.”, and so on.</p>
+<p>For convenience, the full table for the 26 letters of the English alphabet is given below:</p>
+<p><code>[&quot;.-&quot;,&quot;-...&quot;,&quot;-.-.&quot;,&quot;-..&quot;,&quot;.&quot;,&quot;..-.&quot;,&quot;--.&quot;,&quot;....&quot;,&quot;..&quot;,&quot;.---&quot;,&quot;-.-&quot;,&quot;.-..&quot;,&quot;--&quot;,&quot;-.&quot;,&quot;---&quot;,&quot;.--.&quot;,&quot;--.-&quot;,&quot;.-.&quot;,&quot;...&quot;,&quot;-&quot;,&quot;..-&quot;,&quot;...-&quot;,&quot;.--&quot;,&quot;-..-&quot;,&quot;-.--&quot;,&quot;--..&quot;]</code> </p>
+<p>Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cab” can be written as “-.-.-….-“, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word.</p>
+<p>Return the number of different transformations among all words we have.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Input: words = [“gin”, “zen”, “gig”, “msg”]</li>
+<li>Output: 2</li>
+<li>Explanation: </li>
+<li>The transformation of each word is:<br>“gin” -&gt; “–…-.”<br>“zen” -&gt; “–…-.”<br>“gig” -&gt; “–…–.”<br>“msg” -&gt; “–…–.”</li>
+</ul>
+<p>There are 2 different transformations, “–…-.” and “–…–.”.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The length of words will be at most 100.</li>
+<li>Each words[i] will have length in range [1, 12].</li>
+<li>words[i] will only consist of lowercase letters.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>유니크한 값을 찾으면 다른 수의 경우도 나올 것 같아서 Set을 이용해보았다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64ms</span></span><br><span class="line"><span class="keyword">const</span> morse = [<span class="string">".-"</span>,<span class="string">"-..."</span>,<span class="string">"-.-."</span>,<span class="string">"-.."</span>,<span class="string">"."</span>,<span class="string">"..-."</span>,<span class="string">"--."</span>,<span class="string">"...."</span>,<span class="string">".."</span>,<span class="string">".---"</span>,<span class="string">"-.-"</span>,<span class="string">".-.."</span>,<span class="string">"--"</span>,<span class="string">"-."</span>,<span class="string">"---"</span>,<span class="string">".--."</span>,<span class="string">"--.-"</span>,<span class="string">".-."</span>,<span class="string">"..."</span>,<span class="string">"-"</span>,<span class="string">"..-"</span>,<span class="string">"...-"</span>,<span class="string">".--"</span>,<span class="string">"-..-"</span>,<span class="string">"-.--"</span>,<span class="string">"--.."</span>];  </span><br><span class="line"><span class="keyword">const</span> alphabet = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> uniqueMorseRepresentations = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> morseWords = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> word <span class="keyword">of</span> words) &#123;</span><br><span class="line">        <span class="keyword">let</span> newStr = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> i <span class="keyword">of</span> word) &#123;</span><br><span class="line">            newStr += morse[alphabet.indexOf(i)];</span><br><span class="line">        &#125;</span><br><span class="line">        morseWords.add(newStr)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> morseWords.size;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjjso4n2p002dicuw72mai5sc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/18/TIL/">TIL</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/18/TIL/">
+            <time datetime="2018-07-18T02:14:25.000Z" itemprop="datePublished">2018.07.18</time>
+        </a>
+    </div>
+
+
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Javascript30-14차"><a href="#Javascript30-14차" class="headerlink" title="Javascript30 14차"></a>Javascript30 14차</h3><ul>
+<li>JavaScript References VS Copying</li>
+</ul>
+<p>원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다.</p>
+<p>다음은 배열을 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cats = [<span class="string">'Syami'</span>, <span class="string">'Jojo'</span>, <span class="string">'Loki'</span>, <span class="string">'Kkonnim'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> team1 = cats.slice();</span><br><span class="line"><span class="keyword">const</span> team2 = [].concat(cats);</span><br><span class="line"><span class="keyword">const</span> team3 = [...cats]</span><br><span class="line"><span class="keyword">const</span> team4 = <span class="built_in">Array</span>.from(cats)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from()</a> 메서드는 배열의 형태를 갖거나 순회 가능한 객체로부터 얕게 복사한 Array 객체를 만듭니다.</p>
+</blockquote>
+<p>다음은 객체를 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">Object</span>.assign(&#123;&#125;, cat, &#123; <span class="attr">kind</span>: <span class="string">'korean shot'</span>, <span class="attr">age</span>: <span class="number">11</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>이러한 복사는 1 레벨의 깊이만 복사가 가능하다. 배열 안 배열 혹은 객체 안 배열 등등의 중첩되어 여러 레벨의 깊이가 생긴 객체(혹은 배열)을 복사하는 방법은 깊은 복사라고 하며 강의에서는 그 방법 중 하나를 소개해 줬는데 다음과 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  family: &#123;</span><br><span class="line">    brother: [<span class="string">'Jojo'</span>, <span class="string">'Loki'</span>],</span><br><span class="line">    sister: [<span class="string">'Kkonnim'</span>, <span class="string">'Samsun'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(cat))</span><br></pre></td></tr></table></figure></p>
+<p>그러나 이 방법은 성능상 매우 안 좋고, 직렬화 할 수 없는 속성들은(prototype이라든가) 날라가 버리기 때문에 좋은 방법은 아니라고 한다.</p>
+<h3 id="파이널-프로젝트-2차-준비"><a href="#파이널-프로젝트-2차-준비" class="headerlink" title="파이널 프로젝트 2차 준비"></a>파이널 프로젝트 2차 준비</h3><p>서버를 GraphQL로 하자는 얘기가 나와서 다음의 영상들을 보게 되었는데, 많이 도움이 되었다.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=C57Pln3mNy0" target="_blank" rel="noopener">1강 GraphQL Server 만들기</a></li>
+<li><a href="https://www.youtube.com/watch?v=1p-s99REAus" target="_blank" rel="noopener">Hello, GraphQL! Graph QL 도입으로 얻었던 효과 - 조민환</a></li>
+</ul>
+<p>그런데 프로젝트에 기획했지만 아직 구현되지 못한 부족한 부분이 많고, 처음부터 Apollo client를 쓰려니 잘 이해되지 않는 부분이 많아서 먼저 리덕스로 변경하는 것부터 처리하는 게 좋을 것 같아 리덕스를 먼저 해보기로 했다.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjjso4n2b0020icuwdli7ys72" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/18/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/18/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-JudgeRouteCircle" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -270,7 +561,7 @@ ga('send', 'pageview');
 </ul>
 </blockquote>
 <h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제 자체를 이해하기가 좀 어려웠다. 괜히 Circle이라 그래서 왜 원이 되지?라고 생각했는데, 그림을 그려보면 이해하기 쉬웠다. 예를들면 “RLUURDDLU”를 좌표 (0, 0)에서 시작한다고 생각해서 방향따라 그려보면 결국 다시 (0, 0)의 위치로 오게 된다. 이 경우 로봇이 원을 만든다고 가정하여 <code>true</code>를 반환하면 된다. 그래서 “LDRRLRUULR”의 경우 그려보면 (0, 0)의 위치로 돌아오지 않기 때문에 <code>false</code>를 반환하면 된다.  </p>
-<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아 갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 정규식에 일치하는 문자가 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>이번에는 for문을 통해 문자열을 하나씩 탐색해서 x와 y의 값에 변화를 주는 방법을 사용했다. 오른쪽으로 이동하면 x좌표가 1추가되고 왼쪽으로 이동하면 x좌표가 1 감소하는 것이라 모든 문자열을 탐색한 뒤에 x와 y의 좌표가 다시 0이 되었는지 확인한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> moves) &#123;</span><br><span class="line">        i === <span class="string">'R'</span> ? x++ : </span><br><span class="line">        i === <span class="string">'L'</span> ? x-- :</span><br><span class="line">        i === <span class="string">'U'</span> ? y-- :</span><br><span class="line">        i === <span class="string">'D'</span> &amp;&amp; y++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x === <span class="number">0</span> &amp;&amp; y === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>같은 접근법인데 reduce 메소드를 이용해 본 방법<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = moves.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">const</span> hor = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'R'</span> ? <span class="number">1</span> : item === <span class="string">'L'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">const</span> ver = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'U'</span> ? <span class="number">1</span> : item === <span class="string">'D'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> !(hor + ver)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>같은 접근법인데 60ms이길래 환경이 달라서 그런 것 같아서 내가 다시 넣고 돌려보니 72ms가 걸렸다. 각 변수로 x, y를 넣는 대신 배열로 두고 switch 문을 사용한 방법이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = [<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; moves.length; i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(moves[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'U'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'R'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(origin[<span class="number">0</span>] == <span class="number">0</span> &amp;&amp; origin[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
@@ -286,7 +577,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjpyc4np002k88uwoqnxhro9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjso4n2s002gicuwcfwta7vw" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -483,7 +774,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjpyc4nm002h88uw4moelz4n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjso4n2w002kicuwd2ocjd2c" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -646,7 +937,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjjpyc4nj002d88uwkspcf2cq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjjso4n1z001ticuwoy0amdum" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -797,7 +1088,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjjpyc4ng002a88uwo4b7ip0j" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjjso4n24001xicuwxo3s7s0q" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -957,7 +1248,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjjpyc4ne002688uwhitwwf5l" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjjso4n1e001kicuwz5iiwu2r" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1099,7 +1390,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjjpyc4na002388uw35nc2ft5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjjso4n18001ficuwdumlg5oa" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1235,7 +1526,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjjpyc4n7001z88uw7dbpniuv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjjso4n0v001dicuwqql77pdm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1390,7 +1681,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjjpyc4n0001s88uw5lqqcds9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjjso4n1v001ricuwpso302qn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1468,300 +1759,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/20/TIL/">TIL 20180619</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/20/TIL/">
-            <time datetime="2018-06-19T16:26:50.000Z" itemprop="datePublished">2018.06.20</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
-<li>Provider의 적절한 위치는?</li>
-<li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li>
-<li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li>
-<li>HTML5 history API &amp; hashchange</li>
-<li>react-router 소개 및 실습</li>
-</ul>
-<p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p>
-<h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴포넌트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li>
-<li>자기소개서 최종 검토하기</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjjpyc4n4001w88uw3t5folo6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/20/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/20/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/19/TIL/">TIL 20180618</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/19/TIL/">
-            <time datetime="2018-06-18T15:49:40.000Z" itemprop="datePublished">2018.06.19</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="프로트엔드-스쿨과정-리액트"><a href="#프로트엔드-스쿨과정-리액트" class="headerlink" title="프로트엔드 스쿨과정 - 리액트"></a>프로트엔드 스쿨과정 - 리액트</h3><ul>
-<li>children prop</li>
-<li>로그인 시 예외 처리 (비동기 예외처리)</li>
-<li><code>ref</code>와 “제어되지 않는 컴포넌트”로 폼 바꿔보기</li>
-<li>Presentational component &amp; Container component</li>
-<li>Storybook</li>
-</ul>
-<p>제어되지 않는 컴포넌트 부분은 break week 기간에 잠깐 튜토리얼 따라해 보면서 봤던 부분인데 다시 복습하게 되었다. form의 기본 submit 기능을 사용하게 되면, 따로 이벤트 메서드를 만들지 않아도 되어 코드가 간결해지는 장점이 있지만, 나중에 폼을 쓰게 될 경우 유효성 검사를 하거나 키보드 접근 관련해서 추가적인 처리를 하게 될 것 같아서 대부분의 경우 제어되는 컴포넌트로 하게 되지 않을까 싶다.</p>
-<p>프레젠테이션과 컨테이너 컴포넌트 관련 글은 전날에 올려주셔서 자기 전에 읽어봤는데, 읽어보니 왠지 rgb챌린지 만들면서 이 둘을 잘 구분해서 사용하지 않은 것 같다고 느꼈다. 또 글이 잘 이해가 안되었는데, 오늘 수업을 통해 조금 정리되는 느낌이다.</p>
-<h2 id="오늘-읽은-글"><a href="#오늘-읽은-글" class="headerlink" title="오늘 읽은 글"></a>오늘 읽은 글</h2><ul>
-<li><a href="https://medium.com/@Dev_Bono/context-api%EA%B0%80-redux%EB%A5%BC-%EB%8C%80%EC%B2%B4%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-76a6209b369b" target="_blank" rel="noopener">Context API가 Redux를 대체할 수 있을까요?</a></li>
-<li><a href="https://medium.com/@seungha_kim_IT/presentational-and-container-components-%EB%B2%88%EC%97%AD-1b1fb2e36afb" target="_blank" rel="noopener">Presentiational and Container Components(번역)</a></li>
-<li><a href="https://medium.com/dailyjs/when-do-i-know-im-ready-for-redux-f34da253c85f" target="_blank" rel="noopener">When do I know I’m ready for Redux?</a></li>
-</ul>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>내일 수업 내용 복습(<a href="https://reacttraining.com/react-router/web/guides/philosophy" target="_blank" rel="noopener">리액트 라우터</a>를 들어간다고 한다.)</li>
-<li><a href="https://storybook.js.org/" target="_blank" rel="noopener">스토리북</a> 사용해보기</li>
-<li>리덕스 일단 따로 <a href="https://egghead.io/courses/getting-started-with-redux" target="_blank" rel="noopener">Dan abramov의 소개 영상</a> 보면서 감 잡기</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjjpyc4mt001p88uw45t1pdlk" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/19/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/19/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1775,6 +1772,24 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/07/19/UniqueMorseCodeWords/" class="title">UniqueMorseCodeWords</a></p>
+                            <p class="item-date"><time datetime="2018-07-19T02:16:33.000Z" itemprop="datePublished">2018.07.19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/18/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-07-18T02:14:25.000Z" itemprop="datePublished">2018.07.18</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1803,24 +1818,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/07/09/Stones/" class="title">Jewels and Stones</a></p>
-                            <p class="item-date"><time datetime="2018-07-09T14:19:43.000Z" itemprop="datePublished">2018.07.09</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/06/24/TIL/" class="title">TIL 20180624</a></p>
-                            <p class="item-date"><time datetime="2018-06-24T11:24:53.000Z" itemprop="datePublished">2018.06.24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1830,7 +1827,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">15</span></li></ul>
         </div>
     </div>
 
@@ -1839,7 +1836,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
