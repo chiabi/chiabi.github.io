@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Tag: algorithm | Chiabi&#39;s dev blog</title>
+    <title>MaxIncreasetoKeepCitySkyline | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+    <meta name="description" content="leetcode 문제링크  In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (">
 <meta name="keywords" content="front end developer,front end engineer,Javascript,TIL,Today I learned,ECMAScript2015,ES6,React,HTML5,CSS3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chiabi&#39;s dev blog">
-<meta property="og:url" content="http://chiabi.github.io/tags/algorithm/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MaxIncreasetoKeepCitySkyline">
+<meta property="og:url" content="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta property="og:description" content="leetcode 문제링크  In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-07-24T16:59:18.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chiabi&#39;s dev blog">
-<meta name="twitter:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta name="twitter:title" content="MaxIncreasetoKeepCitySkyline">
+<meta name="twitter:description" content="leetcode 문제링크  In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (">
     
 
     
@@ -211,54 +212,189 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fas fa-tag"></i></span>
-        <h1 class="title">#algorithm</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-MaxIncreasetoKeepCitySkyline" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/11/revese-integer/">leetcode - Reverse Integer</a>
+        <h1 class="article-title" itemprop="name">
+            MaxIncreasetoKeepCitySkyline
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/11/revese-integer/">
-            <time datetime="2018-06-11T11:34:55.000Z" itemprop="datePublished">2018.06.11</time>
+        <a href="/2018/07/24/MaxIncreasetoKeepCitySkyline/">
+            <time datetime="2018-07-24T11:55:37.000Z" itemprop="datePublished">2018.07.24</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
+                        
+                        
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. </p>
+<p>At the end, the “skyline” when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city’s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example.</p>
+<p>What is the maximum total sum that the height of the buildings can be increased?</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Input: <code>grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]</code></li>
+<li>Output: 35<br><strong>Explanation:</strong> </li>
+<li>The grid is:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ [3, 0, 8, 4], </span><br><span class="line"> [2, 4, 5, 7],</span><br><span class="line"> [9, 2, 6, 3],</span><br><span class="line"> [0, 3, 1, 0] ]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>The skyline viewed from top or bottom is: [9, 4, 8, 7]</li>
+<li>The skyline viewed from left or right is: [8, 7, 9, 3]</li>
+</ul>
+<p>The grid after increasing the height of buildings without affecting skylines is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gridNew = [ [8, 4, 8, 7],</span><br><span class="line">          [7, 4, 7, 7],</span><br><span class="line">          [9, 4, 8, 7],</span><br><span class="line">          [3, 3, 3, 3] ]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
+<li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
+<li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>배열을 두번이나 탐색해야해서 좋은 방법이 아닌 것 같아서 좀 괴로운데, 가장 단순하게 생각할 수 있는 방법인 것 같다. 먼저, 위/아래의 스카이라인과 좌/우의 스카이라인을 구해두고, reduce메소드를 사용해 다시 배열을 탐색하면서, 해당 좌표의 스카이라인 중 작은 값을 구하고 원래의 값을 뺀 값을 누적으로 더해주는 방법으로 풀어봤다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64 ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> upDown = [];</span><br><span class="line">    <span class="keyword">const</span> side = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = grid.length; i &lt; l; i++) &#123;</span><br><span class="line">        side.push(<span class="built_in">Math</span>.max(...grid[i]));</span><br><span class="line">        <span class="keyword">const</span> arr = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; l; j++) &#123;</span><br><span class="line">            arr.push(grid[j][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        upDown.push(<span class="built_in">Math</span>.max(...arr));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(side[index], upDown[i]) - col); </span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>코드 길이는 줄였는데, 더 느려졌다. 6번째 줄에 <code>const cMax = Math.max(...arr.map((item) =&gt; item[i]));</code> 이부분이 원인인 것 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 96ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> rMax = <span class="built_in">Math</span>.max(...row);</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> cMax = <span class="built_in">Math</span>.max(...arr.map(<span class="function">(<span class="params">item</span>) =&gt;</span> item[i]));</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(rMax, cMax) - col)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/tags/algorithm/">&laquo; Prev</a><a class="page-number" href="/tags/algorithm/">1</a><span class="page-number current">2</span>
-    </nav>
+    <a data-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/" data-id="cjjzy45vu002ycsuwut5e47x8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/24/TIL/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    TIL
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/07/23/TIL/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">TIL</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
 </section>
             
                 
@@ -365,11 +501,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/';
+        
+        this.page.identifier = 'MaxIncreasetoKeepCitySkyline';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/count.js';
+        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
