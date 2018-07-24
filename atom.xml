@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-07-23T14:06:54.080Z</updated>
+  <updated>2018-07-23T14:57:53.305Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/07/23/TIL/"/>
+    <id>http://chiabi.github.io/2018/07/23/TIL/</id>
+    <published>2018-07-23T14:10:16.000Z</published>
+    <updated>2018-07-23T14:57:53.305Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-80-진행"><a href="#퍼블리싱-외주-80-진행" class="headerlink" title="퍼블리싱 외주(80% 진행)"></a>퍼블리싱 외주(80% 진행)</h3><p>디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)<br>쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트 사이즈가 10px이었다. 그리고 그렇게 해야 가독성이 좋았는데, 아이패드나 브라우저에서 화면을 확대하는 방법이 있기 때문에 그렇게 하는 걸까.</p><ul><li><a href="http://koreawebdesign.com/typography-for-webdesign/" target="_blank" rel="noopener">웹디자인을 위한 타이포그라피 10가지 팁</a></li><li><a href="http://webactually.com/2015/10/%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90%EC%84%9C-%EA%B8%80%EC%A4%84%EC%9D%98-%EA%B8%B8%EC%9D%B4%EC%99%80-%EA%B8%80%EC%9E%90-%ED%81%AC%EA%B8%B0-%EA%B7%A0%ED%98%95/" target="_blank" rel="noopener">반응형 웹 디자인에서 글줄의 길이와 글자 크기 균형 잡기</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust/" target="_blank" rel="noopener">MDN - font-size-adjust</a></li></ul><p>디자인에 range 슬라이더가 있어서 찾아봤는데 rangeslider.js가 제일 복잡한 기능없이 간단하게 사용하기 좋았다.</p><ul><li><a href="http://rangeslider.js.org/" target="_blank" rel="noopener">rangeslider.js</a></li></ul><p>디자인 시안을 어떤 파일로 전달해주면 되냐고해서 포토샵이나 일러면 좋을 것 같다고 했더니 보낸 파일이 전혀 레이어가 분할되어 있지 않았다. sketch로 작업했구나 싶어서 차라리 sketch 파일로 보내달라고 했는데, 재플린으로 공유해달랄 걸 그랬나보다. 하지만 덕분에 윈도우에서 sketch파일을 보는 방법을 찾아보다가 <code>.sketch</code> 파일을 지원하는 Windows app인 <strong>lunacy</strong>라는 걸 찾았다.(무료다!!)<br>그리고 시안 수정은 또 클라이언트 업체의 상주 디자이너가 하는데(시안 자체는 외주), sketch는 안쓰는지 Adobe XD 파일을 보내줬다.<br>포토샵으로만 시안 받아서 퍼블리싱 해봤는데 덕분에 이런 저런 툴을 다양하게 사용해보고 있다.</p><ul><li><a href="https://icons8.com/lunacy" target="_blank" rel="noopener">lunacy</a></li><li><a href="https://www.adobe.com/kr/products/xd.html" target="_blank" rel="noopener">Adobe XD</a></li></ul><h2 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a>알고리즘 문제 풀이</h2><p>문제가 조금 간단하고 장고걸스 튜토리얼에서 봤던 정도로도 풀 수 있을 것 같아서 파이썬으로도 풀어봤다.<br>range나 len 함수에 대해 찾다가 파이썬 문법을 공부하는데 도움이 될 것 같은 사이트를 찾았다.</p><ul><li><a href="https://wikidocs.net/book/1" target="_blank" rel="noopener">점프 투 파이썬</a></li></ul><hr><p>내일까지면 퍼블리싱 외주 작업은 끝날 것 같다. 그러면 다시 파이널 프로젝트에 집중해서 Context API를 썼던 부분을 리덕스로 변경하는 작업에 착수해야겠다. </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-80-진행&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-80-진행&quot; class=&quot;he
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>peakIndexInMountainArray</title>
@@ -103,7 +128,7 @@
     <link href="http://chiabi.github.io/2018/07/18/TIL/"/>
     <id>http://chiabi.github.io/2018/07/18/TIL/</id>
     <published>2018-07-18T02:14:25.000Z</published>
-    <updated>2018-07-19T02:37:41.462Z</updated>
+    <updated>2018-07-23T14:10:38.180Z</updated>
     
     <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Javascript30-14차"><a href="#Javascript30-14차" class="headerlink" title="Javascript30 14차"></a>Javascript30 14차</h3><ul><li>JavaScript References VS Copying</li></ul><p>원시 타입과 찹조타입의 복사에 관한 차이와 얕은복사, 깊은 복사에 대한 내용이었다.</p><p>다음은 배열을 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cats = [<span class="string">'Syami'</span>, <span class="string">'Jojo'</span>, <span class="string">'Loki'</span>, <span class="string">'Kkonnim'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> team1 = cats.slice();</span><br><span class="line"><span class="keyword">const</span> team2 = [].concat(cats);</span><br><span class="line"><span class="keyword">const</span> team3 = [...cats]</span><br><span class="line"><span class="keyword">const</span> team4 = <span class="built_in">Array</span>.from(cats)</span><br></pre></td></tr></table></figure></p><blockquote><p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="noopener">Array.from()</a> 메서드는 배열의 형태를 갖거나 순회 가능한 객체로부터 얕게 복사한 Array 객체를 만듭니다.</p></blockquote><p>다음은 객체를 복사하는 방법이다.(단, 얕은 복사)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">Object</span>.assign(&#123;&#125;, cat, &#123; <span class="attr">kind</span>: <span class="string">'korean shot'</span>, <span class="attr">age</span>: <span class="number">11</span>&#125;)</span><br></pre></td></tr></table></figure></p><p>이러한 복사는 1 레벨의 깊이만 복사가 가능하다. 배열 안 배열 혹은 객체 안 배열 등등의 중첩되어 여러 레벨의 깊이가 생긴 객체(혹은 배열)을 복사하는 방법은 깊은 복사라고 하며 강의에서는 그 방법 중 하나를 소개해 줬는데 다음과 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">  name: <span class="string">'Syami'</span>,</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  family: &#123;</span><br><span class="line">    brother: [<span class="string">'Jojo'</span>, <span class="string">'Loki'</span>],</span><br><span class="line">    sister: [<span class="string">'Kkonnim'</span>, <span class="string">'Samsun'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> cat2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(cat))</span><br></pre></td></tr></table></figure></p><p>그러나 이 방법은 성능상 매우 안 좋고, 직렬화 할 수 없는 속성들은(prototype이라든가) 날라가 버리기 때문에 좋은 방법은 아니라고 한다.</p><h3 id="파이널-프로젝트-2차-준비"><a href="#파이널-프로젝트-2차-준비" class="headerlink" title="파이널 프로젝트 2차 준비"></a>파이널 프로젝트 2차 준비</h3><p>서버를 GraphQL로 하자는 얘기가 나와서 다음의 영상들을 보게 되었는데, 많이 도움이 되었다.</p><ul><li><a href="https://www.youtube.com/watch?v=C57Pln3mNy0" target="_blank" rel="noopener">1강 GraphQL Server 만들기</a></li><li><a href="https://www.youtube.com/watch?v=1p-s99REAus" target="_blank" rel="noopener">Hello, GraphQL! Graph QL 도입으로 얻었던 효과 - 조민환</a></li></ul><p>그런데 프로젝트에 기획했지만 아직 구현되지 못한 부족한 부분이 많고, 처음부터 Apollo client를 쓰려니 잘 이해되지 않는 부분이 많아서 먼저 리덕스로 변경하는 것부터 처리하는 게 좋을 것 같아 리덕스를 먼저 해보기로 했다.</p>]]></content>
     
@@ -116,6 +141,10 @@
     
     </summary>
     
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   
@@ -514,31 +543,6 @@
       <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
     
       <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL 20180614</title>
-    <link href="http://chiabi.github.io/2018/06/14/TIL-1/"/>
-    <id>http://chiabi.github.io/2018/06/14/TIL-1/</id>
-    <published>2018-06-14T11:16:32.000Z</published>
-    <updated>2018-06-14T17:33:10.493Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-RGB-Challenge-리액트를-이용해-다시-만들어보기"><a href="#1-RGB-Challenge-리액트를-이용해-다시-만들어보기" class="headerlink" title="1. RGB Challenge 리액트를 이용해 다시 만들어보기"></a>1. RGB Challenge 리액트를 이용해 다시 만들어보기</h3><p>전날 배운 context를 이용하는 부분은 잘 이해가 되지 않아서 문서를 봤는데, 일단 todo 리스트 실습때 진행했던 것처럼 컴포넌트, state, props를 통해 단순하게 만들어 보는 것부터 시작해서 하나씩 변경해 봐야할 것 같다.<br>그냥 DOM API로 만들때는 금방 만들었던 것을 구조를 분리해서 컴포넌트 별로 따로 만들고 어떤 것을 상태로 할 지 어떤 것이 컴포넌트 간 공유되는 상태일지를 구분하려니 오히려 오래 걸렸다. 만약 이 게임 자체가 규모가 크다면 이렇게 컴포넌트 별로 분리하는 것은 장기적으로 봤을때 유지보수 하기에는 좀 수월해 질지 모르겠지만 현재 규모에서는 생산성면에서 별로 좋은 방법이 아닌 것 같다.  </p><p>아직 context를 이용해보지는 못했는데, 역할과 책임에 따라 정리하는 것이 가장 어렵게 느껴졌다.<br>컬러코드 컴포넌트와 공유되는 상태를 관리하는 조상 컴포넌트와의 사이에 컴포넌트가 많아져서 context를 활용해야 할 것 같다.<br>컬러 코드를 랜덤으로 계산해내는 부분은 클래스의 메소드로 만드는 것이 적합하지 않은 것 같아서 따로 함수로 빼냈는데, 이렇게 하는게 맞는지는 꼭 주말까지 완성해서 강사님의 피드백을 들을 수 있도록 해야겠다.</p><h3 id="2-기능명세-작성-과제"><a href="#2-기능명세-작성-과제" class="headerlink" title="2. 기능명세 작성 과제"></a>2. 기능명세 작성 과제</h3><p>medical factory 사이트의 로그인 / 회원가입 / 리뷰 페이지를 분석하며 어떤 명세를 통해 만들었을지 명세를 도출해보는 것이 과제였다. 구글 드라이브를 통해 정리했다. 수업시간에 명세를 너무 자세하게 작성하지 말라고 주의해주셨었는데, 자꾸 작성할 것이 늘어나서 이렇게 작성하는게 맞는지 의구심이 든다.;;  </p><p>찾아보니 기능 명세나 기술 명세에 특별한 폼은 없는 것 같았다. 그래서 그런지 이런식으로 작성해야 한다라고 딱 정리한 글도 찾기 어려웠다.<br>좀 시간이 걸렸지만, 로그인 / 회원가입 같은 경우는 대부분의 서비스에 들어가는 부분이라 왠지 구축할 때 도움이 될 것 같아서 자세히 분석해봤다. 보다보니 생각보다 누락하거나 유효하지 않은 입력에 대해 검증해야 하는 부분이 많았다. 나도 만들때 이런 부분은 신경 써줘야겠다는 생각을 하게되었다.</p><h3 id="3-git-alias"><a href="#3-git-alias" class="headerlink" title="3. git alias"></a>3. git alias</h3><p>git 명령어 몇가지를 alias로 만들어두었다. 만들어두니 <code>git flow ~</code> 명령을 쓰기가 훨씬 수월해졌다.  </p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> gfi=<span class="string">'git flow init'</span></span><br><span class="line"><span class="built_in">alias</span> gff=<span class="string">'git flow feature'</span></span><br><span class="line"><span class="built_in">alias</span> gfr=<span class="string">'git flow release'</span></span><br><span class="line"><span class="built_in">alias</span> gfh=<span class="string">'git flow hotfix'</span></span><br><span class="line"><span class="built_in">alias</span> gfs=<span class="string">'git flow support'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> gcm=<span class="string">'git commit -m'</span></span><br><span class="line"><span class="built_in">alias</span> npxreact=<span class="string">'npx create-react-app'</span></span><br></pre></td></tr></table></figure><p>너무 많으면 또 외워야하고 잘못 사용할 수도 있을 것 같아서 긴 명령어 위주로 이정도만 해두었다.<br>작성에 사용한 명령어는 다음과 같다.<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p><h2 id="앞으로-할-일"><a href="#앞으로-할-일" class="headerlink" title="앞으로 할 일"></a>앞으로 할 일</h2><ul><li>RGB 챌린지 주말까지 완성하기(context 사용하기)</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-RGB-Challenge-리액트를-이용해-다시-만들어보기&quot;&gt;&lt;a href=&quot;#1-RG
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   
