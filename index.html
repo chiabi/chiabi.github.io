@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                36
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,288 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/25/TIL/">TIL</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/25/TIL/">
+            <time datetime="2018-07-25T14:59:38.000Z" itemprop="datePublished">2018.07.25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="TIL-레포지토리-정리"><a href="#TIL-레포지토리-정리" class="headerlink" title="TIL 레포지토리 정리"></a>TIL 레포지토리 정리</h3><p>깃헙의 TIL 레포지토리의 구조를 좀 수정했다. 프론트엔드 개발 스쿨과정에서 WEEK_N 디렉토리로 정리했던 파일들은 [FDS]fds-9로 옮겼고, 앞으로 카테고리 별로 공부한 내용을 관리하려 한다.<br>깃헙의 project를 이용해서 할 일을 관리해보려고 하는데, 풀리퀘 말고 이슈와 커밋을 연결해서 깃헙 이슈에 기록을 남기는 방법을 찾아봤는데, 좀 더 찾아봐야겠지만 커밋으로 이슈를 닫는 기능은 있었다.</p>
+<ul>
+<li><a href="https://help.github.com/articles/closing-issues-using-keywords/" target="_blank" rel="noopener">Closing issues using keywords</a></li>
+</ul>
+<h3 id="리덕스-공부"><a href="#리덕스-공부" class="headerlink" title="리덕스 공부"></a>리덕스 공부</h3><p>리덕스 문서 원문과 번역본을 같이 보면서 공부하고 있다. 일단 기초 부분을 한번 읽어보면서 따라 치는 식으로 하고 있는데,<br>에러가 발생해서 확인해봐야 한다. </p>
+<hr>
+<p>국비 과정때 같이 공부했던 동기와 스터디를 하기로 했는데, 내일 Sass를 주제로 진행할 예정이다. 최근에 외주하면서도 사용하기는 했는데, 전 회사에서 했던 것처럼 내가 발표하는 형식으로 진행해야 해서 다시 한번 정리해야겠다. 원래는 낮에 리덕스 공부하고 나서 준비하려고 했는데, 생각보다 리덕스 개념이 잘 이해가 안가서 시간을 많이 잡아먹었다. 비록 에러를 아직 해결하지 못했지만, 예제를 통해 기초파트의 한 사이클을 도니까 좀 이해가 되는 것 같다. 내일은 이 에러를 해결하고 심화부분을 보면서 파이널 프로젝트로 했던 SEEMVA를 수정해봐야겠다.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/25/TIL/" data-id="cjk1e6kit003rpkuwoti76qlz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/25/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/25/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-SelfDividingNumbers" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/25/SelfDividingNumbers/">Self Dividing Numbers</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/25/SelfDividingNumbers/">
+            <time datetime="2018-07-25T14:57:22.000Z" itemprop="datePublished">2018.07.25</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/self-dividing-numbers/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>A self-dividing number is a number that is divisible by every digit it contains.<br>For example, 128 is a self-dividing number because <code>128 % 1 == 0</code>, <code>128 % 2 == 0</code>, and <code>128 % 8 == 0</code>.<br>Also, a self-dividing number is not allowed to contain the digit zero.<br>Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li>Input: </li>
+<li>left = 1, right = 22</li>
+<li>Output: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]</code><br><strong>Note:</strong></li>
+<li>The boundaries of each input argument are <code>1 &lt;= left &lt;= right &lt;= 10000</code>.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>숫자를 문자열로 만들어 쪼개서 나누어떨어지면 push로 배열에 추가하는 방법<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64ms</span></span><br><span class="line"><span class="keyword">var</span> selfDividingNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i.toString().split(<span class="string">''</span>).every(<span class="function"><span class="params">item</span> =&gt;</span> i % <span class="built_in">parseInt</span>(item) === <span class="number">0</span>)) result.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>그런데 0이 포함되면 self-dividing number가 아니므로 이렇게 추가해줘도 될 것 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 68ms</span></span><br><span class="line"><span class="keyword">var</span> selfDividingNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i % <span class="number">10</span> !== <span class="number">0</span> &amp;&amp; i.toString().split(<span class="string">''</span>).every(<span class="function"><span class="params">item</span> =&gt;</span> i % <span class="built_in">parseInt</span>(item) === <span class="number">0</span>)) result.push(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selfDividingNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> result = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> numbers = i.toString().split(<span class="string">''</span>);</span><br><span class="line">        <span class="keyword">let</span> divide = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> n <span class="keyword">of</span> numbers) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % n !== <span class="number">0</span>) &#123;</span><br><span class="line">                divide = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(divide) result.push(i)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/25/SelfDividingNumbers/" data-id="cjk1e6kik003ipkuwxmp9ufay" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/25/SelfDividingNumbers/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/25/SelfDividingNumbers/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -274,7 +556,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/24/TIL/" data-id="cjjzy45w10035csuw87svoa72" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/24/TIL/" data-id="cjk1e6kip003lpkuwqsvi4qi6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -376,7 +658,17 @@ ga('send', 'pageview');
 
 
                         
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
                         
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -427,7 +719,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/" data-id="cjjzy45vu002ycsuwut5e47x8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/" data-id="cjk1e6kii003fpkuw41c4jwwl" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -579,7 +871,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/23/TIL/" data-id="cjjzy45vh002mcsuwc1jnwvpq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/23/TIL/" data-id="cjk1e6klu004hpkuw5iifmt2n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -740,7 +1032,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/" data-id="cjjzy45vp002tcsuw2i0xg7e2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/" data-id="cjk1e6kig003cpkuw6438hbb4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -877,7 +1169,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjjzy45vk002qcsuwai1ia0zm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjk1e6kiu003upkuwy3magt6g" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1031,7 +1323,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjjzy45vd002jcsuwke0ro7y8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjk1e6kic0036pkuwe351k1ka" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1179,7 +1471,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjjzy45va002fcsuwoa5dcql6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjk1e6kia0033pkuwtv63d4cd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1332,7 +1624,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjjzy45v7002ccsuwlt2x4cr4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjk1e6ki70030pkuwez9wdqa9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1410,366 +1702,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-HammingDistance" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/07/16/HammingDistance/">Hamming Distance</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/16/HammingDistance/">
-            <time datetime="2018-07-16T02:07:15.000Z" itemprop="datePublished">2018.07.16</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/hamming-distance/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p><a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="noopener">The Hamming distance</a> between two integers is the number of positions at which the corresponding bits are different.</p>
-<p>Given two integers x and y, calculate the Hamming distance.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>0 ≤ x, y &lt; 231.</li>
-</ul>
-<p><strong>Example:</strong></p>
-<ul>
-<li>Input: x = 1, y = 4</li>
-<li>Output: 2</li>
-</ul>
-<p><strong>Explanation:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1   (0 0 0 1)</span><br><span class="line">4   (0 1 0 0)</span><br><span class="line">       ↑   ↑</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>The above arrows point to positions where the corresponding bits are different.</p>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><blockquote>
-<p>※ <strong>해밍거리(Hamming Distance)</strong><br>블록 부호 이론에서, 해밍 거리(Hamming距離, 영어: Hamming distance)는 곱집합 위에 정의되는 거리 함수이다. 대략, 같은 길이의 두 문자열에서, 같은 위치에서 서로 다른 기호들이 몇 개인지를 센다.</p>
-</blockquote>
-<p>주어진 값들을 이진수 형태에서 비교해서 같은 위치에 다른 수가 몇개인지를 세면 되는 것 같다. 이진수로 바꾸는 방법은 toString 메소드를 사용했고, 수에 따라 같은 길이가 아닐 수 있으니 뒤의 수부터 비교해주기로 했다.<br>sort를 이용해 길이가 긴 수를 정해서 reduce를 통해 그 길이에 수가 둘 다 있으면 두 수(문자)를 비교해 다르면 누적에 1을 더하고 만약 위치에 수가 없으면 수가 있는 배열의 값이 ‘1’일 경우 더한다. </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56 ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = [x.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse(), y.toString(<span class="number">2</span>).split(<span class="string">''</span>).reverse()].sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b.length - a.length);</span><br><span class="line">    <span class="keyword">return</span> arr[<span class="number">0</span>].reduce(<span class="function">(<span class="params">acc, item, index, array</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[<span class="number">1</span>][index] &amp;&amp; arr[<span class="number">1</span>][index] !== item) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!arr[<span class="number">1</span>][index] &amp;&amp; item === <span class="string">'1'</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> acc + <span class="number">1</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> acc</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>이걸 한 줄로 푸네…</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 60ms</span></span><br><span class="line"><span class="keyword">var</span> hammingDistance = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x ^ y).toString(<span class="number">2</span>).split(<span class="string">'0'</span>).join(<span class="string">''</span>).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="1-Bitwise-XOR"><a href="#1-Bitwise-XOR" class="headerlink" title="1. ^(Bitwise XOR)"></a>1. ^(Bitwise XOR)</h3><ul>
-<li>MDN - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Bitwise_XOR" target="_blank" rel="noopener">^(Bitwise XOR)</a></li>
-<li>위키백과 - <a href="https://ko.wikipedia.org/wiki/%EB%B0%B0%ED%83%80%EC%A0%81_%EB%85%BC%EB%A6%AC%ED%95%A9" target="_blank" rel="noopener">배타적 논리합</a></li>
-</ul>
-<p>^부분이 이해가 안되었는데 XOR이라는 연산자로 다음의 표와 같이 a와 b가 다른 경우 1을 산출한다고 한다.  </p>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>a XOR b</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>비트 연산자는 피연산자를 10진수나 16진수나 8진수와 같은 숫자가 아니라, 32비트(0과 1)의 집합으로 표현한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.    9 (base 10) = 00000000000000000000000000001001 (base 2)</span><br><span class="line">    14 (base 10) = 00000000000000000000000000001110 (base 2)</span><br><span class="line">                   --------------------------------</span><br><span class="line">14 ^ 9 (base 10) = 00000000000000000000000000000111 (base 2) = 7 (base 10)</span><br></pre></td></tr></table></figure>
-<p>그렇다면 위의 풀이에서 x, y 간의 배타적 논리합을 구해서 그 수의 이진수 표현(문자열) 중 문자 ‘0’을 제거하면(split(‘0’)) ‘1’만 남게 되는 데 이 1은 x, y가 같은 위치에 다른 문자였음을 의미하니까 그 길이를 구하면 원하는 결과를 얻을 수 있다.  </p>
-<hr>
-<p>다만, 왜 이 풀이가 내 풀이보다 느린 지 아직 잘 모르겠다. 처음에는 32비트 집합간의 비교라서 그런건가 했는데 비트가 더…느릴 수…있나? 왠지 환경에 따라 다를 것 같은 미미한 차이라…</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjjzy45v40028csuwsdwgld6i" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/07/16/HammingDistance/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/16/HammingDistance/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-flipAndInvertImage" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/07/15/flipAndInvertImage/">flip And Invert Image</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/15/flipAndInvertImage/">
-            <time datetime="2018-07-15T13:42:39.000Z" itemprop="datePublished">2018.07.15</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/flipping-an-image/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Given a binary matrix A, we want to flip the image horizontally, then invert it, and return the resulting image.</p>
-<p>To flip an image horizontally means that each row of the image is reversed.  For example, flipping [1, 1, 0] horizontally results in [0, 1, 1].</p>
-<p>To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0. For example, inverting [0, 1, 1] results in [1, 0, 0].</p>
-<p><strong>Example 1:</strong>  </p>
-<ul>
-<li>Input: [[1,1,0],[1,0,1],[0,0,0]]</li>
-<li>Output: [[1,0,0],[0,1,0],[1,1,1]]</li>
-<li>Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].</li>
-<li>Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]</li>
-</ul>
-<p><strong>Example 2:</strong>  </p>
-<ul>
-<li>Input: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]</li>
-<li>Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</li>
-<li>Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].</li>
-<li>Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]</li>
-</ul>
-<p><strong>Notes:</strong>  </p>
-<ul>
-<li>1 &lt;= A.length = A[0].length &lt;= 20</li>
-<li>0 &lt;= A[i][j] &lt;= 1</li>
-</ul>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제를 요약하면 0과 1로만 이루어진 2차원 배열을 수평으로 한번 뒤집고, 0은 1로 1은 0으로 치환되면 된다.<br>이미지 파일을 뒤집는 방법이 이런식으로 이루어지나 보다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72 ms</span></span><br><span class="line"><span class="keyword">var</span> flipAndInvertImage = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = A;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = arr.length, n = arr[<span class="number">0</span>].length; i &lt; l; i++) &#123;</span><br><span class="line">        arr[i].reverse();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            arr[i][j] = arr[i][j] === <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>2차원 배열이니 for문을 2번 썼다.<br>for문을 두번 쓰는 다음과 같은 경우에는 적절한 것 같은데, reverse가 원본 배열을 바꾸는 메소드이고 <code>arr[i][j]</code>에 값을 대입하는 부분 역시 원본 배열에 변화를 주기 때문에 만약에 원본 배열에 영향을 주고 싶지 않다면 깊은복사를 할 수 있도록 고려해야 될 것 같다.</p>
-<p>그렇다면 다음과 같은 방법을 사용하면 인자로 넘겨지는 원본 배열에 변형 없이 새로운 배열을 얻을 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68 ms</span></span><br><span class="line"><span class="keyword">var</span> flipAndInvertImage = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> newArr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = A.length, n = A[<span class="number">0</span>].length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> newRow = A[i].concat().reverse();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            newRow[j] = newRow[j] === <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        newArr.push(newRow);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>또 다른 방법으로 <code>for of</code> 문을 쓰면서 <code>map</code> 메소드를 사용하는 방법을 써봤다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64 ms</span></span><br><span class="line"><span class="keyword">var</span> flipAndInvertImage = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> newArr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> A) &#123;</span><br><span class="line">        <span class="keyword">const</span> newRow = i.concat().reverse().map(<span class="function"><span class="params">item</span> =&gt;</span> item === <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>)</span><br><span class="line">        newArr.push(newRow);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>map을 두번 써서 풀었다. 그런데 이 풀이도 만약에 원본 배열을 바꾸고 싶지 않다면 reverse() 메소드 이전에 복사하는 부분이 없기 때문에 변형이 생긴다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> flipAndInvertImage = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.map(<span class="function"><span class="params">row</span> =&gt;</span> row.reverse().map(<span class="function"><span class="params">num</span> =&gt;</span> num ? <span class="number">0</span> : <span class="number">1</span>))</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjjzy45v10025csuw2akm1lw4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/07/15/flipAndInvertImage/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1788,6 +1720,24 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/07/25/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T14:59:38.000Z" itemprop="datePublished">2018.07.25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/07/25/SelfDividingNumbers/" class="title">Self Dividing Numbers</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T14:57:22.000Z" itemprop="datePublished">2018.07.25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
                             <p class="item-title"><a href="/2018/07/24/TIL/" class="title">TIL</a></p>
                             <p class="item-date"><time datetime="2018-07-24T11:59:40.000Z" itemprop="datePublished">2018.07.24</time></p>
                         </div>
@@ -1796,7 +1746,7 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
                             <p class="item-title"><a href="/2018/07/24/MaxIncreasetoKeepCitySkyline/" class="title">MaxIncreasetoKeepCitySkyline</a></p>
                             <p class="item-date"><time datetime="2018-07-24T11:55:37.000Z" itemprop="datePublished">2018.07.24</time></p>
                         </div>
@@ -1811,24 +1761,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/07/23/peakIndexInMountainArray/" class="title">peakIndexInMountainArray</a></p>
-                            <p class="item-date"><time datetime="2018-07-23T13:10:22.000Z" itemprop="datePublished">2018.07.23</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/회고/">회고</a></p>
-                            <p class="item-title"><a href="/2018/07/22/retrospective/" class="title">7월 3주차 주간회고</a></p>
-                            <p class="item-date"><time datetime="2018-07-22T13:41:12.000Z" itemprop="datePublished">2018.07.22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1838,7 +1770,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1847,7 +1779,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
