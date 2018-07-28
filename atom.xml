@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-07-26T16:04:47.005Z</updated>
+  <updated>2018-07-28T09:02:52.536Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/07/27/TIL/"/>
+    <id>http://chiabi.github.io/2018/07/27/TIL/</id>
+    <published>2018-07-27T14:13:07.000Z</published>
+    <updated>2018-07-28T09:02:52.536Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-완료"><a href="#퍼블리싱-외주-완료" class="headerlink" title="퍼블리싱 외주 완료"></a>퍼블리싱 외주 완료</h3><p>오늘은 업체에 찾아가서 마지막 마무리 작업을 했다. 내 마크업에 기존 개발중인 기능을 적용해야 하는데, UI가 수정되기도 해서 추가 작업을 했다. 수정요청이 좀 많아서 6시까지 완료할 수 있을까 조금 걱정했는데, 업체 개발자와 협의해서 먼저 개발해야하는 기능부터 수정해서 넘겨주는 식으로 작업을 진행해서 다행히 시간내에 완료할 수 있었다. 디자인도 외주를 맡긴 상황이라 기획이나 디자인이 빠르게 넘어오지 않은 상태에서 말로만 이 부분이 변경이 있다라는 식으로 전달 받을때는 당황스러웠는데, 손그림으로라도 그려서 주셨으면 좋겠다고 하니 AdobeXD로 빠르게 수정된 디자인을 받았다. 디자인하는 것을 옆에서 구경했는데, AdobeXD에서 아이콘을 리스트에 동일하게 추가하는데 스크롤만 내리니 아이콘이 간격대로 생성이 되었다. 포토샵은 어느정도 기본만 할 수 있는 수준이고, 이미지 내보내는 부분 정도만 액션을 추가한다든지 하는 식으로 활용하고 있어서 포토샵에도 그런 기능이 있는지는 모르겠지만 굉장히 신기했다.(업무 효율 올라가는 소리가…)<br>굉장히 신기해서 찾아봤는데, 반복 그리드라는 작업이었다.<br>오늘 업체 개발자와 커뮤니티를 하면서 느낀게 상대의 말이 이해가 안되면 많이 물어봐야하고, 상대방이 알아듣기 쉽도록 설명해야 된다는 거였다. 아무리 개발 용어라도,  어떤 의도에서 썼는지는 본인만 알 수 있었다. 그리고 나와 대화하는 사람이 이정도는 알고있을 것이다라는 예측은 하면 안된다는 것.<br>그리고 동적으로 리스트를 생성하기를 원하셨고, 그부분에서 CSS가 안 먹기 때문에 CSS를 인라인으로 넣겠다고 하셔서 이부분에 대한 커뮤니케이션이 좀 어려웠는데, 결론은 내가 개발자님이 말씀하시는 데이터 형태에 맞춰 리스트가 동적으로 생성되는 코드를 짜보기로 했고, 마크업 개발 외주여서 이것까지 하게 될 줄은 몰랐지만 재미있는 작업이었다.<br>개발자님이 말씀하신 배열이 어떤 구조인지 여쭤보고, for문 안에서 리스트 아이템에 데이터를 넣고 생성되도록 했는데, for문을 두번 돌리기 전에 filter 메소드를 통해 두번째 배열의 아이템이 첫번째 배열의 정보를 가지고 있는지를 먼저 체크하도록 해서 다음 for문을 돌릴때 대상에 두번째 배열에서 필터링 된 배열 정보를 넘겨줬다. 그래서 for문을 좀 더 덜 돌 수 있게 되었다.</p><!-- > + 개발자님: 동적으로 이 리스틑를 생성하는데 제가 해보니 CSS가 안 먹더라구요. > + 나: 동적으로 생성하는데 CSS가 안먹는다구요?> + 개발자님: 제가 배열을 2개를 만들어서 이중 for문을 써서 요소를 생성하는데, 나중에 값이 추가되면 요소가 추가되는 게 아니라 다시 동적으로 그리게 하는데 CSS가 안먹더라구요. 이부분을 만약에 개발자님이 해주실 수 없으면 CSS를 인라인으로 넣으려고 하는데, 그럼 제가 해당하는 CSS를 일일이 찾아야 하니까 그 CSS부분만 저에게 알려주시면 인라인으로 넣으려합니다.> + 나: 어... 동적으로 생성하는데 이벤트가 아니라 CSS가 안 먹는다는 부분이 저는 잘 이해가 안되는데요... 그리고 인라인으로 넣으면 마크업이 굉장히 지저분해지고 길어질 것 같아요. 배열을 중첩으로 쓰신다는 건가요?> + 개발자님: 아 여기 배열이 model이랑 support로 해서 for문을 이중으로 썼거든요. (소스코드 보여주심)> + 나: 아..음... 그러면 일단 이부분을 제가 스크립트로 짜보고 말씀드릴게요. -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-완료&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-완료&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>TIL</title>
@@ -507,31 +532,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프론트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#1-프론트엔드-스쿨과정-리액트&quot; cla
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL 20180618</title>
-    <link href="http://chiabi.github.io/2018/06/19/TIL/"/>
-    <id>http://chiabi.github.io/2018/06/19/TIL/</id>
-    <published>2018-06-18T15:49:40.000Z</published>
-    <updated>2018-06-18T16:07:20.849Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="프로트엔드-스쿨과정-리액트"><a href="#프로트엔드-스쿨과정-리액트" class="headerlink" title="프로트엔드 스쿨과정 - 리액트"></a>프로트엔드 스쿨과정 - 리액트</h3><ul><li>children prop</li><li>로그인 시 예외 처리 (비동기 예외처리)</li><li><code>ref</code>와 “제어되지 않는 컴포넌트”로 폼 바꿔보기</li><li>Presentational component &amp; Container component</li><li>Storybook</li></ul><p>제어되지 않는 컴포넌트 부분은 break week 기간에 잠깐 튜토리얼 따라해 보면서 봤던 부분인데 다시 복습하게 되었다. form의 기본 submit 기능을 사용하게 되면, 따로 이벤트 메서드를 만들지 않아도 되어 코드가 간결해지는 장점이 있지만, 나중에 폼을 쓰게 될 경우 유효성 검사를 하거나 키보드 접근 관련해서 추가적인 처리를 하게 될 것 같아서 대부분의 경우 제어되는 컴포넌트로 하게 되지 않을까 싶다.</p><p>프레젠테이션과 컨테이너 컴포넌트 관련 글은 전날에 올려주셔서 자기 전에 읽어봤는데, 읽어보니 왠지 rgb챌린지 만들면서 이 둘을 잘 구분해서 사용하지 않은 것 같다고 느꼈다. 또 글이 잘 이해가 안되었는데, 오늘 수업을 통해 조금 정리되는 느낌이다.</p><h2 id="오늘-읽은-글"><a href="#오늘-읽은-글" class="headerlink" title="오늘 읽은 글"></a>오늘 읽은 글</h2><ul><li><a href="https://medium.com/@Dev_Bono/context-api%EA%B0%80-redux%EB%A5%BC-%EB%8C%80%EC%B2%B4%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-76a6209b369b" target="_blank" rel="noopener">Context API가 Redux를 대체할 수 있을까요?</a></li><li><a href="https://medium.com/@seungha_kim_IT/presentational-and-container-components-%EB%B2%88%EC%97%AD-1b1fb2e36afb" target="_blank" rel="noopener">Presentiational and Container Components(번역)</a></li><li><a href="https://medium.com/dailyjs/when-do-i-know-im-ready-for-redux-f34da253c85f" target="_blank" rel="noopener">When do I know I’m ready for Redux?</a></li></ul><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>내일 수업 내용 복습(<a href="https://reacttraining.com/react-router/web/guides/philosophy" target="_blank" rel="noopener">리액트 라우터</a>를 들어간다고 한다.)</li><li><a href="https://storybook.js.org/" target="_blank" rel="noopener">스토리북</a> 사용해보기</li><li>리덕스 일단 따로 <a href="https://egghead.io/courses/getting-started-with-redux" target="_blank" rel="noopener">Dan abramov의 소개 영상</a> 보면서 감 잡기</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;프로트엔드-스쿨과정-리액트&quot;&gt;&lt;a href=&quot;#프로트엔드-스쿨과정-리액트&quot; class=&quot;
       
     
     </summary>
