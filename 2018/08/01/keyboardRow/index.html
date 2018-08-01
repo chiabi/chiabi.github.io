@@ -3,19 +3,20 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>Archive | Chiabi&#39;s dev blog</title>
+    <title>keyboardRow | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
-<meta name="keywords" content="front end developer,front end engineer,Javascript,TIL,Today I learned,ECMAScript2015,ES6,React,HTML5,CSS3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chiabi&#39;s dev blog">
-<meta property="og:url" content="http://chiabi.github.io/archives/page/2/index.html">
+    <meta name="description" content="leetcode 문제링크  Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below. Example 1:  Input: [“Hello”, “Alaska”, “">
+<meta name="keywords" content="algorithm,leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="keyboardRow">
+<meta property="og:url" content="http://chiabi.github.io/2018/08/01/keyboardRow/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta property="og:description" content="leetcode 문제링크  Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below. Example 1:  Input: [“Hello”, “Alaska”, “">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-08-01T08:54:36.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chiabi&#39;s dev blog">
-<meta name="twitter:description" content="for posting my TIL, solutions of Algorithm quiz, posts about develop and etc">
+<meta name="twitter:title" content="keyboardRow">
+<meta name="twitter:description" content="leetcode 문제링크  Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below. Example 1:  Input: [“Hello”, “Alaska”, “">
     
 
     
@@ -211,378 +212,177 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fas fa-calendar-alt"></i></span>
-                <h1 class="title">2018</h1>
-            </div>
+            <section id="main"><article id="post-keyboardRow" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/23/peakIndexInMountainArray/">peakIndexInMountainArray</a>
+        <h1 class="article-title" itemprop="name">
+            keyboardRow
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/23/peakIndexInMountainArray/">
-            <time datetime="2018-07-23T13:10:22.000Z" itemprop="datePublished">2018.07.23</time>
+        <a href="/2018/08/01/keyboardRow/">
+            <time datetime="2018-08-01T06:56:42.000Z" itemprop="datePublished">2018.08.01</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fas fa-folder"></i>
         <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fas fa-tag"></i>
         <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/22/retrospective/">7월 3주차 주간회고</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/keyboard-row/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li>Input: [“Hello”, “Alaska”, “Dad”, “Peace”]</li>
+<li>Output: [“Alaska”, “Dad”]</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>You may use one character in the keyboard more than once.</li>
+<li>You may assume the input string will only contain letters of alphabet.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p><code>every</code>메소드를 써서 키보드 배열 중 모든 문자열이 속하는 배열이 있는 지 확인하는 부분에서 반복문을 쓸까 하다가 키보드 배열의 값은 변경될 일이 없을 것 같고 반복문 쓰면서 <code>every</code>의 반환값을 어딘가에 저장해두는 것이 더 좋은 방법 같지는 않아서 다음과 같이 풀었다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 48ms</span></span><br><span class="line"><span class="keyword">const</span> keyboard = [</span><br><span class="line">    [<span class="string">'Q'</span>, <span class="string">'W'</span>, <span class="string">'E'</span>, <span class="string">'R'</span>, <span class="string">'T'</span>, <span class="string">'Y'</span>, <span class="string">'U'</span>, <span class="string">'I'</span>, <span class="string">'O'</span>, <span class="string">'P'</span>],</span><br><span class="line">    [<span class="string">'A'</span>, <span class="string">'S'</span>, <span class="string">'D'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'J'</span>, <span class="string">'K'</span>, <span class="string">'L'</span>],</span><br><span class="line">    [<span class="string">'Z'</span>, <span class="string">'X'</span>, <span class="string">'C'</span>, <span class="string">'V'</span>, <span class="string">'B'</span>, <span class="string">'N'</span>, <span class="string">'M'</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> itemArr = item.toUpperCase().split(<span class="string">''</span>);</span><br><span class="line">        <span class="keyword">return</span> itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">0</span>].includes(item)) || </span><br><span class="line">               itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">1</span>].includes(item)) || </span><br><span class="line">               itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">2</span>].includes(item));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>정규식이랑 <code>match()</code> 메소드, <code>some()</code>메소드를 이용해 다른 방법으로 풀어보았다. result에 한번 match의 반환값을 저장할 필요가 있었는데, join()으로 다시 문자열 결합할 때, match의 반환값이 배열이 아니라 <code>null</code>일때도 있기 때문이다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 52ms</span></span><br><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> keyboards = [<span class="regexp">/[QWERTYUIOP]/ig</span>, /[ASDFGHJKL]/ig, /[ZXCVBNM]/ig];</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> keyboards.some(<span class="function"><span class="params">row</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> result = item.match(row);</span><br><span class="line">            <span class="keyword">return</span> result &amp;&amp; result.join(<span class="string">''</span>) === item</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>정규식을 굉장히 잘 사용한 풀이인 것 같다. <code>^</code>과 <code>$</code>을 이용해서 문자셋으로만 구성된 단어인지 여부를 RegExp <code>test()</code> 메소드를 통해서 bool값으로 반환하도록 했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function">(<span class="params">w</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// remove word from array if it fails matching all three rows</span></span><br><span class="line">        <span class="keyword">if</span> (</span><br><span class="line">            !<span class="regexp">/^[qwertyuiop]*$/i</span>.test(w) &amp;&amp;</span><br><span class="line">            !<span class="regexp">/^[asdfghjkl]*$/i</span>.test(w) &amp;&amp;</span><br><span class="line">            !<span class="regexp">/^[zxcvbnm]*$/i</span>.test(w)</span><br><span class="line">        ) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/22/retrospective/">
-            <time datetime="2018-07-22T13:41:12.000Z" itemprop="datePublished">2018.07.22</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/회고/">회고</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/회고/">회고</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/19/UniqueMorseCodeWords/">UniqueMorseCodeWords</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/19/UniqueMorseCodeWords/">
-            <time datetime="2018-07-19T02:16:33.000Z" itemprop="datePublished">2018.07.19</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/18/TIL/">TIL</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/18/TIL/">
-            <time datetime="2018-07-18T02:14:25.000Z" itemprop="datePublished">2018.07.18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/17/JudgeRouteCircle/">Judge Route Circle</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/17/JudgeRouteCircle/">
-            <time datetime="2018-07-17T14:40:55.000Z" itemprop="datePublished">2018.07.17</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/16/HammingDistance/">Hamming Distance</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/16/HammingDistance/">
-            <time datetime="2018-07-16T02:07:15.000Z" itemprop="datePublished">2018.07.16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/15/flipAndInvertImage/">flip And Invert Image</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/15/flipAndInvertImage/">
-            <time datetime="2018-07-15T13:42:39.000Z" itemprop="datePublished">2018.07.15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/07/09/Stones/">Jewels and Stones</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/09/Stones/">
-            <time datetime="2018-07-09T14:19:43.000Z" itemprop="datePublished">2018.07.09</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/24/TIL/">TIL 20180624</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/24/TIL/">
-            <time datetime="2018-06-24T11:24:53.000Z" itemprop="datePublished">2018.06.24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/06/23/TIL/">TIL 20180622</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/23/TIL/">
-            <time datetime="2018-06-22T15:12:20.000Z" itemprop="datePublished">2018.06.23</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
 </div>
 
-    <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
+    <a data-url="http://chiabi.github.io/2018/08/01/keyboardRow/" data-id="cjkawbeyz003dl8uwss6nr7ar" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/08/01/keyboardRow/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/08/01/keyboardRow/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/07/31/djangogirls/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">2018 장고걸스 서울 워크샵 후기</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
 </section>
             
                 
@@ -689,11 +489,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://chiabi.github.io/2018/08/01/keyboardRow/';
+        
+        this.page.identifier = 'keyboardRow';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/count.js';
+        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();

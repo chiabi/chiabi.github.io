@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-07-31T16:24:46.304Z</updated>
+  <updated>2018-08-01T08:54:36.361Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>keyboardRow</title>
+    <link href="http://chiabi.github.io/2018/08/01/keyboardRow/"/>
+    <id>http://chiabi.github.io/2018/08/01/keyboardRow/</id>
+    <published>2018-08-01T06:56:42.000Z</published>
+    <updated>2018-08-01T08:54:36.361Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/keyboard-row/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p><blockquote><p>Given a List of words, return the words that can be typed using letters of alphabet on only one row’s of American keyboard like the image below.</p><p><strong>Example 1:</strong></p><ul><li>Input: [“Hello”, “Alaska”, “Dad”, “Peace”]</li><li>Output: [“Alaska”, “Dad”]</li></ul><p><strong>Note:</strong></p><ul><li>You may use one character in the keyboard more than once.</li><li>You may assume the input string will only contain letters of alphabet.</li></ul></blockquote><h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p><code>every</code>메소드를 써서 키보드 배열 중 모든 문자열이 속하는 배열이 있는 지 확인하는 부분에서 반복문을 쓸까 하다가 키보드 배열의 값은 변경될 일이 없을 것 같고 반복문 쓰면서 <code>every</code>의 반환값을 어딘가에 저장해두는 것이 더 좋은 방법 같지는 않아서 다음과 같이 풀었다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 48ms</span></span><br><span class="line"><span class="keyword">const</span> keyboard = [</span><br><span class="line">    [<span class="string">'Q'</span>, <span class="string">'W'</span>, <span class="string">'E'</span>, <span class="string">'R'</span>, <span class="string">'T'</span>, <span class="string">'Y'</span>, <span class="string">'U'</span>, <span class="string">'I'</span>, <span class="string">'O'</span>, <span class="string">'P'</span>],</span><br><span class="line">    [<span class="string">'A'</span>, <span class="string">'S'</span>, <span class="string">'D'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'J'</span>, <span class="string">'K'</span>, <span class="string">'L'</span>],</span><br><span class="line">    [<span class="string">'Z'</span>, <span class="string">'X'</span>, <span class="string">'C'</span>, <span class="string">'V'</span>, <span class="string">'B'</span>, <span class="string">'N'</span>, <span class="string">'M'</span>],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> itemArr = item.toUpperCase().split(<span class="string">''</span>);</span><br><span class="line">        <span class="keyword">return</span> itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">0</span>].includes(item)) || </span><br><span class="line">               itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">1</span>].includes(item)) || </span><br><span class="line">               itemArr.every(<span class="function"><span class="params">item</span> =&gt;</span> keyboard[<span class="number">2</span>].includes(item));</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>정규식이랑 <code>match()</code> 메소드, <code>some()</code>메소드를 이용해 다른 방법으로 풀어보았다. result에 한번 match의 반환값을 저장할 필요가 있었는데, join()으로 다시 문자열 결합할 때, match의 반환값이 배열이 아니라 <code>null</code>일때도 있기 때문이다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 52ms</span></span><br><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> keyboards = [<span class="regexp">/[QWERTYUIOP]/ig</span>, /[ASDFGHJKL]/ig, /[ZXCVBNM]/ig];</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> keyboards.some(<span class="function"><span class="params">row</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> result = item.match(row);</span><br><span class="line">            <span class="keyword">return</span> result &amp;&amp; result.join(<span class="string">''</span>) === item</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>정규식을 굉장히 잘 사용한 풀이인 것 같다. <code>^</code>과 <code>$</code>을 이용해서 문자셋으로만 구성된 단어인지 여부를 RegExp <code>test()</code> 메소드를 통해서 bool값으로 반환하도록 했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> findWords = <span class="function"><span class="keyword">function</span>(<span class="params">words</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> words.filter(<span class="function">(<span class="params">w</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// remove word from array if it fails matching all three rows</span></span><br><span class="line">        <span class="keyword">if</span> (</span><br><span class="line">            !<span class="regexp">/^[qwertyuiop]*$/i</span>.test(w) &amp;&amp;</span><br><span class="line">            !<span class="regexp">/^[asdfghjkl]*$/i</span>.test(w) &amp;&amp;</span><br><span class="line">            !<span class="regexp">/^[zxcvbnm]*$/i</span>.test(w)</span><br><span class="line">        ) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/keyboard-row/description/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode 문제링크&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Gi
+      
+    
+    </summary>
+    
+      <category term="Algorithm" scheme="http://chiabi.github.io/categories/Algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
+    
+      <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>2018 장고걸스 서울 워크샵 후기</title>
@@ -506,31 +535,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-프론트엔드-개발-스쿨&quot;&gt;&lt;a href=&quot;#1-프론트엔드-개발-스쿨&quot; class=&quot;he
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL 2018021</title>
-    <link href="http://chiabi.github.io/2018/06/21/TIL/"/>
-    <id>http://chiabi.github.io/2018/06/21/TIL/</id>
-    <published>2018-06-21T14:24:55.000Z</published>
-    <updated>2018-06-22T15:17:37.746Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p><p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p><h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul><li>파이널 프로젝트 기획하기</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;1-리액트로-게시판-만들기&quot;&gt;&lt;a href=&quot;#1-리액트로-게시판-만들기&quot; class=&quot;
       
     
     </summary>

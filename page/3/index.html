@@ -165,7 +165,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                40
+                41
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,6 +212,142 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/21/TIL/">TIL 2018021</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/21/TIL/">
+            <time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p>
+<p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>파이널 프로젝트 기획하기</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjkawbevx001il8uwcyydk53o" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/21/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/21/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -289,7 +425,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjk9fccda001s68uwxyzdqvks" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjkawbewd0020l8uwatmsul6i" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -433,7 +569,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjk9fccdq001v68uwms30x9ag" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjkawbevx001ml8uwv0x1dadk" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -583,7 +719,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjk9fccda001o68uwfezha59q" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjkawbevx001fl8uwfjrufkvt" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -721,7 +857,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjk9fccda001l68uwnks1oya7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjkawbevi0017l8uwls3157w3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -875,7 +1011,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjk9fccda001h68uw3kajg2ei" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjkawbewt0023l8uwjou8hjpv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1016,7 +1152,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjk9fccda001968uwbocegso8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjkawbev2000zl8uw2ab9yzn0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1152,7 +1288,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjk9fccda001e68uwcpm6uj6e" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjkawbevi001al8uwok52ifx7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1318,7 +1454,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjk9fccda001668uw77kwhkg4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjkawbevi0012l8uwdm0kbjuq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1459,7 +1595,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL-1/" data-id="cjk9fcccu000w68uw5152vnjg" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/14/TIL-1/" data-id="cjkawbev2000sl8uwnpueq18b" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1537,143 +1673,8 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/14/TIL/">TIL 20180613</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/14/TIL/">
-            <time datetime="2018-06-13T16:28:49.000Z" itemprop="datePublished">2018.06.14</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-과정-리액트-실습"><a href="#1-프론트엔드-개발-과정-리액트-실습" class="headerlink" title="1. 프론트엔드 개발 과정 - 리액트 실습"></a>1. 프론트엔드 개발 과정 - 리액트 실습</h3><p>수업시간에 Provider와 Consumenr랑 props.children이 등장했다. 정신이 혼미해진다.<br>계속 상태를 필요한 하위 컴포넌트로 내려보내야 한다면 불편하지 않나라고 생각했는데, 그부분을 context를 통해 개선할 수 있단 점이 매력적이지만 역할과 책임에 따라 분리한다거나, 쓰는 방법 자체는 여러번 써봐야겠다. </p>
-<h3 id="2-Algorithm-문제-풀이"><a href="#2-Algorithm-문제-풀이" class="headerlink" title="2. Algorithm 문제 풀이"></a>2. Algorithm 문제 풀이</h3><p>알고리즘 문제를 푸는 건 잘 못하지만 재미있다. 특히 끙끙 거리며 풀었는데, 가장 성능이 좋은 코드와 현저하게 차이가 나면 대체 무슨 방법으로 풀었을까 엄청 궁금하다. 그래도 한번에 보기에는 좀더 고민해야 될 것 같아서 내가 푼 풀이를 좀 더 다듬었는데, 아쉽게도 별로 속도 개선이 되지 않았다. 그래서 다른 사람 풀이를 봤는데, 접근방식이 달랐다.<br>이런 점이 재미있는것 같다. 이런 식으로도 풀수 있구나 대단하다 생각하면서도 앞으로 나도 이렇게 풀어봐야지 하면서 얻게되는 게 있는것 같다.</p>
-<hr>
-<p>오늘은 복습을 많이 했어야 했는데, 많이 하지 못했다. 그래도 내가 많이 의지했던 언니의 고민을 들어주고 계속 우울해했던 언니의 기운을 북돋아 줄 수 있어서 오늘 하루에 그렇게 아쉬움은 없다. 대신 내일 정말 열심히 복습해야겠다.  </p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL/" data-id="cjk9fcccu001168uw63zw1tma" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/14/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/14/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1685,6 +1686,15 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/08/01/keyboardRow/" class="title">keyboardRow</a></p>
+                            <p class="item-date"><time datetime="2018-08-01T06:56:42.000Z" itemprop="datePublished">2018.08.01</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1722,15 +1732,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/07/25/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-07-25T14:59:38.000Z" itemprop="datePublished">2018.07.25</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1740,7 +1741,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1749,7 +1750,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
