@@ -356,10 +356,10 @@ code {
   -moz-transition: 0.2s ease;
   -ms-transition: 0.2s ease;
   transition: 0.2s ease;
-  color: #565a5f;
+  color: #fff;
 }
 #header a:hover {
-  color: #28b463;
+  color: rgba(255,255,255,0.7);
 }
 .header-inner #logo,
 #main-nav,
@@ -380,6 +380,11 @@ code {
 .header-inner {
   height: 100%;
   position: relative;
+  background: #28b463;
+  background: -webkit-linear-gradient(45deg, #28b463, #f4d03f);
+  background: -moz-linear-gradient(45deg, #28b463, #f4d03f);
+  background: -ms-linear-gradient(45deg, #28b463, #f4d03f);
+  background: linear-gradient(45deg, #28b463, #f4d03f);
 }
 .header-inner #logo {
   display: inline-block;
@@ -393,6 +398,7 @@ code {
   display: inline-block;
   vertical-align: top;
   font-weight: 600;
+  color: #fff;
 }
 #header-title {
   text-align: center;
@@ -403,7 +409,7 @@ code {
   margin-top: -20px;
 }
 .header-sub {
-  border-top: 1px solid #eceff2;
+  border-top: 1px solid rgba(255,255,255,0.25);
 }
 .header-sub ul {
   margin: 0 15px;
@@ -526,17 +532,30 @@ code {
 #search-form-wrap .search-form .search-form-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
+#search-form-wrap .search-form .search-form-input::-webkit-input-placeholder {
+  color: #fff;
+}
+#search-form-wrap .search-form .search-form-input:-ms-input-placeholder {
+  color: #fff;
+}
+#search-form-wrap .search-form .search-form-input::-moz-placeholder {
+  color: #fff;
+}
 #search-form-wrap .search-form .search-form-submit {
   top: 50%;
   right: 15px;
   border: none;
   cursor: pointer;
-  margin-top: -7px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   background: none;
   position: absolute;
   font-size: 13px;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
+  color: #fff;
 }
 #search-form-wrap .search-form .search-form-submit:before {
   content: "\f002";
@@ -570,7 +589,7 @@ code {
   outline: none !important;
   background: none !important;
   font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
-  border: 1px solid #eceff2 !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
 }
 .search-form-input:focus,
 .search-form-input.ins-search-input:focus,
@@ -693,6 +712,10 @@ code {
   text-align: center;
   margin: 20px auto 10px;
   background: #28b463;
+  background: -webkit-linear-gradient(0deg, #28b463, #f4d03f);
+  background: -moz-linear-gradient(0deg, #28b463, #f4d03f);
+  background: -ms-linear-gradient(0deg, #28b463, #f4d03f);
+  background: linear-gradient(90deg, #28b463, #f4d03f);
   border-radius: 20px;
   -webkit-transition: 0.2s ease;
   -moz-transition: 0.2s ease;
