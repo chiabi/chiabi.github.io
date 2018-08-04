@@ -1883,32 +1883,16 @@ a.article-title:hover {
   display: none;
   cursor: pointer;
   text-align: center;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   color: #fff;
-  font-size: 50px;
-  line-height: 55px;
-  background: #565a5f;
+  font-size: 20px;
+  line-height: 48px;
+  background: #f4d03f;
   opacity: 0.8;
-  border-radius: 4px;
+  border-radius: 100%;
   bottom: 20px;
   position: fixed;
-}
-@media screen and (min-width: 560px) and (max-width: 799px) {
-  #toTop {
-    width: 52px;
-    height: 52px;
-    font-size: 34px;
-    line-height: 52px;
-  }
-}
-@media screen and (max-width: 559px) {
-  #toTop {
-    width: 48px;
-    height: 48px;
-    font-size: 32px;
-    line-height: 48px;
-  }
 }
 #recent-post li {
   padding: 10px 0 10px 94px;
