@@ -3,20 +3,22 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>스캐폴딩, CRUD, 퍼머링크 | Chiabi&#39;s dev blog</title>
+    <title>TIL | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="hexo로 블로그 만들면서 모르는 용어를 정리했다.  1. 스캐폴딩(scaffolding)건축용어로 비계라는 의미인데, 작업을 위해 임시로 설치한 가설 발판이나 가설 구조물을 말한다.프로그래밍 쪽에서는 데이터베이스의 각 테이블에 대한 웹 페이지를 자동으로 생성하는 Dynamic Data 요소를 말한다.  이렇게 자동 생성된 웹 페이지를 통해 각 테이블에 대">
-<meta name="keywords" content="glossary">
+    <meta name="description" content="오늘 한 일Jest 공부하기자료구조를 만들어보면 테스트를 어떻게 할 지 고민을 했다. 처음에는 HTML 파일을 만들어서 script로 넣어서 콘솔에 넣을까 생각했다. ES6를 사용하니까 babel과 parcel 문서를 보고 환경을 만들다가 javascript-algorithm 처럼 테스트 환경을 만들어 보는 게 나을 것 같아서 Jest로 테스트 환경을 만들">
+<meta name="keywords" content="TIL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="스캐폴딩, CRUD, 퍼머링크">
-<meta property="og:url" content="http://chiabi.github.io/2018/06/09/DG-scaffolding/index.html">
+<meta property="og:title" content="TIL">
+<meta property="og:url" content="http://chiabi.github.io/2018/08/03/TIL/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="hexo로 블로그 만들면서 모르는 용어를 정리했다.  1. 스캐폴딩(scaffolding)건축용어로 비계라는 의미인데, 작업을 위해 임시로 설치한 가설 발판이나 가설 구조물을 말한다.프로그래밍 쪽에서는 데이터베이스의 각 테이블에 대한 웹 페이지를 자동으로 생성하는 Dynamic Data 요소를 말한다.  이렇게 자동 생성된 웹 페이지를 통해 각 테이블에 대">
+<meta property="og:description" content="오늘 한 일Jest 공부하기자료구조를 만들어보면 테스트를 어떻게 할 지 고민을 했다. 처음에는 HTML 파일을 만들어서 script로 넣어서 콘솔에 넣을까 생각했다. ES6를 사용하니까 babel과 parcel 문서를 보고 환경을 만들다가 javascript-algorithm 처럼 테스트 환경을 만들어 보는 게 나을 것 같아서 Jest로 테스트 환경을 만들">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-09T13:11:06.676Z">
+<meta property="og:image" content="http://chiabi.github.io/images/post_20180803_jest.jpg">
+<meta property="og:updated_time" content="2018-08-04T16:57:24.596Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="스캐폴딩, CRUD, 퍼머링크">
-<meta name="twitter:description" content="hexo로 블로그 만들면서 모르는 용어를 정리했다.  1. 스캐폴딩(scaffolding)건축용어로 비계라는 의미인데, 작업을 위해 임시로 설치한 가설 발판이나 가설 구조물을 말한다.프로그래밍 쪽에서는 데이터베이스의 각 테이블에 대한 웹 페이지를 자동으로 생성하는 Dynamic Data 요소를 말한다.  이렇게 자동 생성된 웹 페이지를 통해 각 테이블에 대">
+<meta name="twitter:title" content="TIL">
+<meta name="twitter:description" content="오늘 한 일Jest 공부하기자료구조를 만들어보면 테스트를 어떻게 할 지 고민을 했다. 처음에는 HTML 파일을 만들어서 script로 넣어서 콘솔에 넣을까 생각했다. ES6를 사용하니까 babel과 parcel 문서를 보고 환경을 만들다가 javascript-algorithm 처럼 테스트 환경을 만들어 보는 게 나을 것 같아서 Jest로 테스트 환경을 만들">
+<meta name="twitter:image" content="http://chiabi.github.io/images/post_20180803_jest.jpg">
     
 
     
@@ -166,7 +168,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                42
+                45
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -212,7 +214,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-DG-scaffolding" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -220,7 +222,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            스캐폴딩, CRUD, 퍼머링크
+            TIL
         </h1>
     
 
@@ -229,8 +231,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/09/DG-scaffolding/">
-            <time datetime="2018-06-08T15:00:00.000Z" itemprop="datePublished">2018.06.09</time>
+        <a href="/2018/08/03/TIL/">
+            <time datetime="2018-08-02T15:00:00.000Z" itemprop="datePublished">2018.08.03</time>
         </a>
     </div>
 
@@ -238,13 +240,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Dev-Glossary/">Dev Glossary</a>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/glossary/">glossary</a>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
     </div>
 
                     </div>
@@ -255,26 +257,17 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>hexo로 블로그 만들면서 모르는 용어를 정리했다. </p>
-<h2 id="1-스캐폴딩-scaffolding"><a href="#1-스캐폴딩-scaffolding" class="headerlink" title="1. 스캐폴딩(scaffolding)"></a>1. 스캐폴딩(scaffolding)</h2><p>건축용어로 비계라는 의미인데, 작업을 위해 임시로 설치한 가설 발판이나 가설 구조물을 말한다.<br>프로그래밍 쪽에서는 데이터베이스의 각 테이블에 대한 웹 페이지를 자동으로 생성하는 Dynamic Data 요소를 말한다. </p>
-<p>이렇게 자동 생성된 웹 페이지를 통해 각 테이블에 대해 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행할 수 있다. 스캐폴딩을 구성하는 템플릿을 사용해 효율적인 데이터 기반 웹 사이트를 신속하게 작성할 수 있다.<br>개발 중인 코드가 제 모습을 가지기 전까지 임시 스캐폴딩 코드를 코드 구조를 잡는데 사용한다고 한다.</p>
-<p>정리하면 웹 개발 프레임워크(ASP.NET이나 Ruby on Rails등)에서 단순한 CRUD 서비스 프로세스를 구축하도록 지원하는 템플릿 개념인 것 같다.</p>
-<h4 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h4><ul>
-<li><a href="https://msdn.microsoft.com/ko-kr/library/ee377606.aspx" target="_blank" rel="noopener">ASP.NET Dynamic Data 스캐폴딩</a></li>
-<li><a href="http://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS8530510636" target="_blank" rel="noopener">Ruby on Rails - 스캐폴딩</a></li>
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Jest-공부하기"><a href="#Jest-공부하기" class="headerlink" title="Jest 공부하기"></a>Jest 공부하기</h3><p>자료구조를 만들어보면 테스트를 어떻게 할 지 고민을 했다. 처음에는 HTML 파일을 만들어서 script로 넣어서 콘솔에 넣을까 생각했다. ES6를 사용하니까 babel과 parcel 문서를 보고 환경을 만들다가 javascript-algorithm 처럼 테스트 환경을 만들어 보는 게 나을 것 같아서 Jest로 테스트 환경을 만들기로 했다. </p>
+<p>Jest 문서의 <a href="https://jestjs.io/docs/en/getting-started.html" target="_blank" rel="noopener">Getting Started</a>를 참고해서 sum 함수를 테스트 해보려다가 다음과 같은 에러가 발생했다.</p>
+<p><img src="/images/post_20180803_jest.jpg" alt="SecurityError: localStorage is not available for opaque origins"></p>
+<p><a href="https://github.com/facebook/jest/issues/6766" target="_blank" rel="noopener">Jest 깃헙의 이슈</a>를 참고해서 <code>package.json</code>에 다음과 같이 <code>testURL</code>값을 <code>http://localhost/</code> 로 해서 jest 설정 부분을 추가했다. 해당 옵션은 ‘jsdom’환경의 URL을 설정한다고 한다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"jest"</span>: &#123;</span><br><span class="line">    <span class="attr">"verbose"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"testURL"</span>: <span class="string">"http://localhost/"</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 부분은 <code>jest.config.js</code>파일을 만들어서 다음과 같이 추가해도 된다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  verbose: <span class="literal">true</span>,</span><br><span class="line">  testURL: <span class="string">"http://localhost/"</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>verbose</code>는 테스트 결과를 자세히 보고할 지 여부인데 기본값이 <code>false</code>라서 같이 추가해줬다.</p>
+<ul>
+<li><a href="https://jestjs.io/docs/en/configuration.html#verbose-boolean" target="_blank" rel="noopener">Configuring Jest</a></li>
 </ul>
-<h2 id="2-CRUD"><a href="#2-CRUD" class="headerlink" title="2. CRUD"></a>2. CRUD</h2><p><strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete<br>대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능을 묶어서 일컫는 말.<br>사용자 인터페이스가 갖추어야 할 기능(정보의 참조/검색/갱신)을 가리키는 용어로서도 사용된다.</p>
-<h4 id="참고-1"><a href="#참고-1" class="headerlink" title="참고"></a>참고</h4><ul>
-<li><a href="https://ko.wikipedia.org/wiki/CRUD" target="_blank" rel="noopener">[위키백과] - CRUD</a></li>
-</ul>
-<h2 id="3-퍼머링크-permalink"><a href="#3-퍼머링크-permalink" class="headerlink" title="3. 퍼머링크(permalink)"></a>3. 퍼머링크(permalink)</h2><p>인터넷에서 특정 페이지에 영구적으로 할당된 URL 주소를 뜻한다.<br>영구적인 주소라는 뜻인데 한국에서는 고유 링크, 고유 주소라는 명칭으로 광범위하게 퍼져있다.</p>
-<p>퍼머링크를 사용하는 대표적인 사례는 블로그.<br>시간이 지남에 따라 새로운 내용이 추가되면서 블로그 글의 위치가 쉽게 변하므로, 각각의 글에 영원히 고정된 주소를 제공하는 것이라고 위키백과에 정의되어 있다.</p>
-<p><a href="https://hexo.io/ko/docs/permalinks.html" target="_blank" rel="noopener">hexo</a>에서는 <code>_config.yml</code> 파일이나 font-matter(파일 시작 시 작성하는 YAML, JSON 구역 - 게시물에 대한 환경설정을 하는 곳)에 각 포스트의 permalink의 형식을 지정할 수 있게 한다.</p>
-<p>hexo 설치시 처음 _config.yml에는 아래와 같이 되어있는데<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure></p>
-<p>결과는 <code>2018/06/09/hello-world</code>로 나온다.</p>
-<h4 id="참고-2"><a href="#참고-2" class="headerlink" title="참고"></a>참고</h4><ul>
-<li><a href="https://ko.wikipedia.org/wiki/%ED%8D%BC%EB%A8%B8%EB%A7%81%ED%81%AC" target="_blank" rel="noopener">[위키백과] 퍼머링크</a></li>
-</ul>
+<h3 id="영어학원-등록"><a href="#영어학원-등록" class="headerlink" title="영어학원 등록"></a>영어학원 등록</h3><p>나는 외국을 안 나갈거니까 영어 따위는 필요없다고 호기롭게 말했던 학생때의 나를 때려주고 싶다. 사실 개발을 하게 될 줄도 몰랐지만… 영어와 뗄래야 뗄 수 없는 관계가 될 줄도 몰랐다.<br>개발 공부하면서 영어 공부의 필요성을 무지막지하게 느끼고 있다. 아직까지는 수능영어 공부할 때와 공무원 영어 공부하면서 얻은 독해 실력과 구글 번역기로 연명하고 있는데, 좀 더 빨리 읽고 싶고, 의미를 더 잘 이해하고 싶고 무엇보다 자막없는 컨퍼런스 영상을 이해하고 싶다. 그리고 커밋 메시지 비문없이 영어로 적고 싶다!  </p>
 
         
         </div>
@@ -285,7 +278,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/" data-id="cjkf4cigj0047wouwusty2hxr" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/03/TIL/" data-id="cjkfny1bo0048t4uwkuyz8kj0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -353,7 +346,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/06/09/DG-scaffolding/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/09/DG-scaffolding/">Comments</a>
+        <a href="http://chiabi.github.io/2018/08/03/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/08/03/TIL/">Comments</a>
     
 
         </footer>
@@ -362,15 +355,20 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/06/09/TIL-20180609/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/08/04/HouseRobber/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    TIL 20180609
+                    House Robber
                 
             </div>
         </a>
     
+    
+        <a href="/2018/08/02/TIL/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">TIL</div>
+        </a>
     
 </nav>
 
@@ -402,9 +400,36 @@ ga('send', 'pageview');
                     <li>
                         
                         <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/04/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-04T14:12:44.000Z" itemprop="datePublished">2018.08.04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/08/04/HouseRobber/" class="title">HouseRobber</a></p>
+                            <p class="item-title"><a href="/2018/08/04/HouseRobber/" class="title">House Robber</a></p>
                             <p class="item-date"><time datetime="2018-08-04T02:01:41.000Z" itemprop="datePublished">2018.08.04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/03/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-02T15:00:00.000Z" itemprop="datePublished">2018.08.03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/02/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-01T15:00:00.000Z" itemprop="datePublished">2018.08.02</time></p>
                         </div>
                     </li>
                 
@@ -417,33 +442,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/log/">log</a></p>
-                            <p class="item-title"><a href="/2018/07/31/djangogirls/" class="title">2018 장고걸스 서울 워크샵 후기</a></p>
-                            <p class="item-date"><time datetime="2018-07-31T04:03:45.000Z" itemprop="datePublished">2018.07.31</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/07/28/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-07-28T08:15:30.000Z" itemprop="datePublished">2018.07.28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/07/27/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-07-27T14:13:07.000Z" itemprop="datePublished">2018.07.27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -453,7 +451,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -462,7 +460,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
@@ -494,9 +492,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/06/09/DG-scaffolding/';
+            this.page.url = 'http://chiabi.github.io/2018/08/03/TIL/';
         
-        this.page.identifier = 'DG-scaffolding';
+        this.page.identifier = 'TIL';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
