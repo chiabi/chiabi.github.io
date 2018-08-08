@@ -166,11 +166,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                48
+                50
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                8
+                9
                 <span>tags</span>
             </div>
         </div>
@@ -213,6 +213,305 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-TIL-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/20/TIL-1/">TIL 20180620</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/20/TIL-1/">
+            <time datetime="2018-06-20T13:23:10.000Z" itemprop="datePublished">2018.06.20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
+<li>HOC로 인증 관련 문제 해결하기</li>
+<li>defaultProps</li>
+<li>Sass 사용하기</li>
+<li>classnames</li>
+<li>규모있는 프로젝트의 개발 순서는 어떻게 가져가야 할까?</li>
+</ul>
+<p>Sass 사용은 visual studio code에서 바로 컴파일 해주는 익스텐션을 사용하도록 알려주셨는데, 시간이 나면 webpack을 이용하는 방법을 알아봐야겠다.</p>
+<h3 id="2-리액트로-게시판-만들기"><a href="#2-리액트로-게시판-만들기" class="headerlink" title="2. 리액트로 게시판 만들기"></a>2. 리액트로 게시판 만들기</h3><p>기본적인 로그인 구현까지했다. 스토리북을 이용해서 Presentational 컴포넌트를 먼저 확인하면서 만들고 있다. 만들다가 기억이 잘 안나는 부분은 다시 todo 실습으로 돌아가서 참고하고 있는데, rgb 챌린지처럼 먼저 단순하게 만들고 더 다듬어야 될 것 같다. 아직 어느 코드가 중복되는 로직일지 파악할 수 없어서 오늘 배운 HOC은 적용해보지 못했는데, 다듬다보면 어느때 써야할 지 감이 잡힐 것 같다. 이번 과제로 게시판을 한번 만들어보면 마지막 과제를 할 때 많은 도움이 될 것 같다.</p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>리액트로 게시판 만들기 과제 완료하기<ul>
+<li>로그인<ul>
+<li>데이터설계(json server)</li>
+<li>presentational: 로그인 화면</li>
+<li>Provider: 상태관리</li>
+<li>Container 컴포넌트 (PC와 Provider를 이어줄)</li>
+</ul>
+</li>
+<li>글 목록</li>
+<li>글 작성</li>
+<li>댓글 목록</li>
+</ul>
+</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjkl9doai001ltcuwq6nwai12" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/20/TIL-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/20/TIL-1/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/20/TIL/">TIL 20180619</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/20/TIL/">
+            <time datetime="2018-06-19T16:26:50.000Z" itemprop="datePublished">2018.06.20</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-스쿨과정-리액트"><a href="#1-프론트엔드-스쿨과정-리액트" class="headerlink" title="1. 프론트엔드 스쿨과정 - 리액트"></a>1. 프론트엔드 스쿨과정 - 리액트</h3><ul>
+<li>Provider의 적절한 위치는?</li>
+<li>마운트되었을 때 부작용을 일으키는 컴포넌트 (OnMount 컴포넌트)</li>
+<li>브라우저의 중요한 UI - 주소표시줄, hash, 새로고침, 뒤로가기, 앞으로가기</li>
+<li>HTML5 history API &amp; hashchange</li>
+<li>react-router 소개 및 실습</li>
+</ul>
+<p>‘만약 단순한 모달 정도가 아니라 페이지가 이동되는 것 같이 느껴지도록 만들려면 리액트로 어떻게 해야하지?’ 라는 고민이 해결되었다. 리액트 라우터를 통해 굉장히 쉽게 구현할 수 있었다. 강사님께서 리액트 라우터에 대해 설명하기 전에 마운트되었을 때 부작용을 일으키는 컴포넌트나 history객체, pushState 같은 바탕이 되는 개념을 먼저 설명해주셔서 덕분에 크게 어렵게 느껴지지 않았다.<br>리액트 라우터를 배우고 나니 파이널 프로젝트에서는 쇼핑몰을 도전해보고 싶어졌다.</p>
+<h3 id="2-rgb-챌린지-게임-수정"><a href="#2-rgb-챌린지-게임-수정" class="headerlink" title="2. rgb 챌린지 게임 수정"></a>2. rgb 챌린지 게임 수정</h3><p>강사님이 코드 리뷰를 해주신 것을 토대로 다시 수정했다. 컬러 코드, 스테이지, 점수 등이 서로 결합되어 있기 때문에 GameContext라는 하나의 컴포넌트에서 모든 상태를 관리하는 방법으로 해볼 것을 조언해주셔서 ColorContext와 ResultContext, ScoreContext로 나눴던 것을 GameContext로 합쳤다. 그리고 GameConsumer를 사용하게 되는 부분은 Container 컴포넌트로 따로 만들었다.<br>컴포넌트가 너무 많은것이 아닌가 걱정이었는데, context 컴포넌트를 줄였음에도 Presentaional 컴포넌트와 Container 컴포넌트로 분리해보려고 했더니 컴포넌트가 많아졌다.<br>어쩌면 내가 잘못 쓰고 있는 건 아닌지;;<br>강사님이 번역해주신 dan Abramov의 아티클을 다시 읽어봤는데, 잘 사용하고 있는지 아직은 개념이 어렵게 느껴진다. 내일 또 여쭤봐야겠다.</p>
+<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
+<li>리액트 미니 프로젝트 - social card 만들기(트위터 참고)</li>
+<li>자기소개서 최종 검토하기</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjkl9do9q001etcuwycv63yed" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/20/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/20/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -285,7 +584,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjkkp90j5001gj4uw0id21vgj" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjkl9do8l0013tcuwipuewbba" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -423,7 +722,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjkkp90iz001cj4uwye0a3uzn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjkl9do8h000ytcuw1strgoq1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -577,7 +876,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjkkp90iw0019j4uwwce23ywd" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/17/Longet-Common-Prefix/" data-id="cjkl9dock0022tcuwsyer271s" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -718,7 +1017,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjkkp90ip000wj4uwqpc182kx" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL-1/" data-id="cjkl9do8e000vtcuwld52z2iz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -854,7 +1153,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjkkp90it0014j4uwbi6mrml0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/16/TIL/" data-id="cjkl9do9x001htcuwflbzfmu5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1020,7 +1319,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjkkp90is0011j4uw2efkcr4t" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/15/Palindrome-Number/" data-id="cjkl9do8w0016tcuwrm84evc0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1161,7 +1460,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL-1/" data-id="cjkkp90il000oj4uwd77jfh6p" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/14/TIL-1/" data-id="cjkl9do82000otcuw1suppiha" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1296,7 +1595,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/14/TIL/" data-id="cjkkp90in000tj4uwtlzllgy0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/14/TIL/" data-id="cjkl9do86000qtcuws0knd9d2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1374,331 +1673,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/13/Roman-to-Integer/">Roman to Integer</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/13/Roman-to-Integer/">
-            <time datetime="2018-06-13T06:15:36.000Z" itemprop="datePublished">2018.06.13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/roman-to-integer/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
-<table>
-<thead>
-<tr>
-<th>Symbol</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>I</td>
-<td>1</td>
-</tr>
-<tr>
-<td>V</td>
-<td>5</td>
-</tr>
-<tr>
-<td>X</td>
-<td>10</td>
-</tr>
-<tr>
-<td>L</td>
-<td>50</td>
-</tr>
-<tr>
-<td>C</td>
-<td>100</td>
-</tr>
-<tr>
-<td>D</td>
-<td>500</td>
-</tr>
-<tr>
-<td>M</td>
-<td>1000</td>
-</tr>
-</tbody>
-</table>
-<p>For example, two is written as II in Roman numeral, just two one’s added together. Twelve is written as, XII, which is simply X + II. The number &gt; twenty seven is written as XXVII, which is XX + V + II.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:</p>
-<p>I can be placed before V (5) and X (10) to make 4 and 9.<br>X can be placed before L (50) and C (100) to make 40 and 90.<br>C can be placed before D (500) and M (1000) to make 400 and 900.<br>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 143 - 152ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> newS = s.split(<span class="string">''</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> ROMAN[item]);</span><br><span class="line">  <span class="keyword">return</span> newS.reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> acc + (before &lt; item &amp;&amp; before ? item - (before * <span class="number">2</span>) : item)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>다른 방법도 생각해보려고 했는데, 도저히… map(), reduce() 메소드로 배열을 두번 탐색한게 마음에 걸린다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 156ms</span></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ROMAN = &#123;</span><br><span class="line">    <span class="string">'I'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'V'</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="string">'X'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'L'</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">'C'</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">'D'</span>: <span class="number">500</span>,</span><br><span class="line">    <span class="string">'M'</span>: <span class="number">1000</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s.split(<span class="string">''</span>).reduce(<span class="function">(<span class="params">acc, item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> before = arr[idx - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">const</span> beforeInt = ROMAN[before]</span><br><span class="line">    <span class="keyword">const</span> itemInt = ROMAN[item]</span><br><span class="line">    <span class="keyword">return</span> acc + (beforeInt &lt; itemInt &amp;&amp; beforeInt ? itemInt - (beforeInt * <span class="number">2</span>) : itemInt)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>reduce 한번으로 처리하도록 변경했는데 이것도 그닥 속도가 개선되지는 않았다.</p>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getIntFromRoman = &#123;</span><br><span class="line">    I: <span class="number">1</span>,</span><br><span class="line">    V: <span class="number">5</span>,</span><br><span class="line">    X: <span class="number">10</span>,</span><br><span class="line">    L: <span class="number">50</span>,</span><br><span class="line">    C: <span class="number">100</span>,</span><br><span class="line">    D: <span class="number">500</span>,</span><br><span class="line">    M: <span class="number">1000</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> romanToInt = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> curr, next;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        curr = getIntFromRoman[s[i]];</span><br><span class="line">        next = getIntFromRoman[s[i+<span class="number">1</span>]];</span><br><span class="line">        <span class="keyword">if</span>(curr &lt; next)</span><br><span class="line">            sum -= curr;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            sum += curr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum + getIntFromRoman[s[s.length<span class="number">-1</span>]];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>for문을 통해 따로 sum 에 더해주는 방식으로 처리했다. 그리고 현재 문자가 다음 문자보다 작으면 오히려 빼주는데, 그렇게 하면 4내지는 9가 나오게 되니 이렇게 풀 수도 있구나하고 깨달음이…</p>
-<p>나는 조건 분기했는데… </p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/" data-id="cjkkp90ii000mj4uwfpe27afp" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/13/Roman-to-Integer/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/13/Roman-to-Integer/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Add-Two-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/12/Add-Two-Numbers/">Add Two Numbers</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/12/Add-Two-Numbers/">
-            <time datetime="2018-06-12T12:59:21.000Z" itemprop="datePublished">2018.06.12</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.<br><strong>Example</strong></p>
-<ul>
-<li>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</li>
-<li>Output: 7 -&gt; 0 -&gt; 8</li>
-<li>Explanation: 342 + 465 = 807.</li>
-</ul>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 124ms, 176ms</span></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> arr = [];</span><br><span class="line">  <span class="keyword">const</span> sum = <span class="function">(<span class="params">l1, l2</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (l1 &amp;&amp; l2) &#123;</span><br><span class="line">      arr.push(l1.val + l2.val)</span><br><span class="line">      sum(l1.next, l2.next);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!l2 &amp;&amp; l1) &#123;</span><br><span class="line">      arr.push(l1.val)</span><br><span class="line">      sum(l1.next);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!l1 &amp;&amp; l2) &#123;</span><br><span class="line">      arr.push(l2.val)</span><br><span class="line">      sum(l2.next);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  sum(l1, l2);</span><br><span class="line">  <span class="keyword">let</span> over = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">const</span> newArr = arr.map(<span class="function">(<span class="params">item, idx, arr</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(item &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">      arr[idx + <span class="number">1</span>] != <span class="literal">null</span> ? arr[idx + <span class="number">1</span>] += <span class="number">1</span> : over = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">return</span> item - <span class="number">10</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> item</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">if</span>(over) &#123;</span><br><span class="line">    newArr.push(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>원래 기존 풀이는 200ms인데 좀 줄였다. 연결리스트에 대한 이해가 부족해서 좀 오래 걸렸다.<br>아래 코드가 굉장히 비효율적이라고 느껴서 위의 코드처럼 다시 만들었는데 그렇게 효율적으로 보이지는 않는다.<br>나중에 한번 더 다른 방법으로 풀어보고 다른 사람 풀이를 봐야겠다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 200ms</span></span><br><span class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> toArray = <span class="function"><span class="params">list</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> arr = [];</span><br><span class="line">    <span class="keyword">const</span> search = <span class="function"><span class="params">node</span> =&gt;</span> &#123;</span><br><span class="line">      arr.push(node.val)</span><br><span class="line">      <span class="keyword">return</span> node.next != <span class="literal">null</span> ? search(node.next) : <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">    search(list)</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> arr1 = toArray(l1);</span><br><span class="line">  <span class="keyword">const</span> arr2 = toArray(l2);</span><br><span class="line">  <span class="keyword">const</span> large = (arr1.length &gt;= arr2.length ? arr1 : arr2);</span><br><span class="line">  <span class="keyword">const</span> small = (arr1.length &gt;= arr2.length ? arr2 : arr1);</span><br><span class="line">  <span class="keyword">const</span> l = large.length;</span><br><span class="line">  <span class="keyword">const</span> newArr = <span class="keyword">new</span> <span class="built_in">Array</span>(l).fill(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> splice = <span class="function"><span class="params">idx</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(newArr[idx + <span class="number">1</span>] == <span class="literal">null</span>) &#123;</span><br><span class="line">      newArr.push(<span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(newArr[idx + <span class="number">1</span>] === <span class="number">9</span>) &#123;</span><br><span class="line">        newArr[idx + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        splice(idx + <span class="number">1</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newArr[idx + <span class="number">1</span>]++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(small[i] == <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="keyword">const</span> result = newArr[i] + large[i];</span><br><span class="line">          <span class="keyword">if</span>(result &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">              splice(i)</span><br><span class="line">              newArr[i] = result - <span class="number">10</span>;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              newArr[i] = result;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> result = large[i] + small[i];</span><br><span class="line">          <span class="keyword">if</span>(result &gt;= <span class="number">10</span> || newArr[i] + result &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">              splice(i)</span><br><span class="line">              newArr[i] = newArr[i] + (result - <span class="number">10</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              newArr[i] = newArr[i] + result;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/12/Add-Two-Numbers/" data-id="cjkkp90ib000gj4uww8j34l7d" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/12/Add-Two-Numbers/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/12/Add-Two-Numbers/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
@@ -1712,6 +1686,24 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/08/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-08T14:48:20.000Z" itemprop="datePublished">2018.08.08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/07/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T14:26:29.000Z" itemprop="datePublished">2018.08.07</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1740,24 +1732,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/08/04/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-08-04T14:12:44.000Z" itemprop="datePublished">2018.08.04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/08/04/HouseRobber/" class="title">House Robber</a></p>
-                            <p class="item-date"><time datetime="2018-08-04T02:01:41.000Z" itemprop="datePublished">2018.08.04</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1767,7 +1741,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1776,7 +1750,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
@@ -1785,7 +1759,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/algorithm/" style="font-size: 16.67px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 16.67px;">leetcode</a> <a href="/tags/log/" style="font-size: 10px;">log</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
+            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 13.33px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/algorithm/" style="font-size: 16.67px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 16.67px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
         </div>
     </div>
 

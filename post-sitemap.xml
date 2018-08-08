@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>http://chiabi.github.io/2018/08/08/TIL/</loc>
+        <lastmod>2018-08-08T14:58:13.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/2018/08/07/TIL/</loc>
+        <lastmod>2018-08-08T14:56:07.566Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/2018/07/31/djangogirls/</loc>
+        <lastmod>2018-08-08T14:30:18.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://chiabi.github.io/2018/08/06/TIL/</loc>
         <lastmod>2018-08-07T06:49:57.717Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,14 +113,6 @@
     <url>
         <loc>http://chiabi.github.io/2018/08/01/keyboardRow/</loc>
         <lastmod>2018-08-01T08:54:36.361Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://chiabi.github.io/2018/07/31/djangogirls/</loc>
-        <lastmod>2018-07-31T16:24:46.304Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

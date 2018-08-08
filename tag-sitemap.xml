@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/tags/log/</loc>
-        <lastmod>2018-07-31T16:24:46.304Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://chiabi.github.io/tags/glossary/</loc>
         <lastmod>2018-08-04T15:21:10.457Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,8 +44,22 @@
     </url>
 
     <url>
+        <loc>http://chiabi.github.io/tags/Django-Girls/</loc>
+        <lastmod>2018-08-08T14:30:18.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/tags/%EC%9E%A5%EA%B3%A0%EA%B1%B8%EC%8A%A4/</loc>
+        <lastmod>2018-08-08T14:30:18.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://chiabi.github.io/tags/TIL/</loc>
-        <lastmod>2018-08-07T06:49:57.717Z</lastmod>
+        <lastmod>2018-08-08T14:58:13.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
