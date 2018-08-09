@@ -166,7 +166,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                50
+                51
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -213,6 +213,167 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-peakIndexInMountainArray" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/23/peakIndexInMountainArray/">peakIndexInMountainArray</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/23/peakIndexInMountainArray/">
+            <time datetime="2018-07-23T13:10:22.000Z" itemprop="datePublished">2018.07.23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>Let’s call an array A a mountain if the following properties hold:</p>
+<p><code>A.length &gt;= 3</code><br>There exists some <code>0 &lt; i &lt; A.length - 1 such that A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code><br>Given an array that is definitely a mountain, return any <code>i</code> such that <code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code>.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li>Input: [0,1,0]</li>
+<li>Output: 1</li>
+</ul>
+<p><strong>Example 2:</strong></p>
+<ul>
+<li>Input: [0,2,1,0]</li>
+<li>Output: 1</li>
+</ul>
+<p><strong>Note:</strong></p>
+<ul>
+<li>3 &lt;= A.length &lt;= 10000</li>
+<li>0 &lt;= A[i] &lt;= 10^6</li>
+<li>A is a mountain, as defined above.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>배열에서 조건에 일치하는 첫번째 인덱스를 찾아주는 <code>findIndex()</code> 메소드를 사용했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56 ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.findIndex(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(index &lt; arr.length - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> item &gt; arr[index + <span class="number">1</span>];    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>A 배열은 산이라고 했으니까 Math.max의 인덱스를 구하는 방법을 사용했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> max = <span class="built_in">Math</span>.max(...A);</span><br><span class="line">    <span class="keyword">return</span> A.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> item === max);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>근데 위의 방법은 indexOf로 더 짧게 풀 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.indexOf(<span class="built_in">Math</span>.max(...A))</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>문제가 크게 어렵지 않아서 파이썬으로도 풀어봤다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 40ms</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peakIndexInMountainArray</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        number = <span class="number">0</span></span><br><span class="line">        before = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> A:</span><br><span class="line">            <span class="keyword">if</span> number &gt; <span class="number">1</span> <span class="keyword">and</span> i &lt; before:</span><br><span class="line">                <span class="keyword">return</span> number - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                number = number + <span class="number">1</span></span><br><span class="line">                before = i</span><br></pre></td></tr></table></figure></p>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><p>파이썬의 for문은 자바스크립트의 for of처럼 i라는 변수에 리스트의 요소가 대입되니까 인덱스는 어떻게 구하지라고 생각했는데,<br>다음과 같이 <code>range</code>함수와 <code>len</code>함수를 이용하는 방법이 있었다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peakIndexInMountainArray</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(A)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> A[i] &gt; A[i<span class="number">-1</span>] <span class="keyword">and</span> A[i]&gt; A[i+<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>range(): 숫자 리스트를 자동으로 만들어 주는 함수</li>
+<li>len(): 리스트 내 요소의 개수를 돌려주는 함수</li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/" data-id="cjkmphjuo003cekuw5vdgr2h9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-retrospective" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -272,7 +433,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjkl9doe4002ctcuwacj13gbj" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjkmphju10031ekuwctyw6f02" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -426,7 +587,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjkl9doek002ktcuw9wuem68c" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjkmphjtu002uekuwxsrudeec" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -574,7 +735,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjkl9dodx0026tcuwczk0b3p3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjkmphjt5002nekuwxioubpo8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -727,7 +888,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjkl9doe00029tcuwj603roo4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjkmphjsw002jekuw6949assz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -924,7 +1085,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjkl9dofj002wtcuw96u2ynjv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjkmphjuc0034ekuw0yw7geft" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1087,7 +1248,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjkl9docg001ztcuwa7owaym6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjkmphjvm004eekuw2oahf7k7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1238,7 +1399,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjkl9doe8002ftcuw1b8emira" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjkmphjtb002qekuwaaxmu04d" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1398,7 +1559,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjkl9dob9001stcuwbyhccefm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjkmphjsj002cekuwpg5bnoyn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1540,7 +1701,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjkl9doap001otcuwwcxy1ltx" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjkmphjrx0026ekuwbey6r25z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1618,144 +1779,8 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/21/TIL/">TIL 2018021</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/21/TIL/">
-            <time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p>
-<p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>파이널 프로젝트 기획하기</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjkl9doc8001vtcuw3larbf02" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/21/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/21/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1767,6 +1792,15 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/08/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-08T14:59:13.000Z" itemprop="datePublished">2018.08.08</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1804,15 +1838,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Algorithm/">Algorithm</a></p>
-                            <p class="item-title"><a href="/2018/08/05/moveZeroes/" class="title">Moved ZeroS</a></p>
-                            <p class="item-date"><time datetime="2018-08-05T14:35:38.000Z" itemprop="datePublished">2018.08.05</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1822,7 +1847,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1831,7 +1856,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 

@@ -44,13 +44,6 @@
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/tags/TIL/</loc>
-        <lastmod>2018-08-08T14:58:13.318Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://chiabi.github.io/tags/algorithm/</loc>
         <lastmod>2018-08-09T06:22:12.309Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -60,6 +53,13 @@
     <url>
         <loc>http://chiabi.github.io/tags/leetcode/</loc>
         <lastmod>2018-08-09T06:22:12.309Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/tags/TIL/</loc>
+        <lastmod>2018-08-09T15:16:52.154Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

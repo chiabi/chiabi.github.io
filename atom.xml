@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-08-08T14:58:13.318Z</updated>
+  <updated>2018-08-09T15:16:52.154Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/08/08/TIL/"/>
+    <id>http://chiabi.github.io/2018/08/08/TIL/</id>
+    <published>2018-08-08T14:59:13.000Z</published>
+    <updated>2018-08-09T15:16:52.154Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="타입스크립트-공부"><a href="#타입스크립트-공부" class="headerlink" title="타입스크립트 공부"></a>타입스크립트 공부</h3><p>연결리스트를 만들면서 타입스크립트를 함께 써봤다. 만들면서 필요한 부분을 공식문서나 다른 글에서 찾아서 쓰는 식으로 써봤는데, <code>Object</code>타입은 내 예상과 다르게 동작했고, 문서를 읽어보니 실제로도 내가 원하는 동작을 하도록 하려면 유용하지 않았다. 그리고 <code>Array&lt;number&gt;</code>같은 표기도 등장한다. jest랑 같이 써보면서 느낀 점은 아직 둘 다 잘 알고 사용하는 건 아니라서 제대로 쓴 것 같지는 않지만, 확실히 내 코드가 나의 예상과 다른게 동작하고 있지 않은지 체크하는데 굉장히 유용했다. 그런데 테스트 코드 작성하는 것도 만드는 것 못지 않게 시간이 든다…</p><p>타입스크립트는 공식문서와 <a href="https://ahnheejong.gitbook.io/ts-for-jsdev/" target="_blank" rel="noopener">『자바스크립트 개발자를 위한 타입스크립트』</a>라는 안희종 개발자님이 Gitbook으로 연재한 글을 참고하고 있다.</p><p>ECMASciprt 파트는 대부분 아는 내용이라 빠르게 훑어봤는데, 내가 호이스팅에 대해서 잘못 알고 있던 부분이 있었다. ‘호이스팅은 <code>var</code>를 쓸 경우에만 일어난다’고 알고있었는데 <a href="http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified" target="_blank" rel="noopener">‘temporal-dead-zone’</a>이라는 개념이 있었다. 그거랑 분해 대입(비구조화 할당)를 따로 정리하면 좋을 것 같다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;타입스크립트-공부&quot;&gt;&lt;a href=&quot;#타입스크립트-공부&quot; class=&quot;headerlink
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>TIL</title>
@@ -506,34 +531,6 @@
     
     
       <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>peakIndexInMountainArray</title>
-    <link href="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/"/>
-    <id>http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/</id>
-    <published>2018-07-23T13:10:22.000Z</published>
-    <updated>2018-08-06T03:01:39.028Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/peak-index-in-a-mountain-array/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p><blockquote><p>Let’s call an array A a mountain if the following properties hold:</p><p><code>A.length &gt;= 3</code><br>There exists some <code>0 &lt; i &lt; A.length - 1 such that A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code><br>Given an array that is definitely a mountain, return any <code>i</code> such that <code>A[0] &lt; A[1] &lt; ... A[i-1] &lt; A[i] &gt; A[i+1] &gt; ... &gt; A[A.length - 1]</code>.</p><p><strong>Example 1:</strong></p><ul><li>Input: [0,1,0]</li><li>Output: 1</li></ul><p><strong>Example 2:</strong></p><ul><li>Input: [0,2,1,0]</li><li>Output: 1</li></ul><p><strong>Note:</strong></p><ul><li>3 &lt;= A.length &lt;= 10000</li><li>0 &lt;= A[i] &lt;= 10^6</li><li>A is a mountain, as defined above.</li></ul></blockquote><h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>배열에서 조건에 일치하는 첫번째 인덱스를 찾아주는 <code>findIndex()</code> 메소드를 사용했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56 ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.findIndex(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(index &lt; arr.length - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> item &gt; arr[index + <span class="number">1</span>];    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>A 배열은 산이라고 했으니까 Math.max의 인덱스를 구하는 방법을 사용했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> max = <span class="built_in">Math</span>.max(...A);</span><br><span class="line">    <span class="keyword">return</span> A.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> item === max);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>근데 위의 방법은 indexOf로 더 짧게 풀 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 56ms</span></span><br><span class="line"><span class="keyword">var</span> peakIndexInMountainArray = <span class="function"><span class="keyword">function</span>(<span class="params">A</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> A.indexOf(<span class="built_in">Math</span>.max(...A))</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>문제가 크게 어렵지 않아서 파이썬으로도 풀어봤다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 40ms</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peakIndexInMountainArray</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        number = <span class="number">0</span></span><br><span class="line">        before = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> A:</span><br><span class="line">            <span class="keyword">if</span> number &gt; <span class="number">1</span> <span class="keyword">and</span> i &lt; before:</span><br><span class="line">                <span class="keyword">return</span> number - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                number = number + <span class="number">1</span></span><br><span class="line">                before = i</span><br></pre></td></tr></table></figure></p><h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><h3 id="Python-1"><a href="#Python-1" class="headerlink" title="Python"></a>Python</h3><p>파이썬의 for문은 자바스크립트의 for of처럼 i라는 변수에 리스트의 요소가 대입되니까 인덱스는 어떻게 구하지라고 생각했는데,<br>다음과 같이 <code>range</code>함수와 <code>len</code>함수를 이용하는 방법이 있었다.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peakIndexInMountainArray</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(A)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> A[i] &gt; A[i<span class="number">-1</span>] <span class="keyword">and</span> A[i]&gt; A[i+<span class="number">1</span>]:</span><br><span class="line">                <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure></p><ul><li>range(): 숫자 리스트를 자동으로 만들어 주는 함수</li><li>len(): 리스트 내 요소의 개수를 돌려주는 함수</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/peak-index-in-a-mountain-array/description/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode 문제링크&lt;/a&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://chiabi.github.io/categories/Algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
-    
-      <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
     
   </entry>
   
