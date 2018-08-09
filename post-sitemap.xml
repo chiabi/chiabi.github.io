@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://chiabi.github.io/2018/08/05/moveZeroes/</loc>
+        <lastmod>2018-08-09T06:22:12.309Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://chiabi.github.io/2018/08/08/TIL/</loc>
         <lastmod>2018-08-08T14:58:13.318Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -41,14 +49,6 @@
     <url>
         <loc>http://chiabi.github.io/2018/08/05/TIL/</loc>
         <lastmod>2018-08-07T06:30:15.892Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://chiabi.github.io/2018/08/05/moveZeroes/</loc>
-        <lastmod>2018-08-07T06:07:16.035Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
