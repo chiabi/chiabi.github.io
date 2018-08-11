@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-08-09T15:16:52.154Z</updated>
+  <updated>2018-08-11T12:50:04.800Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>generate</title>
+    <link href="http://chiabi.github.io/2018/08/11/generate/"/>
+    <id>http://chiabi.github.io/2018/08/11/generate/</id>
+    <published>2018-08-11T12:50:04.000Z</published>
+    <updated>2018-08-11T12:50:04.800Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/08/11/TIL/"/>
+    <id>http://chiabi.github.io/2018/08/11/TIL/</id>
+    <published>2018-08-11T09:20:03.000Z</published>
+    <updated>2018-08-11T12:49:31.380Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="블록체인-하이어링-면접"><a href="#블록체인-하이어링-면접" class="headerlink" title="블록체인 하이어링 면접"></a>블록체인 하이어링 면접</h2><p>패스트캠퍼스에서 진행한 블록체인 하이어링 행사를 다녀왔다. 블록체인 개발자뿐만이 아니라 프론트엔드 개발자도 뽑고 있으니 지원해보라는 학원 측 제의에 이력서를 전달했고 면접일정이 잡혀서 보러간 거였는데, 블록체인 위주의 면접이 되어 당황스러웠다. 프론트엔드 개발자로써의 역량이나 목표보다는 블록체인에 대해 어느정도 구체적인 청사진을 그리고 있는 사람을 원하는 것 같았고, 블록체인에 대해 구체적인 방향성을 좀 더 가지는 게 좋을 거라는 조언을 들었다. 면접보다는 상담하는 자리가 되어버려 아쉽지만, 그래도 개인적으로 블록체인에 대해 잘 이해가 안되었던 걸 현업자에게 질문할 수 있는 자리가 되었고, 앞으로의 면접에 필요한 자세를 조언받아 도움이 되었다.<br>블록체인 서비스를 제공하면서 어떻게 수익을 낼 수 있는지나, 과연 어떤 서비스에 적용할 수 있는지, 속도에 관한 것에 대해 어떻게 생각하시는 지 여쭤봤는데 아직 블록체인 쪽은 많은 시행착오를 거치는 중이라는 느낌을 많이 받았고 또 다른 의문도 많이 생겨나서 오늘을 계기로 더 관심가지고 공부를 해봐야겠다.</p><h2 id="크립토좀비"><a href="#크립토좀비" class="headerlink" title="크립토좀비"></a>크립토좀비</h2><p>크립토좀비는 이더리움 상의 DApp 코딩과 solidity를 좀비 게임만들기를 통해 학습할 수 있도록하는 튜토리얼 사이트이다. 한글도 지원한다.</p><ul><li><a href="https://cryptozombies.io/ko" target="_blank" rel="noopener">크립토좀비</a></li><li><a href="https://share.cryptozombies.io/ko/lesson/1/share/chi?id=Z2l0aHVifDE1OTAwMTM0" target="_blank" rel="noopener">나의 첫번째 좀비</a></li></ul><hr><p>어제 기술면접도 어느정도 고려해서 복습을 하다보니 내가 아직 많이 부족하다는 걸 알았다. 계속 이론만 공부하는 것보단 현장에서 일을 하면서 배우는 것이 더욱 도움이 되겠지만, 구직하면서 더 열심히 공부해야겠구나 생각이 들었다.<br>챗봇 책 사둔것을 참고해서 토이프로젝트를 하려는데, 좀 충격을 받은 게 나는 분명 초판이 올해 6월이길래 이정도면 최신 정보일거라고 예상하고 샀다. 그러나 책에서 다루는 폴리머는 2.x 버전이고 현재는 3.0버전이 나왔다. 버전 앞의 수가 올라간만큼 큰 변화가 있었는데, <code>html</code>파일에서 작업되고, import도 <code>&lt;link rel=import href=&quot;foo.html&quot;&gt;</code>를 이용했던 방식에서 <code>js</code>파일 내에서 ES6 모듈 <code>import</code>를 사용하는 방식으로 변한 게 가장 컸다.<br>만약 당장 폴리머를 쓰는 회사를 가게 된다면, 2.x 버전을 유지보수할 가능성이 크겠지만. 6월 발간 책이 금방 지난 기능을 담게 될 정도로 프론트엔드의 변화가 굉장히 빠르구나를 새삼 느꼈다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;블록체인-하이어링-면접&quot;&gt;&lt;a href=&quot;#블록체인-하이어링-면접&quot; class=&quot;headerlink&quot; title=&quot;블록체인 하이어링 면접&quot;&gt;&lt;/a&gt;블록체인 하이어링 면접&lt;/h2&gt;&lt;p&gt;패스트캠퍼스에서 진행한 블록체인 하이어링 행사를 다녀왔
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>TIL</title>
@@ -471,58 +510,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-완료&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-완료&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MaxIncreasetoKeepCitySkyline</title>
-    <link href="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/"/>
-    <id>http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/</id>
-    <published>2018-07-24T11:55:37.000Z</published>
-    <updated>2018-07-25T16:42:48.719Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p><blockquote><p>In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. </p><p>At the end, the “skyline” when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city’s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example.</p><p>What is the maximum total sum that the height of the buildings can be increased?</p><p><strong>Example:</strong></p><ul><li>Input: <code>grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]</code></li><li>Output: 35<br><strong>Explanation:</strong> </li><li>The grid is:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ [3, 0, 8, 4], </span><br><span class="line"> [2, 4, 5, 7],</span><br><span class="line"> [9, 2, 6, 3],</span><br><span class="line"> [0, 3, 1, 0] ]</span><br></pre></td></tr></table></figure></li></ul></blockquote><blockquote><ul><li>The skyline viewed from top or bottom is: [9, 4, 8, 7]</li><li>The skyline viewed from left or right is: [8, 7, 9, 3]</li></ul><p>The grid after increasing the height of buildings without affecting skylines is:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gridNew = [ [8, 4, 8, 7],</span><br><span class="line">          [7, 4, 7, 7],</span><br><span class="line">          [9, 4, 8, 7],</span><br><span class="line">          [3, 3, 3, 3] ]</span><br></pre></td></tr></table></figure></blockquote><blockquote><p><strong>Notes:</strong></p><ul><li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li><li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li><li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li></ul></blockquote><h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>배열을 두번이나 탐색해야해서 좋은 방법이 아닌 것 같아서 좀 괴로운데, 가장 단순하게 생각할 수 있는 방법인 것 같다. 먼저, 위/아래의 스카이라인과 좌/우의 스카이라인을 구해두고, reduce메소드를 사용해 다시 배열을 탐색하면서, 해당 좌표의 스카이라인 중 작은 값을 구하고 원래의 값을 뺀 값을 누적으로 더해주는 방법으로 풀어봤다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64 ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> upDown = [];</span><br><span class="line">    <span class="keyword">const</span> side = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = grid.length; i &lt; l; i++) &#123;</span><br><span class="line">        side.push(<span class="built_in">Math</span>.max(...grid[i]));</span><br><span class="line">        <span class="keyword">const</span> arr = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; l; j++) &#123;</span><br><span class="line">            arr.push(grid[j][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        upDown.push(<span class="built_in">Math</span>.max(...arr));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(side[index], upDown[i]) - col); </span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>코드 길이는 줄였는데, 더 느려졌다. 6번째 줄에 <code>const cMax = Math.max(...arr.map((item) =&gt; item[i]));</code> 이부분이 원인인 것 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 96ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> rMax = <span class="built_in">Math</span>.max(...row);</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> cMax = <span class="built_in">Math</span>.max(...arr.map(<span class="function">(<span class="params">item</span>) =&gt;</span> item[i]));</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(rMax, cMax) - col)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode 문제링크&lt;/a&gt;&lt;/
-      
-    
-    </summary>
-    
-      <category term="Algorithm" scheme="http://chiabi.github.io/categories/Algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
-    
-      <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL</title>
-    <link href="http://chiabi.github.io/2018/07/23/TIL/"/>
-    <id>http://chiabi.github.io/2018/07/23/TIL/</id>
-    <published>2018-07-23T14:10:16.000Z</published>
-    <updated>2018-07-24T11:55:00.126Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-80-진행"><a href="#퍼블리싱-외주-80-진행" class="headerlink" title="퍼블리싱 외주(80% 진행)"></a>퍼블리싱 외주(80% 진행)</h3><p>디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)<br>쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트 사이즈가 10px이었다. 그리고 그렇게 해야 가독성이 좋았는데, 아이패드나 브라우저에서 화면을 확대하는 방법이 있기 때문에 그렇게 하는 걸까.</p><ul><li><a href="http://koreawebdesign.com/typography-for-webdesign/" target="_blank" rel="noopener">웹디자인을 위한 타이포그라피 10가지 팁</a></li><li><a href="http://webactually.com/2015/10/%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90%EC%84%9C-%EA%B8%80%EC%A4%84%EC%9D%98-%EA%B8%B8%EC%9D%B4%EC%99%80-%EA%B8%80%EC%9E%90-%ED%81%AC%EA%B8%B0-%EA%B7%A0%ED%98%95/" target="_blank" rel="noopener">반응형 웹 디자인에서 글줄의 길이와 글자 크기 균형 잡기</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust/" target="_blank" rel="noopener">MDN - font-size-adjust</a></li></ul><p>디자인에 range 슬라이더가 있어서 찾아봤는데 rangeslider.js가 제일 복잡한 기능없이 간단하게 사용하기 좋았다.</p><ul><li><a href="http://rangeslider.js.org/" target="_blank" rel="noopener">rangeslider.js</a></li></ul><p>디자인 시안을 어떤 파일로 전달해주면 되냐고해서 포토샵이나 일러면 좋을 것 같다고 했더니 보낸 파일이 전혀 레이어가 분할되어 있지 않았다. sketch로 작업했구나 싶어서 차라리 sketch 파일로 보내달라고 했는데, 재플린으로 공유해달랄 걸 그랬나보다. 하지만 덕분에 윈도우에서 sketch파일을 보는 방법을 찾아보다가 <code>.sketch</code> 파일을 지원하는 Windows app인 <strong>lunacy</strong>라는 걸 찾았다.(무료다!!)<br>그리고 시안 수정은 또 클라이언트 업체의 상주 디자이너가 하는데(시안 자체는 외주), sketch는 안쓰는지 Adobe XD 파일을 보내줬다.<br>포토샵으로만 시안 받아서 퍼블리싱 해봤는데 덕분에 이런 저런 툴을 다양하게 사용해보고 있다.</p><ul><li><a href="https://icons8.com/lunacy" target="_blank" rel="noopener">lunacy</a></li><li><a href="https://www.adobe.com/kr/products/xd.html" target="_blank" rel="noopener">Adobe XD</a></li></ul><h3 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a>알고리즘 문제 풀이</h3><p>문제가 조금 간단하고 장고걸스 튜토리얼에서 봤던 정도로도 풀 수 있을 것 같아서 파이썬으로도 풀어봤다.<br>range나 len 함수에 대해 찾다가 파이썬 문법을 공부하는데 도움이 될 것 같은 사이트를 찾았다.</p><ul><li><a href="https://wikidocs.net/book/1" target="_blank" rel="noopener">점프 투 파이썬</a></li></ul><hr><p>내일까지면 퍼블리싱 외주 작업은 끝날 것 같다. 그러면 다시 파이널 프로젝트에 집중해서 Context API를 썼던 부분을 리덕스로 변경하는 작업에 착수해야겠다. </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-80-진행&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-80-진행&quot; class=&quot;he
       
     
     </summary>

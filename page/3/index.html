@@ -166,7 +166,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                51
+                53
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -213,6 +213,321 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-MaxIncreasetoKeepCitySkyline" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/24/MaxIncreasetoKeepCitySkyline/">MaxIncreasetoKeepCitySkyline</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/24/MaxIncreasetoKeepCitySkyline/">
+            <time datetime="2018-07-24T11:55:37.000Z" itemprop="datePublished">2018.07.24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/max-increase-to-keep-city-skyline/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>In a 2 dimensional array grid, each value grid[i][j] represents the height of a building located there. We are allowed to increase the height of any number of buildings, by any amount (the amounts can be different for different buildings). Height 0 is considered to be a building as well. </p>
+<p>At the end, the “skyline” when viewed from all four directions of the grid, i.e. top, bottom, left, and right, must be the same as the skyline of the original grid. A city’s skyline is the outer contour of the rectangles formed by all the buildings when viewed from a distance. See the following example.</p>
+<p>What is the maximum total sum that the height of the buildings can be increased?</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>Input: <code>grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]</code></li>
+<li>Output: 35<br><strong>Explanation:</strong> </li>
+<li>The grid is:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ [3, 0, 8, 4], </span><br><span class="line"> [2, 4, 5, 7],</span><br><span class="line"> [9, 2, 6, 3],</span><br><span class="line"> [0, 3, 1, 0] ]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>The skyline viewed from top or bottom is: [9, 4, 8, 7]</li>
+<li>The skyline viewed from left or right is: [8, 7, 9, 3]</li>
+</ul>
+<p>The grid after increasing the height of buildings without affecting skylines is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gridNew = [ [8, 4, 8, 7],</span><br><span class="line">          [7, 4, 7, 7],</span><br><span class="line">          [9, 4, 8, 7],</span><br><span class="line">          [3, 3, 3, 3] ]</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><code>1 &lt; grid.length = grid[0].length &lt;= 50</code>.</li>
+<li>All heights <code>grid[i][j]</code> are in the range <code>[0, 100]</code>.</li>
+<li>All buildings in <code>grid[i][j]</code> occupy the entire grid cell: that is, they are a <code>1 x 1 x grid[i][j]</code> rectangular prism.</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>배열을 두번이나 탐색해야해서 좋은 방법이 아닌 것 같아서 좀 괴로운데, 가장 단순하게 생각할 수 있는 방법인 것 같다. 먼저, 위/아래의 스카이라인과 좌/우의 스카이라인을 구해두고, reduce메소드를 사용해 다시 배열을 탐색하면서, 해당 좌표의 스카이라인 중 작은 값을 구하고 원래의 값을 뺀 값을 누적으로 더해주는 방법으로 풀어봤다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64 ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> upDown = [];</span><br><span class="line">    <span class="keyword">const</span> side = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = grid.length; i &lt; l; i++) &#123;</span><br><span class="line">        side.push(<span class="built_in">Math</span>.max(...grid[i]));</span><br><span class="line">        <span class="keyword">const</span> arr = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; l; j++) &#123;</span><br><span class="line">            arr.push(grid[j][i]);</span><br><span class="line">        &#125;</span><br><span class="line">        upDown.push(<span class="built_in">Math</span>.max(...arr));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(side[index], upDown[i]) - col); </span><br><span class="line">        &#125;, <span class="number">0</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>코드 길이는 줄였는데, 더 느려졌다. 6번째 줄에 <code>const cMax = Math.max(...arr.map((item) =&gt; item[i]));</code> 이부분이 원인인 것 같다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 96ms</span></span><br><span class="line"><span class="keyword">var</span> maxIncreaseKeepingSkyline = <span class="function"><span class="keyword">function</span>(<span class="params">grid</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> grid.reduce(<span class="function">(<span class="params">acc, row, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> rMax = <span class="built_in">Math</span>.max(...row);</span><br><span class="line">        <span class="keyword">return</span> acc + row.reduce(<span class="function">(<span class="params">a, col, i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> cMax = <span class="built_in">Math</span>.max(...arr.map(<span class="function">(<span class="params">item</span>) =&gt;</span> item[i]));</span><br><span class="line">            <span class="keyword">return</span> a + (<span class="built_in">Math</span>.min(rMax, cMax) - col)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/" data-id="cjkpi784s003b08uw8pjogkl1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/24/MaxIncreasetoKeepCitySkyline/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/23/TIL/">TIL</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/23/TIL/">
+            <time datetime="2018-07-23T14:10:16.000Z" itemprop="datePublished">2018.07.23</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-80-진행"><a href="#퍼블리싱-외주-80-진행" class="headerlink" title="퍼블리싱 외주(80% 진행)"></a>퍼블리싱 외주(80% 진행)</h3><p>디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)<br>쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트 사이즈가 10px이었다. 그리고 그렇게 해야 가독성이 좋았는데, 아이패드나 브라우저에서 화면을 확대하는 방법이 있기 때문에 그렇게 하는 걸까.</p>
+<ul>
+<li><a href="http://koreawebdesign.com/typography-for-webdesign/" target="_blank" rel="noopener">웹디자인을 위한 타이포그라피 10가지 팁</a></li>
+<li><a href="http://webactually.com/2015/10/%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90%EC%84%9C-%EA%B8%80%EC%A4%84%EC%9D%98-%EA%B8%B8%EC%9D%B4%EC%99%80-%EA%B8%80%EC%9E%90-%ED%81%AC%EA%B8%B0-%EA%B7%A0%ED%98%95/" target="_blank" rel="noopener">반응형 웹 디자인에서 글줄의 길이와 글자 크기 균형 잡기</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust/" target="_blank" rel="noopener">MDN - font-size-adjust</a></li>
+</ul>
+<p>디자인에 range 슬라이더가 있어서 찾아봤는데 rangeslider.js가 제일 복잡한 기능없이 간단하게 사용하기 좋았다.</p>
+<ul>
+<li><a href="http://rangeslider.js.org/" target="_blank" rel="noopener">rangeslider.js</a></li>
+</ul>
+<p>디자인 시안을 어떤 파일로 전달해주면 되냐고해서 포토샵이나 일러면 좋을 것 같다고 했더니 보낸 파일이 전혀 레이어가 분할되어 있지 않았다. sketch로 작업했구나 싶어서 차라리 sketch 파일로 보내달라고 했는데, 재플린으로 공유해달랄 걸 그랬나보다. 하지만 덕분에 윈도우에서 sketch파일을 보는 방법을 찾아보다가 <code>.sketch</code> 파일을 지원하는 Windows app인 <strong>lunacy</strong>라는 걸 찾았다.(무료다!!)<br>그리고 시안 수정은 또 클라이언트 업체의 상주 디자이너가 하는데(시안 자체는 외주), sketch는 안쓰는지 Adobe XD 파일을 보내줬다.<br>포토샵으로만 시안 받아서 퍼블리싱 해봤는데 덕분에 이런 저런 툴을 다양하게 사용해보고 있다.</p>
+<ul>
+<li><a href="https://icons8.com/lunacy" target="_blank" rel="noopener">lunacy</a></li>
+<li><a href="https://www.adobe.com/kr/products/xd.html" target="_blank" rel="noopener">Adobe XD</a></li>
+</ul>
+<h3 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a>알고리즘 문제 풀이</h3><p>문제가 조금 간단하고 장고걸스 튜토리얼에서 봤던 정도로도 풀 수 있을 것 같아서 파이썬으로도 풀어봤다.<br>range나 len 함수에 대해 찾다가 파이썬 문법을 공부하는데 도움이 될 것 같은 사이트를 찾았다.</p>
+<ul>
+<li><a href="https://wikidocs.net/book/1" target="_blank" rel="noopener">점프 투 파이썬</a></li>
+</ul>
+<hr>
+<p>내일까지면 퍼블리싱 외주 작업은 끝날 것 같다. 그러면 다시 파이널 프로젝트에 집중해서 Context API를 썼던 부분을 리덕스로 변경하는 작업에 착수해야겠다. </p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/23/TIL/" data-id="cjkpi786u003w08uw09pbfs0o" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/23/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/23/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-peakIndexInMountainArray" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -296,7 +611,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/" data-id="cjkmphjuo003cekuw5vdgr2h9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/23/peakIndexInMountainArray/" data-id="cjkpi786r003t08uwpep4ftm4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -433,7 +748,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjkmphju10031ekuwctyw6f02" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/22/retrospective/" data-id="cjkpi784c002w08uwlpmj8sp2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -587,7 +902,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjkmphjtu002uekuwxsrudeec" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/19/UniqueMorseCodeWords/" data-id="cjkpi784c003008uwz5x36qna" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -735,7 +1050,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjkmphjt5002nekuwxioubpo8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/18/TIL/" data-id="cjkpi783x002q08uwp7sec4qm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -888,7 +1203,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjkmphjsw002jekuw6949assz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjkpi784c002t08uw8htojqud" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1085,7 +1400,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjkmphjuc0034ekuw0yw7geft" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjkpi784s003808uwwy6dlmjf" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1248,7 +1563,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjkmphjvm004eekuw2oahf7k7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjkpi783x002m08uwzcg4ejir" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1399,7 +1714,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjkmphjtb002qekuwaaxmu04d" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjkpi784s003408uwlw60cg6a" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1477,308 +1792,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/24/TIL/">TIL 20180624</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/24/TIL/">
-            <time datetime="2018-06-24T11:24:53.000Z" itemprop="datePublished">2018.06.24</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="파이널-프로젝트"><a href="#파이널-프로젝트" class="headerlink" title="파이널 프로젝트"></a>파이널 프로젝트</h3><ul>
-<li>팀 명: geek-ryan</li>
-<li>프로젝트 명: <a href="https://github.com/geek-ryan/seemva" target="_blank" rel="noopener">seemva</a></li>
-</ul>
-<h4 id="Ant-Design-테스트"><a href="#Ant-Design-테스트" class="headerlink" title="Ant Design 테스트"></a><a href="https://ant.design/docs/react/getting-started" target="_blank" rel="noopener">Ant Design</a> 테스트</h4><p>리액트 컴포넌트로 제공하거나 form 같은 경우 verify 해주는 부분의 가이드를 제공해준다. 나중에 만들어 볼지도 모를 calendar컴포넌트도 제공하고, airbnb의 datapicker를 사용하려고 했었는데, 이 역시 컴포넌트로 제공하고 있다. timeline 컴포넌트는 프로젝트에서 쓰려고 하는 것과 맞지 않아서 아쉽지만…<br>각자 테스트 해본 뒤 방향을 결정하기로 했는데, 논의 끝에 우선 이 디자인 컴포넌트를 이용해 보기로 했다.</p>
-<h4 id="와이어프레임"><a href="#와이어프레임" class="headerlink" title="와이어프레임"></a>와이어프레임</h4><p>각자 벤치마킹을 해보고 와이어프레임을 그려보기로 했다. 논의는 트렐로를 통해 이루어졌다. 벤치마킹한 사이트의 이미지나 링크를 트렐로를 통해 공유하고, 팀원이 손그림으로 와이어프레임을 그린 것을 트렐로에 올린 것을 <a href="https://ovenapp.io/" target="_blank" rel="noopener">카카오 oven</a>을 통해 정리했다.<br>로그인, 회원가입, 보드 화면까지만 만들었는데, 한꺼번에 하기보다는 먼저 컴포넌트별, 페이지별로 개발을 들어가면서 수정하고 추가하는 식으로 진행하는 것이 좋을 것 같다.</p>
-<ul>
-<li>로그인, 회원가입: chiabi</li>
-<li>보드화면, 보드의 사이드바: akiraei</li>
-</ul>
-<h4 id="네이밍-컨벤션"><a href="#네이밍-컨벤션" class="headerlink" title="네이밍 컨벤션"></a>네이밍 컨벤션</h4><blockquote>
-<p><strong>예. Login form</strong></p>
-<p>directory : filename</p>
-<ul>
-<li>components: UserFormButtonPC.js</li>
-<li>containers:UserFormButtonCC.js</li>
-<li>contexts: UserFormCTX.js</li>
-<li>pages: LoginPage.js</li>
-<li>hocs: withAuth.js</li>
-<li>serverAPI.js</li>
-</ul>
-<p>※ components 파일에서 PC 작성시 반드시 storybook 파일 남길 것<br>UserFormButtonPC.stories.js</p>
-<p>※ 되도록 축약 표현이 아닌 풀 네임으로 만들것 (Btn(x), Button(o))</p>
-</blockquote>
-<h4 id="앞으로-사용-예정인-라이브러리"><a href="#앞으로-사용-예정인-라이브러리" class="headerlink" title="앞으로 사용 예정인 라이브러리"></a>앞으로 사용 예정인 라이브러리</h4><ul>
-<li>드래그앤 드롭 - <a href="https://github.com/react-dnd/react-dnd" target="_blank" rel="noopener">react-dnd</a></li>
-<li>타임라인 - <a href="https://www.npmjs.com/package/react-calendar-timeline" target="_blank" rel="noopener">react-calendar-timeline</a></li>
-</ul>
-<p>프로필 부분은 고민이다. 사진을 올릴 수 있어야하는데, 이미지 서버를 따로 두는 방법을 고민 중이다. 이부분을 내가 테스트해보기로 해서 로그인과 회원가입 부분을 맡기로 했다.  </p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjkmphjsj002cekuwpg5bnoyn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/24/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/24/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/23/TIL/">TIL 20180622</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/23/TIL/">
-            <time datetime="2018-06-22T15:12:20.000Z" itemprop="datePublished">2018.06.23</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-프론트엔드-개발-스쿨"><a href="#1-프론트엔드-개발-스쿨" class="headerlink" title="1. 프론트엔드 개발 스쿨"></a>1. 프론트엔드 개발 스쿨</h3><p>강사님이 게시판 게시글 CRUD와 댓글은 보여주는 것 까지만 구현하신 코드를 보면서 설명해주셨다.<br>코드를 보니 또 내가 생각한 것과는 context 설계가 달랐다. 나는 post 폼은 PostListContext.js(componentDidMount 훅에 서버로 포스트 리스트에 대해서 GET 요청을 보내는 부분이 있는)에 서버에 POST하는 메소드를 추가해서 post 폼 컨테이너로 내려보내고, 나중에 post 폼 수정 페이지에서는 PostContext.js(componentDidMount 훅에 서버로 특정 포스트에 대해서 GET 요청을 보내는 부분이 있는)에 PATCH 요청을 보내는 메소드를 추가해서 내려보내는 식으로 해서 context를 같이 사용하려고 했는데, 강사님은 폼 추가/삭제에 대한 context를 따로 만들어서 id가 있을 경우에 따라 조건문을 통해 componentDidMount 훅에서 특정 포스트에 대한 GET 요청을 보내는 식으로 구현하셨다.<br>그리고 내가 간과하고 있던 것이 나는 게시글 추가 시에 게시판 목록으로 Redirect를 걸었는데 생각해보니 사용자의 관점에서는 게시글 목록이 아니라 생성된 게시글의 보기 페이지로 Redirect를 걸어주는 게 맞는 것 같다.</p>
-<p>그리고 페이지는 함수형 컴포넌트로 만들었는데, 그러면서 화살표 함수로 만들면서 익명함수로 만든게 개발자 도구에서는 Unknown으로 보인다는 것도 알게 되었다. 그리고 Router부분을 나는 이슈 페이지에서 찾은 코드를 추가했는데, storybook-react-router라는 라이브러리가 있어서 그걸 쓰면 더 간략한 코드로 내가 처리한 부분을 대체할 수 있었다.</p>
-<p>나는 Components 디렉터리의 PC 컴포넌트에서 username이나 password 상태를 관리하고 Context의 메소드를 내려받아서 핸들링해줬는데, 강사님은 Container에서 처리해주셨다. 이부분은 따로 여쭤봤는데, 물론 PC에서 관리해도 그것은 어떻게 설계하느냐(말하자면 관리 정책 측면이라)에 따른 거라 문제 될 것은 없지만, 로그인의 경우 사용자 입력을 받아 서버에 요청을 보내고 성공했는지에 따라 success 상태를 토글해서 Redirect를 걸어준다면 그 부분은 외부와 연동되는 부분이 들어가게 되니까 CC에서 처리하는 게 좋을 거라고 생각했다고 하셨다.</p>
-<h3 id="2-파이널-프로젝트-회의"><a href="#2-파이널-프로젝트-회의" class="headerlink" title="2. 파이널 프로젝트 회의"></a>2. 파이널 프로젝트 회의</h3><p>파이널 프로젝트로 쇼핑몰을 할 지 기존에 템플릿으로 만들어봤던 프로젝트 관리 서비스를 만들지 고민했다. 팀원이랑 의논 끝에 기존에 만들어본 프로젝트 관리 서비스를 하는 대신에 규모를 더 키워보기로 했다. 이전에는 사용자의 프로젝트 todo 리스트에 가까웠다면 이번에는 아예 팀 별로 프로젝트를 생성해서 관리할 수 있는 트렐로, asana 같은 서비스를 만들어보기로 했다.(물론 그들이 제공하는 모든 기능을 구현할 수는 없겠지만) 그리고 라이브러리를 이용해 타임라인과 캘린더 보기까기 구현해보기로 계획했다.<br>오늘 강사님이 알려주신 eslint와 prettier 설정으로 코딩 스타일은 얼추 맞출 수 있게 되었고, 구체적으로 설계하는 부분은 같이 맞춰나가기로 했다. 기능단위로 PC를 먼저 구현한 뒤에 일단 Context를 만들어 상태를 관리하고 Context에서 보관할 필요가 없는 상태라면 CC에서 처리해주기로 했다.  </p>
-<p>오늘은 일단 프로젝트를 어느정도 규모로 할 지와 나중에 수정할지라고 일단 컴포넌트 작성 순서와 상태 관리를 어디에서 할 건지 먼저 정하고, 내일은 일단 어느정도 와이어프레임을 위해 각자 벤치마킹을 해보고 일요일까지 와이어프레임을 만든 뒤 기능 별 분담을 하기로 했다.</p>
-<p>2주내에 다 할 수 있을까 조금 걱정이 되긴 하는데, 만드는 것은 재미있을 것 같다. 목표한대로 1주 정도는 전체적으로 만들고 남은 기간에는 스타일링과 코드 개선을 할 수 있으면 좋겠다. </p>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>파이널 프로젝트 와이어프레임을 위한 벤치마킹</li>
-<li>강사님 게시판 코드 읽어보고 연습하기</li>
-<li>Ant Design 써보기</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjkmphjrx0026ekuwbey6r25z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/23/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/23/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
@@ -1792,6 +1805,24 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/08/11/generate/" class="title">generate</a></p>
+                            <p class="item-date"><time datetime="2018-08-11T12:50:04.000Z" itemprop="datePublished">2018.08.11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/11/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-11T09:20:03.000Z" itemprop="datePublished">2018.08.11</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1820,24 +1851,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/08/06/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-08-05T15:00:00.000Z" itemprop="datePublished">2018.08.06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/08/05/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-08-05T14:36:59.000Z" itemprop="datePublished">2018.08.05</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1847,7 +1860,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1856,7 +1869,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
