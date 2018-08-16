@@ -3,22 +3,22 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>TIL 2018021 | Chiabi&#39;s dev blog</title>
+    <title>TIL | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="오늘 한 일1. 리액트로 게시판 만들기다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다.">
+    <meta name="description" content="2018.08.12 타입스크립트 인터페이스 정리  2018.08.13 영어학원 타입스크립트 인터페이스 (함수인터페이스, 클래스 인터페이스)  2018.08.14 리덕스 카운터 예제 누구나 자료구조와 알고리즘 책 1 ~ 4장 배열, 집합 - 이진검색/선형검색 빅오 표기법 버블정렬     2018.08.15 리덕스 심화 예제 누구나 자료구조와 알고리즘 책 5">
 <meta name="keywords" content="TIL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TIL 2018021">
-<meta property="og:url" content="http://chiabi.github.io/2018/06/21/TIL/index.html">
+<meta property="og:title" content="TIL">
+<meta property="og:url" content="http://chiabi.github.io/2018/08/16/TIL/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="오늘 한 일1. 리액트로 게시판 만들기다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다.">
+<meta property="og:description" content="2018.08.12 타입스크립트 인터페이스 정리  2018.08.13 영어학원 타입스크립트 인터페이스 (함수인터페이스, 클래스 인터페이스)  2018.08.14 리덕스 카운터 예제 누구나 자료구조와 알고리즘 책 1 ~ 4장 배열, 집합 - 이진검색/선형검색 빅오 표기법 버블정렬     2018.08.15 리덕스 심화 예제 누구나 자료구조와 알고리즘 책 5">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-22T15:17:37.746Z">
+<meta property="og:updated_time" content="2018-08-16T15:07:34.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TIL 2018021">
-<meta name="twitter:description" content="오늘 한 일1. 리액트로 게시판 만들기다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다.">
+<meta name="twitter:title" content="TIL">
+<meta name="twitter:description" content="2018.08.12 타입스크립트 인터페이스 정리  2018.08.13 영어학원 타입스크립트 인터페이스 (함수인터페이스, 클래스 인터페이스)  2018.08.14 리덕스 카운터 예제 누구나 자료구조와 알고리즘 책 1 ~ 4장 배열, 집합 - 이진검색/선형검색 빅오 표기법 버블정렬     2018.08.15 리덕스 심화 예제 누구나 자료구조와 알고리즘 책 5">
     
-    <link rel="canonical" href="http://chiabi.github.io/2018/06/21/til/"/>
+    <link rel="canonical" href="http://chiabi.github.io/2018/08/16/til/"/>
 
     
         <link rel="alternate" href="atom.xml" title="Chiabi&#39;s dev blog" type="application/atom+xml" />
@@ -221,7 +221,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            TIL 2018021
+            TIL
         </h1>
     
 
@@ -230,8 +230,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/21/TIL/">
-            <time datetime="2018-06-21T14:24:55.000Z" itemprop="datePublished">2018.06.21</time>
+        <a href="/2018/08/16/TIL/">
+            <time datetime="2018-08-16T13:18:24.000Z" itemprop="datePublished">2018.08.16</time>
         </a>
     </div>
 
@@ -256,10 +256,41 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트로-게시판-만들기"><a href="#1-리액트로-게시판-만들기" class="headerlink" title="1. 리액트로 게시판 만들기"></a>1. 리액트로 게시판 만들기</h3><p>다 완성하고 싶었는데, 오류도 잡고 어떻게 만들어야할까 고민하다보니 댓글까지는 넣지 못했다.<br>원래는 PostList와 Post Context로 분리하지 않고 Post Context 하나로 모든 상태를 같이 관리하려고 했는데, 강사님이 보여주신 코드를 보니 list와 view에서 쓸 수 있는 Context를 따로 나누셨다. 왜 그렇게 하셨을까 생각을 해보니 나는 어차피 post를 모두 불러오니까 그걸로 filter메소드 등을 써서 특정 id의 post를 찾으면 되지 않을까라고 생각했는데(뷰페이지는 그렇게 만들기까지 했었다.), 새 글 작성은 몰라도 글을 수정하는 페이지를 어떻게 처리할 건가 생각해보니 componetDidMount시에 보내는 요청이 다르기 때문에 따로 context를 분리하는 게 더 나을것 같아서 수정했다.<br>router 사용시 ‘/post’(리스트) ‘/post/write’(새 글 작성), ‘/post/1’(뷰페이지) 이렇게 주소가 표시되도록 하려고 했는데, write 페이지가 렌더링 되지 않았다. 이유는 ‘/post/write역시 ‘/post/:postId’ Route에 걸리기 때문이었다. ‘/post/write’ Route에 exact를 추가하고 위로 올리니 해결되었다.<br>그 다음 문제는 write페이지에서<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://&#123;server&#125;/posts/write?_expand=user 404 ()</span><br></pre></td></tr></table></figure></p>
-<p>이런식으로 404에러를 던지고 있는데, 왜 저런식으로 요청을 보내나했더니 처음에는 <code>&lt;Route&gt;</code>를 <code>&lt;Switch&gt;</code>로 둘러줬다가 exact를 쓰니까 제거해도 되지 않을까 했는데, 그렇게 되면 write일때도 걸리고 post의 params로도 걸려서 뷰페이지도 렌더링 되고 있었다. 다시 <code>&lt;Switch&gt;</code>로 둘러줘서 하나의 Route만 걸리도록 했더니 해결되었다.<br>스토리북에서 테스트하는 컴포넌트에 react router의 컴포넌트 사용으로 오류가 자꾸 발생되었는데, 이부분은 찾아보니 스토리북 깃헙에 이슈로 올라와 있었다. <a href="https://github.com/storybooks/storybook/issues/769" target="_blank" rel="noopener">addDecorator를 이용한 해결방법도 찾을 수 있었다.</a></p>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>파이널 프로젝트 기획하기</li>
+            <h2 id="2018-08-12"><a href="#2018-08-12" class="headerlink" title="2018.08.12"></a>2018.08.12</h2><ul>
+<li>타입스크립트 인터페이스 정리</li>
+</ul>
+<h2 id="2018-08-13"><a href="#2018-08-13" class="headerlink" title="2018.08.13"></a>2018.08.13</h2><ul>
+<li>영어학원</li>
+<li>타입스크립트 인터페이스 (함수인터페이스, 클래스 인터페이스)</li>
+</ul>
+<h2 id="2018-08-14"><a href="#2018-08-14" class="headerlink" title="2018.08.14"></a>2018.08.14</h2><ul>
+<li>리덕스 카운터 예제</li>
+<li>누구나 자료구조와 알고리즘 책 1 ~ 4장<ul>
+<li>배열, 집합 - 이진검색/선형검색</li>
+<li>빅오 표기법</li>
+<li>버블정렬 </li>
+</ul>
+</li>
+</ul>
+<h2 id="2018-08-15"><a href="#2018-08-15" class="headerlink" title="2018.08.15"></a>2018.08.15</h2><ul>
+<li>리덕스 심화 예제</li>
+<li>누구나 자료구조와 알고리즘 책 5 ~ 6장<ul>
+<li>선택정렬, 삽입정렬</li>
+</ul>
+</li>
+</ul>
+<h2 id="2018-08-16"><a href="#2018-08-16" class="headerlink" title="2018.08.16"></a>2018.08.16</h2><ul>
+<li>리덕스 <ul>
+<li>리덕스 API</li>
+<li>리덕스 심화 예제</li>
+<li>리덕스 미들웨어 실습</li>
+</ul>
+</li>
+<li>누구나 자료구조와 알고리즘 책 7 ~ 8장<ul>
+<li>해시 테이블</li>
+<li>스택, 큐</li>
+</ul>
+</li>
 </ul>
 
         
@@ -271,7 +302,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjkwp8qun0020qouwh81abnoi" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/16/TIL/" data-id="cjkwp8qz2005dqouwjwtq6cyz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -339,7 +370,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/06/21/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/21/TIL/">Comments</a>
+        <a href="http://chiabi.github.io/2018/08/16/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/08/16/TIL/">Comments</a>
     
 
         </footer>
@@ -348,19 +379,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/06/23/TIL/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    TIL 20180622
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/06/20/TIL-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/08/11/generate/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">TIL 20180620</div>
+            <div class="article-nav-title">generate</div>
         </a>
     
 </nav>
@@ -485,7 +507,7 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/06/21/TIL/';
+            this.page.url = 'http://chiabi.github.io/2018/08/16/TIL/';
         
         this.page.identifier = 'TIL';
     };

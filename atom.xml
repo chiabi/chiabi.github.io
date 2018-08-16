@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-08-11T12:50:04.800Z</updated>
+  <updated>2018-08-16T15:07:34.583Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/08/16/TIL/"/>
+    <id>http://chiabi.github.io/2018/08/16/TIL/</id>
+    <published>2018-08-16T13:18:24.000Z</published>
+    <updated>2018-08-16T15:07:34.583Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2018-08-12"><a href="#2018-08-12" class="headerlink" title="2018.08.12"></a>2018.08.12</h2><ul><li>타입스크립트 인터페이스 정리</li></ul><h2 id="2018-08-13"><a href="#2018-08-13" class="headerlink" title="2018.08.13"></a>2018.08.13</h2><ul><li>영어학원</li><li>타입스크립트 인터페이스 (함수인터페이스, 클래스 인터페이스)</li></ul><h2 id="2018-08-14"><a href="#2018-08-14" class="headerlink" title="2018.08.14"></a>2018.08.14</h2><ul><li>리덕스 카운터 예제</li><li>누구나 자료구조와 알고리즘 책 1 ~ 4장<ul><li>배열, 집합 - 이진검색/선형검색</li><li>빅오 표기법</li><li>버블정렬 </li></ul></li></ul><h2 id="2018-08-15"><a href="#2018-08-15" class="headerlink" title="2018.08.15"></a>2018.08.15</h2><ul><li>리덕스 심화 예제</li><li>누구나 자료구조와 알고리즘 책 5 ~ 6장<ul><li>선택정렬, 삽입정렬</li></ul></li></ul><h2 id="2018-08-16"><a href="#2018-08-16" class="headerlink" title="2018.08.16"></a>2018.08.16</h2><ul><li>리덕스 <ul><li>리덕스 API</li><li>리덕스 심화 예제</li><li>리덕스 미들웨어 실습</li></ul></li><li>누구나 자료구조와 알고리즘 책 7 ~ 8장<ul><li>해시 테이블</li><li>스택, 큐</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;2018-08-12&quot;&gt;&lt;a href=&quot;#2018-08-12&quot; class=&quot;headerlink&quot; title=&quot;2018.08.12&quot;&gt;&lt;/a&gt;2018.08.12&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;타입스크립트 인터페이스 정리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 i
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>generate</title>
@@ -493,31 +521,6 @@
       <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
     
       <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL</title>
-    <link href="http://chiabi.github.io/2018/07/24/TIL/"/>
-    <id>http://chiabi.github.io/2018/07/24/TIL/</id>
-    <published>2018-07-24T11:59:40.000Z</published>
-    <updated>2018-07-24T16:21:38.719Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-완료"><a href="#퍼블리싱-외주-완료" class="headerlink" title="퍼블리싱 외주 완료"></a>퍼블리싱 외주 완료</h3><p>작업 기한은 27일까지이긴 하지만 웹에이전시에서 일할 당시를 생각하면, 개발로 넘어가면 수많은 변수가 생기기 때문에 개발을 붙일 수 있는 시간에 여유를 드려야 할 것 같아서 일찍 완료해 넘겼다. 학원으로 이동 중에 연락이 와서, 이미지가 보이지 않고 이벤트들이 하나도 발생하지 않는다고 확인 요청이 왔다. 별다른 개발 환경세팅이 필요한지 여쭤보시기에 혹시 서버에 올려서 테스트하거나 아니면 라이브 서버를 통해 확인하고 계시냐고 여쭤봤는데, 개발자분이 그렇다고 하시기는 했는데, 그냥 로컬에서 파일을 열어 확인해보셨던 것 같다. 그래서 절대경로로 된 path를 읽지 못하는 거였다. 나는 작업할 때 vscode의 라이브 서버 확장프로그램을 사용해서 이상이 없었지만 상대경로로 다시 수정해서 넘겨드렸다.</p><h3 id="모의-면접"><a href="#모의-면접" class="headerlink" title="모의 면접"></a>모의 면접</h3><p>학원에서 진행하는 마지막 모의 면접을 봤다. 기술 면접은 아니고 자기소개서를 바탕으로 하는 인성 면접이었는데, 1차로 봤던 모의 면접에 비해 많이 나아진 것 같다. 프론트엔드 개발에 관련된 프로젝트를 해보고 기업조사도 하면서 좀 더 내가 어떤 방향으로 나아가야할 지 목표가 확실해지고, 나 자신에 대해 더 알게 되어서 말할 거리가 많이 생긴 것 같다.</p><h3 id="리덕스-복습"><a href="#리덕스-복습" class="headerlink" title="리덕스 복습"></a>리덕스 복습</h3><p>외주로 조금 소홀해진 복습에 다시 열중해야겠다. 일단 가장 하고 싶었던 context API로 만든 파이널 프로젝트를 리덕스를 이용해 수정하는 것을 하기 위해 리덕스를 복습하고 있다. 튜토리얼을 따라서 하는데, 특강때 했던 내용이 하나씩 다시 생각나고 있다. </p><h3 id="Git-github-특강"><a href="#Git-github-특강" class="headerlink" title="Git, github 특강"></a>Git, github 특강</h3><p>fork한 저장소의 최신 변경사항을 받아오는 방법에 대한 내용이 주였고, 관련해서 실습도 진행되었다.</p><ul><li>git stash에 대해 좀 더 찾아보자. </li></ul><hr><p>날이 너무 더워서 많이 이동하는 날은 기력이 쭉 빠진다. 얼른 시원해졌으면 좋겠다. </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-완료&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-완료&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   
