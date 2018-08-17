@@ -166,7 +166,7 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                54
+                53
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -213,181 +213,6 @@ ga('send', 'pageview');
 
             
             <section id="main">
-    <article id="post-HouseRobber" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/08/04/HouseRobber/">House Robber</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/08/04/HouseRobber/">
-            <time datetime="2018-08-04T02:01:41.000Z" itemprop="datePublished">2018.08.04</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p><a href="https://leetcode.com/problems/house-robber/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
-<blockquote>
-<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.</p>
-<p>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
-<p><strong>Example 1:</strong></p>
-<ul>
-<li>Input: [1,2,3,1]</li>
-<li>Output: 4</li>
-<li>Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).<br>Total amount you can rob = 1 + 3 = 4.</li>
-</ul>
-<p><strong>Example 2:</strong></p>
-<ul>
-<li>Input: [2,7,9,3,1]</li>
-<li>Output: 12</li>
-<li>Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).<br>Total amount you can rob = 2 + 9 + 1 = 12.</li>
-</ul>
-</blockquote>
-<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제에 주어진 배열이 <code>[1, 2, 3]</code>이라고 했을 때 <code>1 + 3</code>과 <code>2</code>를 비교하게 되고, <code>[1, 2, 3, 4]</code>일 경우는 <code>1 + 3</code>과 <code></code>2 + 4<code>를 비교하게 되는데 그러면 홀수번과 다음 수를 비교할 때는</code>even = Math.max(1 + 3, 2)<code>이 되고, 짝수번의 요소와 다음 수를 비교하면</code>odd = Math.max(4, 2 + 4)<code>가 된다. 이런 규칙을 이용해서 푸는데, 만약 빈배열이거나 요소가 1개일 경우를 위해</code>even<code>과</code>odd`는 0을 기본값으로 할당해줬다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 60ms</span></span><br><span class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> even = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> odd = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">            even = <span class="built_in">Math</span>.max(even + nums[i], odd);           </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            odd = <span class="built_in">Math</span>.max(even, odd + nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.max(even, odd)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>예전에 푼 프로그래머스 땅따먹기 문제랑 비슷한 것 같다. 이것도 너무 오래 걸렸다. 이런 유형의 알고리즘을 <strong>Dynamic Programming(DP)</strong>이라고 하는 것 같다.</p>
-<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>빈배열, 배열 요소가 하나일 때, 2개 일때는 따로 값을 반환하고, 3개 이상일 경우부터 <code>n: Max(n+s(n-2), s(n-1))</code>같은 규칙을 따른다.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 1: 1</span></span><br><span class="line">    <span class="comment">// 1,2: Max(1, 2)</span></span><br><span class="line">    <span class="comment">// 1,2,3: Max(3+s([1]), s([1,2]))</span></span><br><span class="line">    <span class="comment">// 1,2,3,4: Max(4+s([1,2]), s([1,2,3]))</span></span><br><span class="line">    <span class="comment">// n: Max(n+s(n-2), s(n-1))</span></span><br><span class="line">    <span class="keyword">if</span>(!nums.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(nums.length === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(nums.length === <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> dp = [];</span><br><span class="line">    </span><br><span class="line">    dp[<span class="number">0</span>] = nums[<span class="number">0</span>];</span><br><span class="line">    dp[<span class="number">1</span>] = <span class="built_in">Math</span>.max(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br><span class="line">    <span class="comment">// dp[2] = Math.max(nums[2] + dp[0], dp[1]);</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">2</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">        dp[i] = <span class="built_in">Math</span>.max(nums[i]+dp[i<span class="number">-2</span>], dp[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dp[dp.length - <span class="number">1</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Dynamic-Programming-DP"><a href="#Dynamic-Programming-DP" class="headerlink" title="Dynamic Programming(DP)"></a>Dynamic Programming(DP)</h2><p>동적 프로그래밍</p>
-<p>문제를 여러 개의 하위 문제로 나누어 푼 다음, 그것을 결합하여 최종적인 목적에 도달하는 방법으로 하위 문제의 값을 저장해두어(memozation) 그 하위 문제를 반복해서 풀어야 하는 경우 다시 계산하지 않고 재사용하는 식으로 계산 횟수를 줄일 수 있다.</p>
-<p>모든 방법을 일일이 검토해 그 중 최적의 풀이법을 찾아내야 하기 때문에 최적의 방법(혹은 최단 경로)를 찾아내기 위한 시간이 걸리지만 그 결과는 가장 최적의 방법(최단 경로)라고 장담할 수 있다.</p>
-<p>이를 이용한 알고리즘으로 최장 공통 부분 수열, 벨만-포드 알고리즘, 배낭문제 등이 있다.</p>
-<p>피보나치 수열 문제의 경우 재귀적으로 다음과 같이 풀 수 있다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233...</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fibo = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  <span class="keyword">return</span> fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>이 경우 <code>fibo(5)</code>를 구할 경우 다음과 같이 계산되는데, <code>fibo(n)</code>이 중복되어 계산되는 부분이 있어서, 전체적인 계산 속도를 떨어뜨린다.(이 알고리즘의 시간 복잡도는 지수함수가 된다.)</p>
-<ul>
-<li><code>fibo(5)</code></li>
-<li><code>fibo(4) + fibo(3)</code></li>
-<li><code>(fibo(3) + fibo(2)) + (fibo(2) + fibo(1))</code></li>
-<li><code>((fibo(2) + fibo(1)) + (fibo(1) + fibo(0))) + ((fibo(1) + fibo(0)) + fibo(1))</code></li>
-<li><code>(((fib(1) + fib(0)) + fib(1)) + (fib(1) + fib(0))) + ((fib(1) + fib(0)) + fib(1))</code></li>
-</ul>
-<p>이를 계산했던 값을 저장하는 메모이제이션을 이용해 동적 프로그래밍 방법으로 풀어본다면 다음과 같이 풀 수 있다. 이렇게 하면 중복되는 계산이 줄어든다.(시간 복잡도는 <math><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow></math>이 된다.)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fibonacci = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> memo = &#123;<span class="number">0</span>: <span class="number">0</span>, <span class="number">1</span>: <span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">const</span> fibo = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">1</span> || memo[n]) &#123;</span><br><span class="line">            <span class="keyword">return</span> memo[n]</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            memo[n] = fibo(n - <span class="number">1</span>) + fibo(n - <span class="number">2</span>);</span><br><span class="line">            <span class="keyword">return</span> memo[n];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> fibo(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>참고</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" target="_blank" rel="noopener">Wikipedia - Dynamic programming</a></li>
-<li><a href="https://www.geeksforgeeks.org/dynamic-programming/#concepts" target="_blank" rel="noopener">GeeksforGeeks - Dynamic Programming</a></li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/08/04/HouseRobber/" data-id="cjkwp8qya004bqouwmb3q888m" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/08/04/HouseRobber/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/08/04/HouseRobber/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -452,7 +277,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/08/03/TIL/" data-id="cjkwp8qy70047qouw8mx2b3os" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/03/TIL/" data-id="cjkxwj4vy004h8ouwne61wjx8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -588,7 +413,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/08/02/TIL/" data-id="cjkwp8qy40043qouwgozxett1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/02/TIL/" data-id="cjkxwj4v600468ouw4j79xdr0" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -738,7 +563,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/08/01/keyboardRow/" data-id="cjkwp8qyg004lqouwe8niqjnh" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/01/keyboardRow/" data-id="cjkxwj4w3004l8ouwgsgopqkr" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -901,7 +726,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/31/djangogirls/" data-id="cjkwp8qy0003zqouwqb4tyr8g" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/31/djangogirls/" data-id="cjkxwj4v100428ouwf4lzoond" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1036,7 +861,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/28/TIL/" data-id="cjkwp8qyj004pqouwp7fdsluq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/28/TIL/" data-id="cjkxwj4vr004e8ouwfpigz3f2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1174,7 +999,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/27/TIL/" data-id="cjkwp8qyc004eqouwffjm5cu3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/27/TIL/" data-id="cjkxwj4vc004a8ouwu6494gdy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1306,7 +1131,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/26/TIL/" data-id="cjkwp8qxu003sqouwy73gc896" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/26/TIL/" data-id="cjkxwj4uf003s8ouwgjebybb3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1444,7 +1269,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/25/TIL/" data-id="cjkwp8qxe003iqouw9zphyr8e" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/25/TIL/" data-id="cjkxwj4ub003o8ouww7da8jl9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1588,7 +1413,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/25/SelfDividingNumbers/" data-id="cjkwp8qxq003pqouwfe6049sy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/25/SelfDividingNumbers/" data-id="cjkxwj4uk003v8ouwfomkz4z3" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1666,6 +1491,146 @@ ga('send', 'pageview');
 
 
 
+    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/24/TIL/">TIL</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/24/TIL/">
+            <time datetime="2018-07-24T11:59:40.000Z" itemprop="datePublished">2018.07.24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/TIL/">TIL</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-완료"><a href="#퍼블리싱-외주-완료" class="headerlink" title="퍼블리싱 외주 완료"></a>퍼블리싱 외주 완료</h3><p>작업 기한은 27일까지이긴 하지만 웹에이전시에서 일할 당시를 생각하면, 개발로 넘어가면 수많은 변수가 생기기 때문에 개발을 붙일 수 있는 시간에 여유를 드려야 할 것 같아서 일찍 완료해 넘겼다. 학원으로 이동 중에 연락이 와서, 이미지가 보이지 않고 이벤트들이 하나도 발생하지 않는다고 확인 요청이 왔다. 별다른 개발 환경세팅이 필요한지 여쭤보시기에 혹시 서버에 올려서 테스트하거나 아니면 라이브 서버를 통해 확인하고 계시냐고 여쭤봤는데, 개발자분이 그렇다고 하시기는 했는데, 그냥 로컬에서 파일을 열어 확인해보셨던 것 같다. 그래서 절대경로로 된 path를 읽지 못하는 거였다. 나는 작업할 때 vscode의 라이브 서버 확장프로그램을 사용해서 이상이 없었지만 상대경로로 다시 수정해서 넘겨드렸다.</p>
+<h3 id="모의-면접"><a href="#모의-면접" class="headerlink" title="모의 면접"></a>모의 면접</h3><p>학원에서 진행하는 마지막 모의 면접을 봤다. 기술 면접은 아니고 자기소개서를 바탕으로 하는 인성 면접이었는데, 1차로 봤던 모의 면접에 비해 많이 나아진 것 같다. 프론트엔드 개발에 관련된 프로젝트를 해보고 기업조사도 하면서 좀 더 내가 어떤 방향으로 나아가야할 지 목표가 확실해지고, 나 자신에 대해 더 알게 되어서 말할 거리가 많이 생긴 것 같다.</p>
+<h3 id="리덕스-복습"><a href="#리덕스-복습" class="headerlink" title="리덕스 복습"></a>리덕스 복습</h3><p>외주로 조금 소홀해진 복습에 다시 열중해야겠다. 일단 가장 하고 싶었던 context API로 만든 파이널 프로젝트를 리덕스를 이용해 수정하는 것을 하기 위해 리덕스를 복습하고 있다. 튜토리얼을 따라서 하는데, 특강때 했던 내용이 하나씩 다시 생각나고 있다. </p>
+<h3 id="Git-github-특강"><a href="#Git-github-특강" class="headerlink" title="Git, github 특강"></a>Git, github 특강</h3><p>fork한 저장소의 최신 변경사항을 받아오는 방법에 대한 내용이 주였고, 관련해서 실습도 진행되었다.</p>
+<ul>
+<li>git stash에 대해 좀 더 찾아보자. </li>
+</ul>
+<hr>
+<p>날이 너무 더워서 많이 이동하는 날은 기력이 쭉 빠진다. 얼른 시원해졌으면 좋겠다. </p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/24/TIL/" data-id="cjkxwj4u7003l8ouwazm6re55" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/24/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/24/TIL/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
@@ -1686,15 +1651,6 @@ ga('send', 'pageview');
                             <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
                             <p class="item-title"><a href="/2018/08/16/TIL/" class="title">TIL</a></p>
                             <p class="item-date"><time datetime="2018-08-16T13:18:24.000Z" itemprop="datePublished">2018.08.16</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/08/11/generate/" class="title">generate</a></p>
-                            <p class="item-date"><time datetime="2018-08-11T12:50:04.000Z" itemprop="datePublished">2018.08.11</time></p>
                         </div>
                     </li>
                 
@@ -1725,6 +1681,15 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/07/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T14:26:29.000Z" itemprop="datePublished">2018.08.07</time></p>
+                        </div>
+                    </li>
+                
             </ul>
         </div>
     </div>
@@ -1743,7 +1708,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
