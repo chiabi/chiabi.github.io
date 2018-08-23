@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-08-17T07:08:58.988Z</updated>
+  <updated>2018-08-23T09:59:25.212Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TIL</title>
+    <link href="http://chiabi.github.io/2018/08/22/TIL/"/>
+    <id>http://chiabi.github.io/2018/08/22/TIL/</id>
+    <published>2018-08-22T14:12:44.000Z</published>
+    <updated>2018-08-23T09:59:25.212Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2018-08-18"><a href="#2018-08-18" class="headerlink" title="2018.08.18"></a>2018.08.18</h2><ul><li>리덕스를 적용한 vending machine 프로젝트를 진행하기로 함</li></ul><h2 id="2018-08-19"><a href="#2018-08-19" class="headerlink" title="2018.08.19"></a>2018.08.19</h2><ul><li>리덕스가 아직도 이해가 되지 않아서 다른 예제를 따라해보기로 했다.</li><li>도서구입: 러닝 리액트</li><li><a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">리액트 튜토리얼 틱택토 따라하기</a><ul><li><a href="https://engineering.huiseoul.com/react-redux-intro-bbff95b14cdf" target="_blank" rel="noopener">참고: Huiseoul 개발환경 적응기 (1) — React + Redux 이해하기</a></li></ul></li></ul><h2 id="2018-08-20"><a href="#2018-08-20" class="headerlink" title="2018.08.20"></a>2018.08.20</h2><ul><li>리액트 튜토리얼 틱택토(타임트래블), 틱택토 리덕스 연결<ul><li><a href="https://engineering.huiseoul.com/react-redux-tic-tac-toe-4a773928c425" target="_blank" rel="noopener">참고: Huiseoul 개발환경 적응기(2) — React + Redux Tic-Tac-Toe</a></li></ul></li><li>밴딩 머신 리액트로 만들어보기 이전에 바닐라 자바스크립트로 먼저 구현해보는 게 나을 것 같아서 프로젝트를 새로 만듦<ul><li>Parcel을 이용할 지, webpack을 이용할 지 고민하다가 Webpack을 공부해볼겸 Webpack을 적용하기로 함</li><li>babel, sass를 위한 로더를 설정함</li></ul></li><li><a href="http://webtech.gdg.kr/180820_chrome_dev_meetup/" target="_blank" rel="noopener">Chrome Dev Meetup by GDG Korea WebTech</a> 참여<ul><li>Session A - Progressive Web Apps</li><li>Session B - CSS Scroll Snap in 69</li></ul></li></ul><h2 id="2018-08-21"><a href="#2018-08-21" class="headerlink" title="2018.08.21"></a>2018.08.21</h2><ul><li>하이어링 데이 준비<ul><li>스쿨 사이트에 올린 이력서 업데이트(사이트의 텍스트 에디터가 날 괴롭게 해… 리스트 형식 스타일이 왜 그렇죠??)</li></ul></li><li>포트폴리오를 요구하는 곳들도 있어서 문서화하다가 디자인 때문에 괴로워짐</li><li>포트폴리오 사이트를 만들자는 생각에 포트폴리오 프로젝트 시작<ul><li>svg나 three.js 써서 화려하게 만들고 싶은데, 머리가 터질 것 같으니까. 바닐라 자바스크립트 복습할 겸 밴딩 머신때 만든 웹팩 설정 가져다 메인 페이지 만들어 봤다.</li></ul></li></ul><h2 id="2018-08-22"><a href="#2018-08-22" class="headerlink" title="2018.08.22"></a>2018.08.22</h2><ul><li><a href="https://www.meetup.com/ko-KR/GDG-Seoul/events/253667073/?comment_table_id=494013070&amp;comment_table_name=event_comment" target="_blank" rel="noopener">[Meetup with Googler] introduction to AMP stories</a> 참여<ul><li>AMP 스토리 포맷에 대한 영상과 설명을 들으면서 20일 밋업 두번째 세션에서 점점 ‘구글같은 기업에서 다 만들어주고 우리는 가져다 선언식으로 쓰면되는 선언형 언어로 간다’는 말이 다시 생각났다.</li><li>애니메이션 효과가 들어가는 네이버 웹툰도 생각났다.</li><li><a href="https://www.ampproject.org/ko/stories" target="_blank" rel="noopener">AMP 스토리 포맷</a></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;2018-08-18&quot;&gt;&lt;a href=&quot;#2018-08-18&quot; class=&quot;headerlink&quot; title=&quot;2018.08.18&quot;&gt;&lt;/a&gt;2018.08.18&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;리덕스를 적용한 vending machine 프로젝트를 진
+      
+    
+    </summary>
+    
+      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
+    
+    
+      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
+    
+  </entry>
   
   <entry>
     <title>TIL</title>
@@ -507,31 +533,6 @@
       <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
     
       <category term="leetcode" scheme="http://chiabi.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL</title>
-    <link href="http://chiabi.github.io/2018/07/24/TIL/"/>
-    <id>http://chiabi.github.io/2018/07/24/TIL/</id>
-    <published>2018-07-24T11:59:40.000Z</published>
-    <updated>2018-07-24T16:21:38.719Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-완료"><a href="#퍼블리싱-외주-완료" class="headerlink" title="퍼블리싱 외주 완료"></a>퍼블리싱 외주 완료</h3><p>작업 기한은 27일까지이긴 하지만 웹에이전시에서 일할 당시를 생각하면, 개발로 넘어가면 수많은 변수가 생기기 때문에 개발을 붙일 수 있는 시간에 여유를 드려야 할 것 같아서 일찍 완료해 넘겼다. 학원으로 이동 중에 연락이 와서, 이미지가 보이지 않고 이벤트들이 하나도 발생하지 않는다고 확인 요청이 왔다. 별다른 개발 환경세팅이 필요한지 여쭤보시기에 혹시 서버에 올려서 테스트하거나 아니면 라이브 서버를 통해 확인하고 계시냐고 여쭤봤는데, 개발자분이 그렇다고 하시기는 했는데, 그냥 로컬에서 파일을 열어 확인해보셨던 것 같다. 그래서 절대경로로 된 path를 읽지 못하는 거였다. 나는 작업할 때 vscode의 라이브 서버 확장프로그램을 사용해서 이상이 없었지만 상대경로로 다시 수정해서 넘겨드렸다.</p><h3 id="모의-면접"><a href="#모의-면접" class="headerlink" title="모의 면접"></a>모의 면접</h3><p>학원에서 진행하는 마지막 모의 면접을 봤다. 기술 면접은 아니고 자기소개서를 바탕으로 하는 인성 면접이었는데, 1차로 봤던 모의 면접에 비해 많이 나아진 것 같다. 프론트엔드 개발에 관련된 프로젝트를 해보고 기업조사도 하면서 좀 더 내가 어떤 방향으로 나아가야할 지 목표가 확실해지고, 나 자신에 대해 더 알게 되어서 말할 거리가 많이 생긴 것 같다.</p><h3 id="리덕스-복습"><a href="#리덕스-복습" class="headerlink" title="리덕스 복습"></a>리덕스 복습</h3><p>외주로 조금 소홀해진 복습에 다시 열중해야겠다. 일단 가장 하고 싶었던 context API로 만든 파이널 프로젝트를 리덕스를 이용해 수정하는 것을 하기 위해 리덕스를 복습하고 있다. 튜토리얼을 따라서 하는데, 특강때 했던 내용이 하나씩 다시 생각나고 있다. </p><h3 id="Git-github-특강"><a href="#Git-github-특강" class="headerlink" title="Git, github 특강"></a>Git, github 특강</h3><p>fork한 저장소의 최신 변경사항을 받아오는 방법에 대한 내용이 주였고, 관련해서 실습도 진행되었다.</p><ul><li>git stash에 대해 좀 더 찾아보자. </li></ul><hr><p>날이 너무 더워서 많이 이동하는 날은 기력이 쭉 빠진다. 얼른 시원해졌으면 좋겠다. </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-완료&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-완료&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
     
   </entry>
   
