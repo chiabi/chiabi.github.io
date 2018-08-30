@@ -3,22 +3,22 @@
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
-    <title>TIL | Chiabi&#39;s dev blog</title>
+    <title>TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러 | Chiabi&#39;s dev blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="오늘 한 일퍼블리싱 외주(80% 진행)디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트">
-<meta name="keywords" content="TIL">
+    <meta name="description" content="웹팩과 타입스크립트를 공부하면서 자동판매기 프로젝트를 진행하다가 문제가 발생했다.처음에 loader등의 웹팩 설정에서 뭘 잘못한 줄 알았다. 결론적으로 문제는 tsconfig.js파일을 수정해 해결했다. node_modules로 설치한 다른 라이브러리 모듈을 찾지 못하는 문제였는데, 예를 들어 npm install --save redux로 리덕스를 설치하고">
+<meta name="keywords" content="TypeScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TIL">
-<meta property="og:url" content="http://chiabi.github.io/2018/07/23/TIL/index.html">
+<meta property="og:title" content="TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러">
+<meta property="og:url" content="http://chiabi.github.io/2018/08/30/typescript/index.html">
 <meta property="og:site_name" content="Chiabi&#39;s dev blog">
-<meta property="og:description" content="오늘 한 일퍼블리싱 외주(80% 진행)디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트">
+<meta property="og:description" content="웹팩과 타입스크립트를 공부하면서 자동판매기 프로젝트를 진행하다가 문제가 발생했다.처음에 loader등의 웹팩 설정에서 뭘 잘못한 줄 알았다. 결론적으로 문제는 tsconfig.js파일을 수정해 해결했다. node_modules로 설치한 다른 라이브러리 모듈을 찾지 못하는 문제였는데, 예를 들어 npm install --save redux로 리덕스를 설치하고">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-24T11:55:00.126Z">
+<meta property="og:updated_time" content="2018-08-30T16:09:29.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TIL">
-<meta name="twitter:description" content="오늘 한 일퍼블리싱 외주(80% 진행)디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트">
+<meta name="twitter:title" content="TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러">
+<meta name="twitter:description" content="웹팩과 타입스크립트를 공부하면서 자동판매기 프로젝트를 진행하다가 문제가 발생했다.처음에 loader등의 웹팩 설정에서 뭘 잘못한 줄 알았다. 결론적으로 문제는 tsconfig.js파일을 수정해 해결했다. node_modules로 설치한 다른 라이브러리 모듈을 찾지 못하는 문제였는데, 예를 들어 npm install --save redux로 리덕스를 설치하고">
     
-    <link rel="canonical" href="http://chiabi.github.io/2018/07/23/til/"/>
+    <link rel="canonical" href="http://chiabi.github.io/2018/08/30/typescript/"/>
 
     
         <link rel="alternate" href="atom.xml" title="Chiabi&#39;s dev blog" type="application/atom+xml" />
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-typescript" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -221,7 +221,7 @@ ga('send', 'pageview');
                 
     
         <h1 class="article-title" itemprop="name">
-            TIL
+            TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러
         </h1>
     
 
@@ -230,8 +230,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/07/23/TIL/">
-            <time datetime="2018-07-23T14:10:16.000Z" itemprop="datePublished">2018.07.23</time>
+        <a href="/2018/08/30/typescript/">
+            <time datetime="2018-08-30T14:51:23.000Z" itemprop="datePublished">2018.08.30</time>
         </a>
     </div>
 
@@ -239,13 +239,13 @@ ga('send', 'pageview');
                         
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
+        <a class="article-category-link" href="/categories/TypeScript/">TypeScript</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
+        <a class="tag-link" href="/tags/TypeScript/">TypeScript</a>
     </div>
 
                     </div>
@@ -256,27 +256,59 @@ ga('send', 'pageview');
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="퍼블리싱-외주-80-진행"><a href="#퍼블리싱-외주-80-진행" class="headerlink" title="퍼블리싱 외주(80% 진행)"></a>퍼블리싱 외주(80% 진행)</h3><p>디자인 시안의 폰트 사이즈가 대부분 10px이하다. 어떤 버튼은 폰트 사이즈가 7px이다. 아이패드에서는 그나마 좀 잘 보이는데, 작업하는 내가 괴로울 정도로 노트북에서는 잘 안보인다.(내가 눈이 나쁜건가…)<br>쇼핑몰 퍼블리싱할 때 받았던 디자인에서는 대부분 기본적인 폰트 사이즈는 12px 혹은 14px이고 제일 작은 폰트 사이즈가 10px이었다. 그리고 그렇게 해야 가독성이 좋았는데, 아이패드나 브라우저에서 화면을 확대하는 방법이 있기 때문에 그렇게 하는 걸까.</p>
-<ul>
-<li><a href="http://koreawebdesign.com/typography-for-webdesign/" target="_blank" rel="noopener">웹디자인을 위한 타이포그라피 10가지 팁</a></li>
-<li><a href="http://webactually.com/2015/10/%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EB%94%94%EC%9E%90%EC%9D%B8%EC%97%90%EC%84%9C-%EA%B8%80%EC%A4%84%EC%9D%98-%EA%B8%B8%EC%9D%B4%EC%99%80-%EA%B8%80%EC%9E%90-%ED%81%AC%EA%B8%B0-%EA%B7%A0%ED%98%95/" target="_blank" rel="noopener">반응형 웹 디자인에서 글줄의 길이와 글자 크기 균형 잡기</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust/" target="_blank" rel="noopener">MDN - font-size-adjust</a></li>
-</ul>
-<p>디자인에 range 슬라이더가 있어서 찾아봤는데 rangeslider.js가 제일 복잡한 기능없이 간단하게 사용하기 좋았다.</p>
-<ul>
-<li><a href="http://rangeslider.js.org/" target="_blank" rel="noopener">rangeslider.js</a></li>
-</ul>
-<p>디자인 시안을 어떤 파일로 전달해주면 되냐고해서 포토샵이나 일러면 좋을 것 같다고 했더니 보낸 파일이 전혀 레이어가 분할되어 있지 않았다. sketch로 작업했구나 싶어서 차라리 sketch 파일로 보내달라고 했는데, 재플린으로 공유해달랄 걸 그랬나보다. 하지만 덕분에 윈도우에서 sketch파일을 보는 방법을 찾아보다가 <code>.sketch</code> 파일을 지원하는 Windows app인 <strong>lunacy</strong>라는 걸 찾았다.(무료다!!)<br>그리고 시안 수정은 또 클라이언트 업체의 상주 디자이너가 하는데(시안 자체는 외주), sketch는 안쓰는지 Adobe XD 파일을 보내줬다.<br>포토샵으로만 시안 받아서 퍼블리싱 해봤는데 덕분에 이런 저런 툴을 다양하게 사용해보고 있다.</p>
-<ul>
-<li><a href="https://icons8.com/lunacy" target="_blank" rel="noopener">lunacy</a></li>
-<li><a href="https://www.adobe.com/kr/products/xd.html" target="_blank" rel="noopener">Adobe XD</a></li>
-</ul>
-<h3 id="알고리즘-문제-풀이"><a href="#알고리즘-문제-풀이" class="headerlink" title="알고리즘 문제 풀이"></a>알고리즘 문제 풀이</h3><p>문제가 조금 간단하고 장고걸스 튜토리얼에서 봤던 정도로도 풀 수 있을 것 같아서 파이썬으로도 풀어봤다.<br>range나 len 함수에 대해 찾다가 파이썬 문법을 공부하는데 도움이 될 것 같은 사이트를 찾았다.</p>
-<ul>
-<li><a href="https://wikidocs.net/book/1" target="_blank" rel="noopener">점프 투 파이썬</a></li>
-</ul>
+            <p>웹팩과 타입스크립트를 공부하면서 <a href="https://github.com/chiabi/vending-machine-js" target="_blank" rel="noopener">자동판매기 프로젝트</a>를 진행하다가 문제가 발생했다.<br>처음에 loader등의 웹팩 설정에서 뭘 잘못한 줄 알았다. 결론적으로 문제는 <code>tsconfig.js</code>파일을 수정해 해결했다.</p>
+<p>node_modules로 설치한 다른 라이브러리 모듈을 찾지 못하는 문제였는데, 예를 들어 <code>npm install --save redux</code>로 리덕스를 설치하고<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; CreateStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br></pre></td></tr></table></figure></p>
+<p>위와 같이 불러오려고 했는데 모듈을 찾지 못한다고 에러가 발생했다.<br>(참고로 <code>@types/redux</code>는 더이상 사용되지 않는다.)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR in [at-loader] ./src/app.ts:1:16</span><br><span class="line">    TS2307: Cannot find module &apos;redux&apos;.</span><br></pre></td></tr></table></figure>
+<p>‘ts-loader’를 사용했을 때는 VS Code의 문제(PROBLEMS)탭에서 <code>&#39;redux&#39; 모듈을 찾지 못했습니다.</code>라고 나왔고, ‘awesome-typescript-loader’를 사용했을 때는 터미널 탭에서 위와 같이 웹팩이 실행되면서 <code>Cannot find module &#39;redux&#39;</code>라고 나왔는데, 이건 환경에 따라 다를 수도 있을 것 같다. </p>
+<p>문제가 발생했을 때의 <code>tsconfig.js</code>는 다음과 같았는데<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"outDir"</span>: <span class="string">"./dist"</span>,</span><br><span class="line">    <span class="string">"noImplicitAny"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"ES6"</span>,</span><br><span class="line">    <span class="string">"target"</span>: <span class="string">"ES5"</span>,</span><br><span class="line">    <span class="string">"allowJs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"sourceMap"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>포스팅 하단에 적어둔 참고 링크들에서 다음과 같은 해결방법을 찾았다. 다음과 같이 <code>&quot;moduleResolution&quot;: &quot;node&quot;</code>를 추가했더니 문제가 해결되었다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"outDir"</span>: <span class="string">"./dist"</span>,</span><br><span class="line">    <span class="string">"noImplicitAny"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"module"</span>: <span class="string">"ES6"</span>,</span><br><span class="line">    <span class="string">"target"</span>: <span class="string">"ES5"</span>,</span><br><span class="line"><span class="comment">//+ "moduleResolution": "node",</span></span><br><span class="line">    <span class="string">"allowJs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"sourceMap"</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>위 옵션을 추가해도 해결되지 않는다면, 나의 경우처럼 VS Code를 종료하고 다시 열어야 해결될 수도 있다.</p>
+<p><code>moduleResolution</code>옵션의 기본값은 <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">타입스크립트 공식문서</a>에서 다음과 같이 쓰여있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module === &quot;AMD&quot; or &quot;System&quot; or &quot;ES6&quot; ? &quot;Classic&quot; : &quot;Node&quot;</span><br></pre></td></tr></table></figure>
+<p><code>module</code> 옵션이 <code>AMD</code>, <code>System</code>, <code>ES6(혹은 ES2015)</code>일 경우에 기본값은 <code>Classic</code>이고 나머지는 <code>Node</code>이다.</p>
+<p>타입스크립트 공식문서의 <a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="noopener">Module Resolution</a>항목에 모듈 분석 전략 두 가지 방법인 <code>Classic</code>과 <code>Node</code>에 대한 설명이 나와있다.  </p>
+<p>간단하게 정리하면 <code>import { b } from &quot;moduleB&quot;</code>와 같이 상대 경로가 아닌 모듈(non-relative module) 불러오기에서 <code>Classic</code>과 달리 <code>Node</code> 설정은 ‘node_modules’폴더에서도 모듈을 검색해준다.</p>
+<p><code>/root/src/A.ts</code>파일에 아래과 같이 상대 경로가 아닌 모듈(non-relative module) 불러오기를 했다고 하면<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /root/src/A.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; b &#125; <span class="keyword">from</span> <span class="string">"moduleB"</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Classic</code> 설정은 다음과 같은 순서로 <code>moduleB</code>를 찾는다.</p>
+<ol>
+<li><code>/root/src/moduleB.ts</code></li>
+<li><code>/root/src/moduleB.d.ts</code></li>
+<li><code>/root/moduleB.ts</code></li>
+<li><code>/root/moduleB.d.ts</code></li>
+<li><code>/moduleB.ts</code></li>
+<li><code>/moduleB.d.ts</code></li>
+</ol>
+<p><code>Node</code> 설정은 다음과 같이 ‘node_modules’ 탐색을 포함한다.</p>
+<ol>
+<li><code>/root/src/node_modules/moduleB.ts</code></li>
+<li><code>/root/src/node_modules/moduleB.tsx</code></li>
+<li><code>/root/src/node_modules/moduleB.d.ts</code></li>
+<li><code>/root/src/node_modules/moduleB/package.json</code> (if it specifies a “types” property)</li>
+<li><code>/root/src/node_modules/moduleB/index.ts</code></li>
+<li><code>/root/src/node_modules/moduleB/index.tsx</code></li>
+<li><code>/root/src/node_modules/moduleB/index.d.ts</code></li>
+<li><code>/root/node_modules/moduleB.ts</code></li>
+<li><code>/root/node_modules/moduleB.tsx</code></li>
+<li><code>/root/node_modules/moduleB.d.ts</code></li>
+<li><code>/root/node_modules/moduleB/package.json</code> (if it specifies a “types” property)</li>
+<li><code>/root/node_modules/moduleB/index.ts</code></li>
+<li><code>/root/node_modules/moduleB/index.tsx</code></li>
+<li><code>/root/node_modules/moduleB/index.d.ts</code></li>
+<li><code>/node_modules/moduleB.ts</code></li>
+<li><code>/node_modules/moduleB.tsx</code></li>
+<li><code>/node_modules/moduleB.d.ts</code></li>
+<li><code>/node_modules/moduleB/package.json</code> (if it specifies a “types” property)</li>
+<li><code>/node_modules/moduleB/index.ts</code></li>
+<li><code>/node_modules/moduleB/index.tsx</code></li>
+<li><code>/node_modules/moduleB/index.d.ts</code></li>
+</ol>
 <hr>
-<p>내일까지면 퍼블리싱 외주 작업은 끝날 것 같다. 그러면 다시 파이널 프로젝트에 집중해서 Context API를 썼던 부분을 리덕스로 변경하는 작업에 착수해야겠다. </p>
+<h3 id="참고링크"><a href="#참고링크" class="headerlink" title="참고링크"></a>참고링크</h3><ul>
+<li><a href="https://github.com/Microsoft/TypeScript/issues/8920#issuecomment-223052268" target="_blank" rel="noopener">Typescript issues - #8920</a></li>
+<li><a href="https://github.com/Microsoft/TypeScript/issues/5039" target="_blank" rel="noopener">TypeScript issues - #5039</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="noopener">TypesScript: Module Resolution</a></li>
+</ul>
 
         
         </div>
@@ -287,7 +319,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/23/TIL/" data-id="cjlgrmghp003gowuw6uemg1nh" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/08/30/typescript/" data-id="cjlgrmgjg005mowuwnupxtxzt" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -355,7 +387,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://chiabi.github.io/2018/07/23/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/23/TIL/">Comments</a>
+        <a href="http://chiabi.github.io/2018/08/30/typescript/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/08/30/typescript/">Comments</a>
     
 
         </footer>
@@ -364,19 +396,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2018/07/24/MaxIncreasetoKeepCitySkyline/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    MaxIncreasetoKeepCitySkyline
-                
-            </div>
-        </a>
     
-    
-        <a href="/2018/07/23/peakIndexInMountainArray/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/08/22/TIL/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">peakIndexInMountainArray</div>
+            <div class="article-nav-title">TIL</div>
         </a>
     
 </nav>
@@ -501,9 +524,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://chiabi.github.io/2018/07/23/TIL/';
+            this.page.url = 'http://chiabi.github.io/2018/08/30/typescript/';
         
-        this.page.identifier = 'TIL';
+        this.page.identifier = 'typescript';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
