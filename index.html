@@ -268,7 +268,7 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">module === &quot;AMD&quot; or &quot;System&quot; or &quot;ES6&quot; ? &quot;Classic&quot; : &quot;Node&quot;</span><br></pre></td></tr></table></figure>
 <p><code>module</code> 옵션이 <code>AMD</code>, <code>System</code>, <code>ES6(혹은 ES2015)</code>일 경우에 기본값은 <code>Classic</code>이고 나머지는 <code>Node</code>이다.</p>
 <p>타입스크립트 공식문서의 <a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html" target="_blank" rel="noopener">Module Resolution</a>항목에 모듈 분석 전략 두 가지 방법인 <code>Classic</code>과 <code>Node</code>에 대한 설명이 나와있다.  </p>
-<p>간단하게 정리하면 <code>import { b } from &quot;moduleB&quot;</code>와 같이 상대 경로가 아닌 모듈(non-relative module) 불러오기에서 <code>Classic</code>과 달리 <code>Node</code> 설정은 ‘node_modules’폴더에서도 모듈을 검색해준다.</p>
+<p>간단하게 정리하면 <code>import { b } from &quot;moduleB&quot;</code>와 같이 상대 경로가 아닌 모듈(non-relative module) 불러오기에서 <code>Classic</code>과 달리 <code>Node</code> 설정은 ‘node_modules’폴더를 찾아 모듈을 검색한다.</p>
 <p><code>/root/src/A.ts</code>파일에 아래과 같이 상대 경로가 아닌 모듈(non-relative module) 불러오기를 했다고 하면<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// /root/src/A.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; b &#125; <span class="keyword">from</span> <span class="string">"moduleB"</span></span><br></pre></td></tr></table></figure></p>
 <p><code>Classic</code> 설정은 다음과 같은 순서로 <code>moduleB</code>를 찾는다.</p>
 <ol>
@@ -279,7 +279,7 @@ ga('send', 'pageview');
 <li><code>/moduleB.ts</code></li>
 <li><code>/moduleB.d.ts</code></li>
 </ol>
-<p><code>Node</code> 설정은 다음과 같이 ‘node_modules’ 탐색을 포함한다.</p>
+<p><code>Node</code> 설정은 다음과 같이 ‘node_modules’폴더를 찾아 해당 모듈을 검색한다.</p>
 <ol>
 <li><code>/root/src/node_modules/moduleB.ts</code></li>
 <li><code>/root/src/node_modules/moduleB.tsx</code></li>
