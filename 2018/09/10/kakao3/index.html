@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    <title>KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬 | Chiabi&#39;s dev blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="프로그래머스 문제링크 카카오 알고리즘 어렵구나를 느꼈다. 배열의 sort메소드로 풀다가 sort 메소드가 안정 정렬이 아니라고 했던 것 같아서 해당 메소드를 안정 정렬로 만들어 주는 방법을 찾았다.통과하긴 했는데, 이건 내가 풀었다고 보긴 힘들 것 같고 sort를 어떻게 안정적으로 만드냐를 알게 된 것에 의의를 둬야겠다. 자바스크립트에서 배열의 sort메소">
+<meta name="keywords" content="algorithm,프로그래머스,KAKAO BLIND RECRUITMENT 3차">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬">
+<meta property="og:url" content="http://chiabi.github.io/2018/09/10/kakao3/index.html">
+<meta property="og:site_name" content="Chiabi&#39;s dev blog">
+<meta property="og:description" content="프로그래머스 문제링크 카카오 알고리즘 어렵구나를 느꼈다. 배열의 sort메소드로 풀다가 sort 메소드가 안정 정렬이 아니라고 했던 것 같아서 해당 메소드를 안정 정렬로 만들어 주는 방법을 찾았다.통과하긴 했는데, 이건 내가 풀었다고 보긴 힘들 것 같고 sort를 어떻게 안정적으로 만드냐를 알게 된 것에 의의를 둬야겠다. 자바스크립트에서 배열의 sort메소">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-09T17:45:46.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬">
+<meta name="twitter:description" content="프로그래머스 문제링크 카카오 알고리즘 어렵구나를 느꼈다. 배열의 sort메소드로 풀다가 sort 메소드가 안정 정렬이 아니라고 했던 것 같아서 해당 메소드를 안정 정렬로 만들어 주는 방법을 찾았다.통과하긴 했는데, 이건 내가 풀었다고 보긴 힘들 것 같고 sort를 어떻게 안정적으로 만드냐를 알게 된 것에 의의를 둬야겠다. 자바스크립트에서 배열의 sort메소">
+    
+    <link rel="canonical" href="http://chiabi.github.io/2018/09/10/kakao3/"/>
+
+    
+        <link rel="alternate" href="atom.xml" title="Chiabi&#39;s dev blog" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/chiabi.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-123610550-1', 'auto');
+ga('send', 'pageview');
+
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+    
+
+
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Chiabi&#39;s dev blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/chiabi.png" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/chiabi.png" />
+            <h2 id="name">chiabi</h2>
+            <h3 id="title">Front-End Developer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Korea, Seoul</span>
+            <a id="follow" target="_blank" href="https://github.com/chiabi/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                56
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                12
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                        
+                            <td>
+                                <a href="http://github.com/chiabi" target="_blank" title="github" class=tooltip>
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </td>
+                        
+                    
+                        
+                            <td>
+                                <a href="https://www.facebook.com/chihye.park" target="_blank" title="facebook" class=tooltip>
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </td>
+                        
+                    
+                        
+                            <td>
+                                <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                                    <i class="fas fa-rss"></i>
+                                </a>
+                            </td>
+                        
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-kakao3" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/09/10/kakao3/">
+            <time datetime="2018-09-09T17:07:07.000Z" itemprop="datePublished">2018.09.10</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/KAKAO-BLIND-RECRUITMENT-3차/">KAKAO BLIND RECRUITMENT 3차</a>, <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/프로그래머스/">프로그래머스</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://programmers.co.kr/learn/courses/30/lessons/17686" target="_blank" rel="noopener">프로그래머스 문제링크</a></p>
+<p>카카오 알고리즘 어렵구나를 느꼈다. 배열의 <code>sort</code>메소드로 풀다가 <code>sort</code> 메소드가 안정 정렬이 아니라고 했던 것 같아서 해당 메소드를 안정 정렬로 만들어 주는 방법을 찾았다.<br>통과하긴 했는데, 이건 내가 풀었다고 보긴 힘들 것 같고 <code>sort</code>를 어떻게 안정적으로 만드냐를 알게 된 것에 의의를 둬야겠다.</p>
+<p>자바스크립트에서 배열의 <code>sort</code>메소드에 인자로 전달되는 비교 함수(<code>compareFunction(a, b)</code>)이 반환하는 값이</p>
+<ul>
+<li>0보다 작으면 a가 먼저 온다.(a가 b보다 낮은 색인 정렬)</li>
+<li>0보다 크면 b가 먼저 온다.</li>
+<li>0이면 a와 b를 변경하지 않고 모든 다른 요소에 대해 정렬하는데, 이때 ECMAscript 표준은 이러한 동작을 보장하지 않는다고 한다.</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">files</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> answerWrap = files.map(<span class="function">(<span class="params">file, index</span>) =&gt;</span> (&#123;file, index&#125;));</span><br><span class="line">    <span class="keyword">const</span> compare = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> reg = <span class="regexp">/(\D*)(\d*)/i</span>;</span><br><span class="line">      <span class="keyword">const</span> A = a.match(reg);</span><br><span class="line">      <span class="keyword">const</span> B = b.match(reg);</span><br><span class="line">      <span class="keyword">const</span> compareHead = A[<span class="number">1</span>].toLowerCase().localeCompare(B[<span class="number">1</span>].toLowerCase());</span><br><span class="line">      <span class="keyword">const</span> compareNumber = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="built_in">parseInt</span>(a) &gt; <span class="built_in">parseInt</span>(b) ? </span><br><span class="line">            <span class="number">1</span> : <span class="built_in">parseInt</span>(a) &lt; <span class="built_in">parseInt</span>(b) ? </span><br><span class="line">             <span class="number">-1</span> </span><br><span class="line">            : <span class="number">0</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> compareHead === <span class="number">0</span> ? compareNumber(A[<span class="number">2</span>], B[<span class="number">2</span>]) : compareHead</span><br><span class="line">    &#125;</span><br><span class="line">    answerWrap.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> result = compare(a.file, b.file);</span><br><span class="line">      <span class="keyword">return</span> result === <span class="number">0</span> ? a.index - b.index : result;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> answerWrap.map(<span class="function"><span class="params">answer</span> =&gt;</span> answer.file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>해당 방법은 map 메소드를 이용해 요소와 인덱스 정보를 가진 객체를 요소로 가지는 배열을 만들어서<br>비교함수에서는 요소간 비교하고, 반환되는 값이 0일때는 인덱스 정보를 이용해 원래 위치를 비교해 정확한 순서를 얻는다.  </p>
+<ul>
+<li><a href="https://code-examples.net/ko/q/15c898" target="_blank" rel="noopener">참고: Javascript - 자바 스크립트에서 빠른 안정적인 정렬 알고리즘 구현</a></li>
+<li><a href="http://blog.vjeux.com/2010/javascript/javascript-sorting-table.html" target="_blank" rel="noopener">참고: Javascript - Sorting Table</a></li>
+</ul>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/09/10/kakao3/" data-id="cjlv5gksd0060cwuwszp4bgvv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/09/10/kakao3/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/09/10/kakao3/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/08/30/typescript/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/10/kakao3/" class="title">KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬</a></p>
+                            <p class="item-date"><time datetime="2018-09-09T17:07:07.000Z" itemprop="datePublished">2018.09.10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TypeScript/">TypeScript</a></p>
+                            <p class="item-title"><a href="/2018/08/30/typescript/" class="title">TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러</a></p>
+                            <p class="item-date"><time datetime="2018-08-30T14:51:23.000Z" itemprop="datePublished">2018.08.30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/22/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-22T14:12:44.000Z" itemprop="datePublished">2018.08.22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/16/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T13:18:24.000Z" itemprop="datePublished">2018.08.16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
+                            <p class="item-title"><a href="/2018/08/11/TIL/" class="title">TIL</a></p>
+                            <p class="item-date"><time datetime="2018-08-11T09:20:03.000Z" itemprop="datePublished">2018.08.11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/KAKAO-BLIND-RECRUITMENT-3차/" style="font-size: 10px;">KAKAO BLIND RECRUITMENT 3차</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fas fa-arrow-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 chiabi<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://chiabi.github.io/2018/09/10/kakao3/';
+        
+        this.page.identifier = 'kakao3';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'chiabi-dev-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

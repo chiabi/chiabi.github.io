@@ -882,7 +882,12 @@ code {
 }
 .article-banner {
   width: 100%;
-  height: auto;
+  height: 300;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
 }
 .article-header {
   padding: 20px 20px 0;

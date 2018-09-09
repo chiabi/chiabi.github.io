@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-08-30T16:18:36.214Z</updated>
+  <updated>2018-09-09T17:45:46.659Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬</title>
+    <link href="http://chiabi.github.io/2018/09/10/kakao3/"/>
+    <id>http://chiabi.github.io/2018/09/10/kakao3/</id>
+    <published>2018-09-09T17:07:07.000Z</published>
+    <updated>2018-09-09T17:45:46.659Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://programmers.co.kr/learn/courses/30/lessons/17686" target="_blank" rel="noopener">프로그래머스 문제링크</a></p><p>카카오 알고리즘 어렵구나를 느꼈다. 배열의 <code>sort</code>메소드로 풀다가 <code>sort</code> 메소드가 안정 정렬이 아니라고 했던 것 같아서 해당 메소드를 안정 정렬로 만들어 주는 방법을 찾았다.<br>통과하긴 했는데, 이건 내가 풀었다고 보긴 힘들 것 같고 <code>sort</code>를 어떻게 안정적으로 만드냐를 알게 된 것에 의의를 둬야겠다.</p><p>자바스크립트에서 배열의 <code>sort</code>메소드에 인자로 전달되는 비교 함수(<code>compareFunction(a, b)</code>)이 반환하는 값이</p><ul><li>0보다 작으면 a가 먼저 온다.(a가 b보다 낮은 색인 정렬)</li><li>0보다 크면 b가 먼저 온다.</li><li>0이면 a와 b를 변경하지 않고 모든 다른 요소에 대해 정렬하는데, 이때 ECMAscript 표준은 이러한 동작을 보장하지 않는다고 한다.</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">files</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> answerWrap = files.map(<span class="function">(<span class="params">file, index</span>) =&gt;</span> (&#123;file, index&#125;));</span><br><span class="line">    <span class="keyword">const</span> compare = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> reg = <span class="regexp">/(\D*)(\d*)/i</span>;</span><br><span class="line">      <span class="keyword">const</span> A = a.match(reg);</span><br><span class="line">      <span class="keyword">const</span> B = b.match(reg);</span><br><span class="line">      <span class="keyword">const</span> compareHead = A[<span class="number">1</span>].toLowerCase().localeCompare(B[<span class="number">1</span>].toLowerCase());</span><br><span class="line">      <span class="keyword">const</span> compareNumber = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="built_in">parseInt</span>(a) &gt; <span class="built_in">parseInt</span>(b) ? </span><br><span class="line">            <span class="number">1</span> : <span class="built_in">parseInt</span>(a) &lt; <span class="built_in">parseInt</span>(b) ? </span><br><span class="line">             <span class="number">-1</span> </span><br><span class="line">            : <span class="number">0</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> compareHead === <span class="number">0</span> ? compareNumber(A[<span class="number">2</span>], B[<span class="number">2</span>]) : compareHead</span><br><span class="line">    &#125;</span><br><span class="line">    answerWrap.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> result = compare(a.file, b.file);</span><br><span class="line">      <span class="keyword">return</span> result === <span class="number">0</span> ? a.index - b.index : result;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> answerWrap.map(<span class="function"><span class="params">answer</span> =&gt;</span> answer.file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>해당 방법은 map 메소드를 이용해 요소와 인덱스 정보를 가진 객체를 요소로 가지는 배열을 만들어서<br>비교함수에서는 요소간 비교하고, 반환되는 값이 0일때는 인덱스 정보를 이용해 원래 위치를 비교해 정확한 순서를 얻는다.  </p><ul><li><a href="https://code-examples.net/ko/q/15c898" target="_blank" rel="noopener">참고: Javascript - 자바 스크립트에서 빠른 안정적인 정렬 알고리즘 구현</a></li><li><a href="http://blog.vjeux.com/2010/javascript/javascript-sorting-table.html" target="_blank" rel="noopener">참고: Javascript - Sorting Table</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17686&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;프로그래머스 문제링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;카카오 알고리즘 어렵구나를 느
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="http://chiabi.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
+    
+      <category term="프로그래머스" scheme="http://chiabi.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/"/>
+    
+      <category term="KAKAO BLIND RECRUITMENT 3차" scheme="http://chiabi.github.io/tags/KAKAO-BLIND-RECRUITMENT-3%EC%B0%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>TypeScript 사용할 때 &#39;Cannot find module ...&#39; 에러</title>
@@ -46,7 +76,7 @@
     <link href="http://chiabi.github.io/2018/08/22/TIL/"/>
     <id>http://chiabi.github.io/2018/08/22/TIL/</id>
     <published>2018-08-22T14:12:44.000Z</published>
-    <updated>2018-08-23T10:01:44.801Z</updated>
+    <updated>2018-08-30T16:13:53.857Z</updated>
     
     <content type="html"><![CDATA[<h2 id="2018-08-18"><a href="#2018-08-18" class="headerlink" title="2018.08.18"></a>2018.08.18</h2><ul><li>리덕스를 적용한 vending machine 프로젝트를 진행하기로 함</li></ul><h2 id="2018-08-19"><a href="#2018-08-19" class="headerlink" title="2018.08.19"></a>2018.08.19</h2><ul><li>리덕스가 아직도 이해가 되지 않아서 다른 예제를 따라해보기로 했다.</li><li>도서구입: 러닝 리액트</li><li><a href="https://reactjs.org/tutorial/tutorial.html" target="_blank" rel="noopener">리액트 튜토리얼 틱택토 따라하기</a><ul><li><a href="https://engineering.huiseoul.com/react-redux-intro-bbff95b14cdf" target="_blank" rel="noopener">참고: Huiseoul 개발환경 적응기 (1) — React + Redux 이해하기</a></li></ul></li></ul><h2 id="2018-08-20"><a href="#2018-08-20" class="headerlink" title="2018.08.20"></a>2018.08.20</h2><ul><li>리액트 튜토리얼 틱택토(타임트래블), 틱택토 리덕스 연결<ul><li><a href="https://engineering.huiseoul.com/react-redux-tic-tac-toe-4a773928c425" target="_blank" rel="noopener">참고: Huiseoul 개발환경 적응기(2) — React + Redux Tic-Tac-Toe</a></li></ul></li><li>밴딩 머신 리액트로 만들어보기 이전에 바닐라 자바스크립트로 먼저 구현해보는 게 나을 것 같아서 프로젝트를 새로 만듦<ul><li>Parcel을 이용할 지, webpack을 이용할 지 고민하다가 Webpack을 공부해볼겸 Webpack을 적용하기로 함</li><li>babel, sass를 위한 로더를 설정함</li></ul></li><li><a href="http://webtech.gdg.kr/180820_chrome_dev_meetup/" target="_blank" rel="noopener">Chrome Dev Meetup by GDG Korea WebTech</a> 참여<ul><li>Session A - Progressive Web Apps</li><li>Session B - CSS Scroll Snap in 69</li></ul></li></ul><h2 id="2018-08-21"><a href="#2018-08-21" class="headerlink" title="2018.08.21"></a>2018.08.21</h2><ul><li>하이어링 데이 준비<ul><li>스쿨 사이트에 올린 이력서 업데이트(사이트의 텍스트 에디터가 날 괴롭게 해… 리스트 형식 스타일이 왜 그렇죠??)</li></ul></li><li>포트폴리오를 요구하는 곳들도 있어서 문서화하다가 디자인 때문에 괴로워짐</li><li>포트폴리오 사이트를 만들자는 생각에 포트폴리오 프로젝트 시작<ul><li>svg나 three.js 써서 화려하게 만들고 싶지만, 나중에 공부하면서 만들기로 하고 바닐라 자바스크립트 복습할 겸 밴딩 머신때 만든 웹팩 설정 가져다 메인 페이지 만들어 봤다.</li></ul></li></ul><h2 id="2018-08-22"><a href="#2018-08-22" class="headerlink" title="2018.08.22"></a>2018.08.22</h2><ul><li><a href="https://www.meetup.com/ko-KR/GDG-Seoul/events/253667073/?comment_table_id=494013070&amp;comment_table_name=event_comment" target="_blank" rel="noopener">[Meetup with Googler] introduction to AMP stories</a> 참여<ul><li>AMP 스토리 포맷에 대한 영상과 설명을 들으면서 20일 밋업 두번째 세션에서 점점 ‘구글같은 기업에서 다 만들어주고 우리는 가져다 선언식으로 쓰면되는 선언형 언어로 간다’는 말이 다시 생각났다.</li><li>애니메이션 효과가 들어가는 네이버 웹툰도 생각났다.</li><li><a href="https://www.ampproject.org/ko/stories" target="_blank" rel="noopener">AMP 스토리 포맷</a></li></ul></li></ul>]]></content>
     
@@ -497,31 +527,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;Sass-스터디&quot;&gt;&lt;a href=&quot;#Sass-스터디&quot; class=&quot;headerlink&quot; 
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL</title>
-    <link href="http://chiabi.github.io/2018/07/25/TIL/"/>
-    <id>http://chiabi.github.io/2018/07/25/TIL/</id>
-    <published>2018-07-25T14:59:38.000Z</published>
-    <updated>2018-07-25T16:42:26.366Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="TIL-레포지토리-정리"><a href="#TIL-레포지토리-정리" class="headerlink" title="TIL 레포지토리 정리"></a>TIL 레포지토리 정리</h3><p>깃헙의 TIL 레포지토리의 구조를 좀 수정했다. 프론트엔드 개발 스쿨과정에서 WEEK_N 디렉토리로 정리했던 파일들은 [FDS]fds-9로 옮겼고, 앞으로 카테고리 별로 공부한 내용을 관리하려 한다.<br>깃헙의 project를 이용해서 할 일을 관리해보려고 하는데, 풀리퀘 말고 이슈와 커밋을 연결해서 깃헙 이슈에 기록을 남기는 방법을 찾아봤는데, 좀 더 찾아봐야겠지만 커밋으로 이슈를 닫는 기능은 있었다.</p><ul><li><a href="https://help.github.com/articles/closing-issues-using-keywords/" target="_blank" rel="noopener">Closing issues using keywords</a></li></ul><h3 id="리덕스-공부"><a href="#리덕스-공부" class="headerlink" title="리덕스 공부"></a>리덕스 공부</h3><p>리덕스 문서 원문과 번역본을 같이 보면서 공부하고 있다. 일단 기초 부분을 한번 읽어보면서 따라 치는 식으로 하고 있는데,<br>에러가 발생해서 확인해봐야 한다. </p><hr><p>국비 과정때 같이 공부했던 동기와 스터디를 하기로 했는데, 내일 Sass를 주제로 진행할 예정이다. 최근에 외주하면서도 사용하기는 했는데, 전 회사에서 했던 것처럼 내가 발표하는 형식으로 진행해야 해서 다시 한번 정리해야겠다. 원래는 낮에 리덕스 공부하고 나서 준비하려고 했는데, 생각보다 리덕스 개념이 잘 이해가 안가서 시간을 많이 잡아먹었다. 비록 에러를 아직 해결하지 못했지만, 예제를 통해 기초파트의 한 사이클을 도니까 좀 이해가 되는 것 같다. 내일은 이 에러를 해결하고 심화부분을 보면서 파이널 프로젝트로 했던 SEEMVA를 수정해봐야겠다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;TIL-레포지토리-정리&quot;&gt;&lt;a href=&quot;#TIL-레포지토리-정리&quot; class=&quot;head
       
     
     </summary>

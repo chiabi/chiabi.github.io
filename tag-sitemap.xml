@@ -44,13 +44,6 @@
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/tags/algorithm/</loc>
-        <lastmod>2018-08-09T06:22:12.309Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://chiabi.github.io/tags/leetcode/</loc>
         <lastmod>2018-08-09T06:22:12.309Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,7 +52,7 @@
 
     <url>
         <loc>http://chiabi.github.io/tags/TIL/</loc>
-        <lastmod>2018-08-23T10:01:44.801Z</lastmod>
+        <lastmod>2018-08-30T16:13:53.857Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -67,6 +60,27 @@
     <url>
         <loc>http://chiabi.github.io/tags/TypeScript/</loc>
         <lastmod>2018-08-30T16:18:36.214Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/tags/algorithm/</loc>
+        <lastmod>2018-09-09T17:45:46.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/</loc>
+        <lastmod>2018-09-09T17:45:46.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://chiabi.github.io/tags/KAKAO-BLIND-RECRUITMENT-3%EC%B0%A8/</loc>
+        <lastmod>2018-09-09T17:45:46.659Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
