@@ -166,11 +166,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                56
+                57
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                12
+                13
                 <span>tags</span>
             </div>
         </div>
@@ -213,6 +213,159 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-JudgeRouteCircle" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/17/JudgeRouteCircle/">Judge Route Circle</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/07/17/JudgeRouteCircle/">
+            <time datetime="2018-07-17T14:40:55.000Z" itemprop="datePublished">2018.07.17</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/judge-route-circle/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.</p>
+<p>The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.</p>
+<p><strong>Example 1:</strong></p>
+<ul>
+<li>Input: “UD”</li>
+<li>Output: true</li>
+</ul>
+<p><strong>Example 2:</strong></p>
+<ul>
+<li>Input: “LL”</li>
+<li>Output: false</li>
+</ul>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><p>문제 자체를 이해하기가 좀 어려웠다. 괜히 Circle이라 그래서 왜 원이 되지?라고 생각했는데, 그림을 그려보면 이해하기 쉬웠다. 예를들면 “RLUURDDLU”를 좌표 (0, 0)에서 시작한다고 생각해서 방향따라 그려보면 결국 다시 (0, 0)의 위치로 오게 된다. 이 경우 로봇이 원을 만든다고 가정하여 <code>true</code>를 반환하면 된다. 그래서 “LDRRLRUULR”의 경우 그려보면 (0, 0)의 위치로 돌아오지 않기 때문에 <code>false</code>를 반환하면 된다.  </p>
+<p>정규식을 이용했다. R과 L의 수와 U와 D의 수가 같으면 원 위치로 되돌아갔다고 할 수 있으니까 다음과 같이 접근해서 풀어보았다.<br><code>|| []</code>이 부분은 마지막에 length로 구하고 싶은데 match 메소드가 정규식에 부합하는 문자열이 있으면 배열 형태로 반환하지만 없을 경우 <code>null</code>로 반환하기 때문에 정규식에 일치하는 문자가 없을 경우는 빈배열이 담기도록 하기 위해 추가했다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> R = moves.match(<span class="regexp">/R/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> L = moves.match(<span class="regexp">/L/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> U = moves.match(<span class="regexp">/U/g</span>) || [];</span><br><span class="line">  <span class="keyword">const</span> D = moves.match(<span class="regexp">/D/g</span>) || [];</span><br><span class="line">  <span class="keyword">return</span> R.length === L.length &amp;&amp; U.length === D.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>이번에는 for문을 통해 문자열을 하나씩 탐색해서 x와 y의 값에 변화를 주는 방법을 사용했다. 오른쪽으로 이동하면 x좌표가 1추가되고 왼쪽으로 이동하면 x좌표가 1 감소하는 것이라 모든 문자열을 탐색한 뒤에 x와 y의 좌표가 다시 0이 되었는지 확인한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> moves) &#123;</span><br><span class="line">        i === <span class="string">'R'</span> ? x++ : </span><br><span class="line">        i === <span class="string">'L'</span> ? x-- :</span><br><span class="line">        i === <span class="string">'U'</span> ? y-- :</span><br><span class="line">        i === <span class="string">'D'</span> &amp;&amp; y++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x === <span class="number">0</span> &amp;&amp; y === <span class="number">0</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>같은 접근법인데 reduce 메소드를 이용해 본 방법<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> arr = moves.split(<span class="string">''</span>);</span><br><span class="line">    <span class="keyword">const</span> hor = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'R'</span> ? <span class="number">1</span> : item === <span class="string">'L'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">const</span> ver = arr.reduce(<span class="function">(<span class="params">acc, item</span>) =&gt;</span> acc + (item === <span class="string">'U'</span> ? <span class="number">1</span> : item === <span class="string">'D'</span> ? <span class="number">-1</span> : <span class="number">0</span>), <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> !(hor + ver)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>같은 접근법인데 60ms이길래 환경이 달라서 그런 것 같아서 내가 다시 넣고 돌려보니 72ms가 걸렸다. 각 변수로 x, y를 넣는 대신 배열로 두고 switch 문을 사용한 방법이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 72ms</span></span><br><span class="line"><span class="keyword">var</span> judgeCircle = <span class="function"><span class="keyword">function</span>(<span class="params">moves</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = [<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; moves.length; i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span>(moves[i])&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">'U'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'D'</span>:</span><br><span class="line">                origin[<span class="number">0</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'L'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]--</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">case</span> <span class="string">'R'</span>:</span><br><span class="line">                origin[<span class="number">1</span>]++</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(origin[<span class="number">0</span>] == <span class="number">0</span> &amp;&amp; origin[<span class="number">1</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>문제의 좋아요와 싫어요 수가 거의 비슷해서 왜 인가했는데, 문제 자체가 이해가 어려워서였던 것 같다. 괜히 원을 만든다는 가정이 문제를 이해하기 어렵게 했다. 근데 문제 자체를 이해하고 나니 풀이는 재미있었다.<br>특히 <code>match</code>메소드를 이용해서 <code>null</code>이 나오는데 배열의 <code>length</code> 프로퍼티로 비교하려고 하려면 어떻게 처리해야할까 고민했는데, <code>||</code> 논리 연산자를 이용해 match 메소드에서 <code>null</code>이 나오면 변수에 빈배열이 대입되도록 처리했다. 두번째 풀이의 삼항연산자에 쓴 것과 같이 <code>&amp;&amp;</code>와 <code>||</code>같은 논리 연산자의 특성을 활용해보니 코드가 굉장히 깔끔해보여서 기분이 좋았다.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/" data-id="cjmktn8sf003f94uw2w6hqmuw" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/07/17/JudgeRouteCircle/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-HammingDistance" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -332,7 +485,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjlv5mbs60038houw4vlzt0nb" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/16/HammingDistance/" data-id="cjmktn8sa003894uw9iarxdgl" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -495,7 +648,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjlv5mbs60034houw2q0h7mdm" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/15/flipAndInvertImage/" data-id="cjmktn8s8003494uwq6gnozzc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -646,7 +799,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjlv5mbs60031houwtgshdcek" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/07/09/Stones/" data-id="cjmktn8s6003194uw7rovzt9j" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -806,7 +959,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjlv5mbs6002xhouw1qbvrd5w" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/24/TIL/" data-id="cjmktn8s4002x94uwbj6221db" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -948,7 +1101,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjlv5mbrq002uhouwe5x62rvs" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/23/TIL/" data-id="cjmktn8s1002u94uw6ypr3yyq" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1084,7 +1237,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjlv5mbrq002qhouw9fqne8jv" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/21/TIL/" data-id="cjmktn8ry002q94uwwmp4mzj2" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1239,7 +1392,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjlv5mbrq002khouwd4bohfao" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL-1/" data-id="cjmktn8ru002k94uwxubft7fx" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1383,7 +1536,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjlv5mbrq002nhouwrbh9qpwz" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/20/TIL/" data-id="cjmktn8rw002n94uw6ev99r6z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1533,7 +1686,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjlv5mbrq002ghouwui52bw5i" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/19/TIL/" data-id="cjmktn8rr002d94uww3quirj1" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1611,144 +1764,6 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-TIL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2018/06/17/TIL/">TIL 20180617</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2018/06/17/TIL/">
-            <time datetime="2018-06-17T10:13:10.000Z" itemprop="datePublished">2018.06.17</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/TIL/">TIL</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/TIL/">TIL</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="1-리액트-RGB-Challenge-완성"><a href="#1-리액트-RGB-Challenge-완성" class="headerlink" title="1. 리액트 RGB Challenge 완성"></a>1. 리액트 RGB Challenge 완성</h3><p>공식문서 Context 파트와 지난 수업 시간했던 todo 리스트 실습을 참고해서 context를 사용해 완성했다. 만들다보니 컴포넌트를 굉장히 많이 나누게 되었는데, 그러다보니 DOM API로 단순하게 만들었던 것이 굉장히 복잡해진 것 같아서 내가 제대로 만든 건지 확신이 없다. context는 컬러, 스코어, 결과로 나눠서 각 파일을 따로 만들다.<br><code>setState()</code>로 각 상태를 변화시키는 메서드를 따로 만들었는데, 예를들면 스코어에서는 <code>upScore</code>, <code>reset</code>으로 하나는 score를 추가해주는 것 하나는 score를 다시 0으로 만드는 메서드이다. 결과 context에서는 <code>showResultGood</code>, <code>showResultBad</code>, <code>reset</code>으로 각각 상태에 ‘good’, ‘bad’, 빈 문자열로 수정하는 메서드이다.<br>이렇게 하는게 맞는 것일까 아니면 메서드는 하나만 만들고 나중에 사용할 때 값을 던져주는 것을 인자로 받아서 setState에 던져주도록 만들어야했을까… 이런저런 사용법에 고민이 많아진다.<br>역할과 책임이라는 것에 신경쓰면서 만드려고 했는데, 잘 한건지는 모르겠다. 좀 더 다른 사람들의 코드나 글을 읽어봐야겠다. </p>
-<p>만들면서 그동안 배운것을 다시 정리하고 context를 좀 더 이해하게 되었다. 강사님이 오늘 읽으려고 해두었던 글을 번역해서 올려주셔서 그걸 읽어보고 다시 고민해봐야겠다.</p>
-<h3 id="2-알고리즘-문제-풀이"><a href="#2-알고리즘-문제-풀이" class="headerlink" title="2. 알고리즘 문제 풀이"></a>2. 알고리즘 문제 풀이</h3><p>1일 1알고리즘 하려고 하는데 지키기 힘든 일인 것 같다. 특히나 문제가 어려우면 고민하다가 하루가 지나가버린다. 지금은 리액트를 익히는 것 역시 중요하니까 우선순위를 정해서 신간 분배를 잘 해야 될 것 같다.</p>
-<h2 id="내일-할-일"><a href="#내일-할-일" class="headerlink" title="내일 할 일"></a>내일 할 일</h2><ul>
-<li>리덕스 예습/복습</li>
-<li>리액트로 다른 미니 프로젝트 하기(캘린더 다시 만들어본다거나)</li>
-</ul>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://chiabi.github.io/2018/06/17/TIL/" data-id="cjlv5mbrq002dhouwzmewmd9z" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://chiabi.github.io/2018/06/17/TIL/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/17/TIL/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
@@ -1762,6 +1777,15 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/28/programmers_hash/" class="title">프로그래머스 - [해시]완주하지 못한 선수</a></p>
+                            <p class="item-date"><time datetime="2018-09-27T16:10:46.000Z" itemprop="datePublished">2018.09.28</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1799,15 +1823,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/08/11/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-08-11T09:20:03.000Z" itemprop="datePublished">2018.08.11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1817,7 +1832,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1826,7 +1841,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
@@ -1835,7 +1850,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/KAKAO-BLIND-RECRUITMENT-3차/" style="font-size: 10px;">KAKAO BLIND RECRUITMENT 3차</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
+            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/KAKAO-BLIND-RECRUITMENT-3차/" style="font-size: 10px;">KAKAO BLIND RECRUITMENT 3차</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/프로그래머스/" style="font-size: 12.5px;">프로그래머스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
         </div>
     </div>
 

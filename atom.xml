@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chiabi.github.io/"/>
-  <updated>2018-09-09T17:50:19.215Z</updated>
+  <updated>2018-09-27T16:55:57.900Z</updated>
   <id>http://chiabi.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>프로그래머스 - [해시]완주하지 못한 선수</title>
+    <link href="http://chiabi.github.io/2018/09/28/programmers_hash/"/>
+    <id>http://chiabi.github.io/2018/09/28/programmers_hash/</id>
+    <published>2018-09-27T16:10:46.000Z</published>
+    <updated>2018-09-27T16:55:57.900Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42576?language=javascript" target="_blank" rel="noopener">프로그래머스 문제링크</a></p><blockquote><p>수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.<br>마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p><ul><li><p>제한사항</p><ul><li>마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.</li><li>completion의 길이는 participant의 길이보다 1 작습니다.</li><li>참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</li><li>참가자 중에는 동명이인이 있을 수 있습니다.</li></ul></li><li><p>입출력 예</p></li></ul><table><thead><tr><th>participant</th><th>completion</th><th>return</th></tr></thead><tbody><tr><td>[“leo”, “kiki”, “eden”]</td><td>[“eden”, “kiki”]</td><td>“leo”</td></tr><tr><td>[“marina”, “josipa”, “nikola”, “vinko”, “filipa”]</td><td>[“josipa”, “filipa”, “marina”, “nikola”]</td><td>“vinko”</td></tr><tr><td>[“mislav”, “stanko”, “mislav”, “ana”]</td><td>[“stanko”, “ana”, “mislav”]</td><td>“mislav”</td></tr></tbody></table><ul><li>입출력 예 설명<ul><li>예제 #1<br>“leo”는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</li><li>예제 #2<br>“vinko”는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</li><li>예제 #3<br>“mislav”는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.</li></ul></li></ul></blockquote><h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">participant, completion</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> completeMap = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">const</span> person <span class="keyword">of</span> completion) &#123;</span><br><span class="line">    <span class="keyword">const</span> mapItem = completeMap.get(person);</span><br><span class="line">    completeMap.set(person, mapItem ? mapItem + <span class="number">1</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">const</span> person <span class="keyword">of</span> participant) &#123;</span><br><span class="line">    <span class="keyword">const</span> mapItem = completeMap.get(person);</span><br><span class="line">    <span class="keyword">if</span>(!mapItem) &#123;</span><br><span class="line">      <span class="keyword">return</span> person;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      completeMap.set(person, mapItem - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>문제의 소분류가 해시이니 만큼 해시 테이블을 이용해 풀어보고 싶었다. 다음의 풀이에서 ES6의 <code>Map</code>객체 대신 일반적인 객체로 객체 리터럴과 속성 접근자를 사용해도 문제가 없으나 <code>Map</code>객체를 써보고 싶었다.  </p><p>먼저 완주자 배열을 순회해 다음 형태의 <code>completeMap</code>을 만든다. 키는 완주자 이름, 값은 완주자 이름이 동명이인일 것을 고려해서 수로 저장한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;stanko&quot;: 1, </span><br><span class="line">  &quot;ana&quot;: 1, </span><br><span class="line">  &quot;mislav&quot;: 1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>REPL에서 Map을 콘솔에 출력하면 다음과 같이 보여준다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map(3) &#123;&quot;stanko&quot; =&gt; 1, &quot;ana&quot; =&gt; 1, &quot;mislav&quot; =&gt; 1&#125;</span><br></pre></td></tr></table></figure></p><p>그 다음 참가자 배열을 순회해 해당 참가자 이름으로 <code>completeMap</code>을 탐색해 키가 있다면 저장된 값에 1을 뺀다. 만약 해당 키가 없거나, 저장된 값이 0이면 그 참가자를 반환한다. </p><h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><p>위 방법으로 풀고 나서 다른 사람들 풀이를 보니까 다음과 같이 <code>sort()</code>메서드를 이용해 <code>participant</code>배열과 <code>completion</code>배열을 각각 정렬한 뒤(기본 정렬 순서는 유니코드 코드 포인트 기준이다.) 두 정렬된 배열을 (선형으로) 비교하는 식으로 푼 풀이도 있었다.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">solution</span>(<span class="params">participant, completion</span>) </span>&#123;</span><br><span class="line">    participant.sort();</span><br><span class="line">    completion.sort();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i <span class="keyword">in</span> participant) &#123;</span><br><span class="line">        <span class="keyword">if</span>(participant[i] !== completion[i]) <span class="keyword">return</span> participant[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><p>요즘 책이랑 영상 강좌만 자꾸 보니까 알고리즘 문제를 풀고 싶어졌다. 적당히 자료구조에 대해서도 생각해볼 수 있고, 어렵지 않고 기분 전환하기 좋은 문제였다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576?language=javascript&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;프로그래머스 문제링크&lt;/a&gt;&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="http://chiabi.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="http://chiabi.github.io/tags/algorithm/"/>
+    
+      <category term="프로그래머스" scheme="http://chiabi.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/"/>
+    
+      <category term="Hash" scheme="http://chiabi.github.io/tags/Hash/"/>
+    
+  </entry>
   
   <entry>
     <title>KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬</title>
@@ -502,31 +531,6 @@
       
       
         &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;퍼블리싱-외주-완료&quot;&gt;&lt;a href=&quot;#퍼블리싱-외주-완료&quot; class=&quot;headerli
-      
-    
-    </summary>
-    
-      <category term="TIL" scheme="http://chiabi.github.io/categories/TIL/"/>
-    
-    
-      <category term="TIL" scheme="http://chiabi.github.io/tags/TIL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL</title>
-    <link href="http://chiabi.github.io/2018/07/26/TIL/"/>
-    <id>http://chiabi.github.io/2018/07/26/TIL/</id>
-    <published>2018-07-26T14:58:25.000Z</published>
-    <updated>2018-07-26T16:04:47.005Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="오늘-한-일"><a href="#오늘-한-일" class="headerlink" title="오늘 한 일"></a>오늘 한 일</h2><h3 id="Sass-스터디"><a href="#Sass-스터디" class="headerlink" title="Sass 스터디"></a>Sass 스터디</h3><p>Sass는 계속 쓰고 있었지만, 스터디를 준비하면서 다시 공부했다. Dart Sass가 나온 배경이라든지 Sass blog에 올라온 글도 읽어보고 처음부터 시작한다 생각하고  Sass를 사용하기 위한 환경 설정도 다시 해보니, 다른 방법이 있거나 제대로 모르고 있던 부분도 알 수 있었다.<br>특히 설치에서 애를 먹었는데, 내가 현재 사용하고 있는 node 버전은 8이었고, Sass는 아직 node 8버전에서 공식적으로 지원되는 것이 아니어서 발생한 문제였다. 그래서 nvm을 통해 설치된 node 버전 중 6.10.0으로 변경하니 발생했던 오류가 사라졌다.<br>가볍게 쓰려고 사용하고 있던 VSCode 익스텐션인 Live Sass Compiler는 생각보다 훨씬 좋았다. Autoprefix를 같이 쓰려고 gulp-sass 사용할 때 설치하고 설정해주고 했었는데, Live Sass Compiler는 이를 지원한다.<br>다른 사람에게 설명해주기 위한 준비과정 자체가 많은 도움이 되는 것 같다. 내가 무엇을 알고, 무엇을 모르고 있는지가 좀 더 명확해진다. 오늘 Sass 문법까지 다루고 싶었는데, 환경 설정하면서 package.json부터 설명을 해야 되어서 생각보다 시간이 훌쩍 지나가버렸다. 대충 Sass를 사용하면 어떤 점이 좋을지 왜 Sass를 사용하는지 위주로 대화를 했고, 문법 관련해서는 생소한 <code>&amp;</code>같은 부모참조 선택자나 Sass와 SCSS의 차이, BEM 방법론을 사용할 때 Sass 활용 방법 (중첩이나 부모참조 선택자)위주로 설명했다.<br>함수나 리스트, 맵과 반복문을 사용해 어떤 것을 할 수 있을지 등도 보여주고 싶었는데, 시간이 부족해서 아쉬웠다.<br>Sass는 내가 스크립트 언어를 익히는데 많은 도움을 준 언어라 굉장히 애착이 간다. 그리고 그걸 오늘 다시 공부해보면서 느꼈다. CSS로는 할 수 없는 정말 멋진 기능이 많은데 오늘 다 못해서 아쉽고, 나중에 또 시간을 내야겠다. </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;오늘-한-일&quot;&gt;&lt;a href=&quot;#오늘-한-일&quot; class=&quot;headerlink&quot; title=&quot;오늘 한 일&quot;&gt;&lt;/a&gt;오늘 한 일&lt;/h2&gt;&lt;h3 id=&quot;Sass-스터디&quot;&gt;&lt;a href=&quot;#Sass-스터디&quot; class=&quot;headerlink&quot; 
       
     
     </summary>

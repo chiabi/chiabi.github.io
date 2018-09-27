@@ -166,11 +166,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                56
+                57
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                12
+                13
                 <span>tags</span>
             </div>
         </div>
@@ -213,6 +213,178 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-revese-integer" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/06/11/revese-integer/">leetcode - Reverse Integer</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2018/06/11/revese-integer/">
+            <time datetime="2018-06-11T11:34:55.000Z" itemprop="datePublished">2018.06.11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/Algorithm/">Algorithm</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithm/">algorithm</a>, <a class="tag-link" href="/tags/leetcode/">leetcode</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="https://leetcode.com/problems/reverse-integer/description/" target="_blank" rel="noopener">leetcode 문제링크</a></p>
+<blockquote>
+<p>Given a 32-bit signed integer, reverse digits of an integer.</p>
+<ul>
+<li>Example 1:<ul>
+<li>Input: 123</li>
+<li>Output: 321</li>
+</ul>
+</li>
+<li>Example 2:<ul>
+<li>Input: -123</li>
+<li>Output: -321</li>
+</ul>
+</li>
+<li>Example 3:<ul>
+<li>Input: 120</li>
+<li>Output: 21</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note:</strong><br>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2<sup>31</sup>,  2<sup>31</sup> − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
+</blockquote>
+<h2 id="나의-풀이"><a href="#나의-풀이" class="headerlink" title="나의 풀이"></a>나의 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Runtime: 80 ms</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> range = <span class="number">2</span> ** <span class="number">31</span>;</span><br><span class="line">    <span class="keyword">const</span> result = <span class="built_in">parseInt</span>(x.toString().split(<span class="string">''</span>).reverse().join(<span class="string">''</span>));</span><br><span class="line">    <span class="keyword">return</span> (result &gt; (range - <span class="number">1</span>)) ? <span class="number">0</span> : x &gt;= <span class="number">0</span> ? result : result * <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>코드가 짧아보인다고 빠른게 아닌 것임을…<br>Big O Notation을 아직 제대로 이해하지 못했지만 제아무리 코드상 짧아보여도 반드시 좋은 코드인 것은 아니란 걸 알았다.(<del>그리고 나의 코드가 그런듯…</del>)</p>
+<p><code>range = 2 ** 31</code>은 <code>Math.pow(2, 31)</code>로 구해도 될 것 같고 숫자를 문자열 화하는 방법은 다양하다. (<code>&#39;&#39; + x</code>, <code>${x}</code>, <code>x.toString()</code>…)</p>
+<p>문제 자체가 풀기에는(정말 푼 것에만 의미를 두자면) 크게 어렵지 않았고, 나는 숫자를 reverse한다고 해서 당연히 <sup>1</sup>문자열로 만들어서, <sup>2</sup>배열화해서, <sup>3</sup><code>reverse</code>메소드로 뒤집고 다시 <sup>4</sup><code>join</code>메소드로 합쳐준 다음 <sup>5</sup>숫자화하면 되는 것 아닌가?라고 생각했다.<br>그리고 이게 거의 공식처럼 머릿속에 있었는데, 다른 사람들 풀이를 보니까 생각이 넓어지는 기분이다.</p>
+<h2 id="다른-사람-풀이"><a href="#다른-사람-풀이" class="headerlink" title="다른 사람 풀이"></a>다른 사람 풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 64ms</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> isNeg = x &lt; <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  x = <span class="built_in">Math</span>.abs(x);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(x) &#123;</span><br><span class="line">      <span class="keyword">var</span> lastDigit = x % <span class="number">10</span>; <span class="comment">// 33 % 10 = 3</span></span><br><span class="line">      result *= <span class="number">10</span>; <span class="comment">// 0</span></span><br><span class="line">      result += lastDigit; <span class="comment">// 3</span></span><br><span class="line">      x = <span class="built_in">parseInt</span>(x / <span class="number">10</span>); <span class="comment">// 3</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  result = isNeg ? -result : result;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(result &gt; <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span> || result &lt; -<span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>이 풀이는 </p>
+<ol>
+<li>먼저 음수인지 여부를 저장해둔다.</li>
+<li>x를 <code>Math.abs()</code>를 통해 절대값으로 만든다. </li>
+<li>만약 그 전에 result에 저장된 값이 있으면 10을 곱해줘서 자리수를 올린다.</li>
+<li>x를 10으로 나눈 나머지를 result에 더해준다.</li>
+<li>x에는 다시 10으로 나눈 정수값만 저장하면서 x가 0이 될때까지 반복한다.</li>
+<li>이렇게 reverse한 수가 음수인지 여부에 따라 다시 음수화시켜주고</li>
+<li>만약 제한범위를 넘어서면([−2<sup>31</sup>,  2<sup>31</sup> − 1]) 0을 반환하고 아니면 result를 그대로 반환한다.</li>
+</ol>
+<p>위의 풀이와 비슷한데 조금 다른 풀이<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 68ms</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> MAX = <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> number = <span class="number">0</span>, </span><br><span class="line">      symbol = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    x = <span class="built_in">Math</span>.abs(x);</span><br><span class="line">    symbol = <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(x &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    number = number * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">    x = <span class="built_in">Math</span>.floor(x / <span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> number &gt; MAX ? <span class="number">0</span> : symbol * number;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 76ms</span></span><br><span class="line"><span class="keyword">const</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> isPositive = x &gt; <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> digits = (isPositive)? x.toString().split(<span class="string">""</span>).reverse()</span><br><span class="line">                    : (-x).toString().split(<span class="string">""</span>).reverse()</span><br><span class="line">    <span class="keyword">let</span> num = <span class="built_in">parseInt</span>(digits.join(<span class="string">''</span>), <span class="number">10</span>)</span><br><span class="line">    <span class="keyword">if</span> (num &gt;= <span class="number">2147483647</span>) <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> num * (isPositive? <span class="number">1</span>: <span class="number">-1</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>이 풀이는 나의 경우 <code>Math.pow(2, 31)</code>내지는 <code>2 ** 31</code>로 구하도록 했는데 이미 구해진 값을 넣어서 연산을 하나 줄였다.</p>
+<p>대체로 <code>while</code>문을 통해서 10을 이용한 연산을 통해 자리수를 바꿔주는 방법이 문자열 → 배열 → reverse로 하는 방법보다 빠른 것 같다.</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://chiabi.github.io/2018/06/11/revese-integer/" data-id="cjmktn8qv001194uw8yinsn35" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://chiabi.github.io/2018/06/11/revese-integer/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://chiabi.github.io/2018/06/11/revese-integer/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-modules" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -353,7 +525,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/modules/" data-id="cjlv5mbqv0011houw68mm3p3n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/modules/" data-id="cjmktn8qx001594uwpx7ao1z7" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -544,7 +716,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/try-catch/" data-id="cjlv5mbqv0019houw3q1wxh3w" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/try-catch/" data-id="cjmktn8qz001994uwd0qc308n" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -685,7 +857,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/TIL-1/" data-id="cjlv5mbqv000uhouwb15m56w8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL-1/" data-id="cjmktn8qq000u94uwt6t15yat" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -820,7 +992,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjlv5mbqv000zhouwltmuhs4e" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/11/TIL/" data-id="cjmktn8qt000z94uwiyx8d8st" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -965,7 +1137,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/20180609-TIL/" data-id="cjlv5mbqg000thouwyo4525sg" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/09/20180609-TIL/" data-id="cjmktn8qp000t94uwln9ay15m" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1116,7 +1288,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://chiabi.github.io/2018/06/09/DG_scaffolding/" data-id="cjlv5mbqg000phouwd2vp5829" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://chiabi.github.io/2018/06/09/DG_scaffolding/" data-id="cjmktn8ql000p94uwzwdiqean" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1212,6 +1384,15 @@ ga('send', 'pageview');
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+                            <p class="item-title"><a href="/2018/09/28/programmers_hash/" class="title">프로그래머스 - [해시]완주하지 못한 선수</a></p>
+                            <p class="item-date"><time datetime="2018-09-27T16:10:46.000Z" itemprop="datePublished">2018.09.28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
                             <p class="item-title"><a href="/2018/09/10/kakao3/" class="title">KAKAO BLIND RECRUITMENT 3차 - 파일명 정렬</a></p>
                             <p class="item-date"><time datetime="2018-09-09T17:07:07.000Z" itemprop="datePublished">2018.09.10</time></p>
                         </div>
@@ -1244,15 +1425,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a></p>
-                            <p class="item-title"><a href="/2018/08/11/TIL/" class="title">TIL</a></p>
-                            <p class="item-date"><time datetime="2018-08-11T09:20:03.000Z" itemprop="datePublished">2018.08.11</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1262,7 +1434,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Dev-Glossary/">Dev Glossary</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TIL/">TIL</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TypeScript/">TypeScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/log/">log</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/회고/">회고</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1271,7 +1443,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">17</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">23</span></li></ul>
         </div>
     </div>
 
@@ -1280,7 +1452,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/KAKAO-BLIND-RECRUITMENT-3차/" style="font-size: 10px;">KAKAO BLIND RECRUITMENT 3차</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/프로그래머스/" style="font-size: 10px;">프로그래머스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
+            <a href="/tags/Django-Girls/" style="font-size: 10px;">Django Girls</a> <a href="/tags/ES6/" style="font-size: 12.5px;">ES6</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/JavaScript/" style="font-size: 12.5px;">JavaScript</a> <a href="/tags/KAKAO-BLIND-RECRUITMENT-3차/" style="font-size: 10px;">KAKAO BLIND RECRUITMENT 3차</a> <a href="/tags/TIL/" style="font-size: 20px;">TIL</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/algorithm/" style="font-size: 17.5px;">algorithm</a> <a href="/tags/glossary/" style="font-size: 10px;">glossary</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/장고걸스/" style="font-size: 10px;">장고걸스</a> <a href="/tags/프로그래머스/" style="font-size: 12.5px;">프로그래머스</a> <a href="/tags/회고/" style="font-size: 10px;">회고</a>
         </div>
     </div>
 
