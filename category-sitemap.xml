@@ -35,13 +35,6 @@
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/categories/Algorithm/</loc>
-        <lastmod>2018-08-09T06:22:12.309Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://chiabi.github.io/categories/TIL/</loc>
         <lastmod>2018-08-30T16:13:53.857Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -56,8 +49,8 @@
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/categories/algorithm/</loc>
-        <lastmod>2018-09-27T16:55:57.900Z</lastmod>
+        <loc>http://chiabi.github.io/categories/Algorithm/</loc>
+        <lastmod>2018-09-28T07:38:30.002Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
