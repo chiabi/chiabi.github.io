@@ -72,22 +72,29 @@
     </url>
 
     <url>
+        <loc>http://chiabi.github.io/tags/%ED%95%B4%EC%8B%9C/</loc>
+        <lastmod>2018-10-04T06:54:00.723Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://chiabi.github.io/tags/algorithm/</loc>
-        <lastmod>2018-09-28T07:38:30.002Z</lastmod>
+        <lastmod>2018-10-04T07:27:04.460Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://chiabi.github.io/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/</loc>
-        <lastmod>2018-09-28T07:38:30.002Z</lastmod>
+        <lastmod>2018-10-04T07:27:04.460Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://chiabi.github.io/tags/Hash/</loc>
-        <lastmod>2018-09-28T07:38:30.002Z</lastmod>
+        <loc>http://chiabi.github.io/tags/%EC%8A%A4%ED%83%9D/</loc>
+        <lastmod>2018-10-04T07:27:04.460Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
